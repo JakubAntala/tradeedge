@@ -1,0 +1,35 @@
+{
+  "name": "tradeedge-backend",
+  "version": "0.1.0",
+  "private": true,
+  "description": "TradeEdge Academy — backend (Node.js + Express). Auth, paywall, courses, videos, payments.",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js",
+    "test": "echo \"(no tests yet)\" && exit 0",
+    "db:migrate": "node database/migrations/run.js",
+    "db:seed": "node database/seeds/run.js",
+    "sync:trades": "node src/jobs/syncTrades.js"
+  },
+  "dependencies": {
+    "@notionhq/client": "^2.2.15",
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "express-rate-limit": "^7.4.0",
+    "helmet": "^7.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "morgan": "^1.10.0",
+    "pg": "^8.12.0",
+    "stripe": "^16.7.0",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.4"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

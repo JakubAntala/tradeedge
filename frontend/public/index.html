@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TradeEdge Academy – Nauč sa obchodovať ako profesionál</title>
+<meta name="description" content="Stratégie, playbook a videá od certified funded tradera. Žiadna teória — len to, čo skutočne funguje na trhoch.">
+<meta name="theme-color" content="#0EA5E9">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,800;0,900;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- Background layers -->
+<div class="bg-gradient"></div>
+<canvas id="bg-canvas"></canvas>
+
+<!-- Custom cursor -->
+<div id="cursor"></div>
+<div id="cursor-ring"></div>
+
+<!-- Sidebar mount (rendered by sidebar.js) -->
+<div id="sidebar-mount"></div>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-left">
+    <button class="nav-toggle" id="sb-toggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="logo">
+      <span class="logo-dot"></span>
+      B.E.T.<span>Trade</span>
+    </div>
+  </div>
+  <div class="nav-right">
+    <div class="nav-count"><span class="dot"></span><span id="nav-num">47</span> čaká v rade</div>
+    <button class="nav-btn" onclick="document.getElementById('cta-email').focus();document.getElementById('cta-email').scrollIntoView({behavior:'smooth'})">Pridaj sa</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div id="particles"></div>
+
+  <div class="hero-eyebrow">
+    <div class="pill pill-green"><span class="pulse-dot"></span>Certified Funded Trader</div>
+    <div class="pill pill-blue">Limitované miesta</div>
+  </div>
+
+  <h1 class="hero-title">
+    Obchoduj<br>ako <em>profesionál</em>
+  </h1>
+
+  <p class="hero-sub">
+    Stratégie, playbook a videá od certified funded tradera.
+    Žiadna teória — len to, čo skutočne funguje na trhoch.
+  </p>
+
+  <div class="waitlist-card">
+    <div class="wl-label">Exkluzívny prístup</div>
+    <div class="wl-title">Zaisti si unikátnu cenovú ponuku</div>
+    <div class="wl-sub">Prvých 100 ľudí dostane navždy zvýhodnenú cenu!</div>
+    <div class="wl-counter" id="wl-count">Už <strong id="wl-num">47</strong> Obsadených miest</div>
+
+    <div class="input-row">
+      <input class="email-in" type="email" id="hero-email" placeholder="tvoj@email.sk" />
+      <button class="btn-main" onclick="signup('hero-email','hero-success')">Chcem prístup</button>
+    </div>
+    <div class="success-box" id="hero-success">✓ Výborne! Si na zozname. Dáme ti vedieť ako prvý o spustení a pošleme ti bonus PDF zadarmo.</div>
+
+    <div class="check-row">
+      <div class="chk"><span class="chk-icon">✓</span>Zakladateľská cena</div>
+      <div class="chk"><span class="chk-icon">✓</span>Early access</div>
+      <div class="chk"><span class="chk-icon">✓</span>Bonus PDF zdarma</div>
+    </div>
+    <div class="priv"> Odhlásenie kedykoľvek · 100% bezplatná registrácia</div>
+  </div>
+
+  <!-- Animated chart line -->
+  <svg class="hero-chart" viewBox="0 0 1440 200" preserveAspectRatio="none">
+    <defs>
+      <linearGradient id="lineGrad" x1="0" y1="0" x2="1" y2="0">
+        <stop offset="0%" stop-color="#0EA5E9" stop-opacity="0"/>
+        <stop offset="50%" stop-color="#0EA5E9" stop-opacity="1"/>
+        <stop offset="100%" stop-color="#0EA5E9" stop-opacity="0"/>
+      </linearGradient>
+      <linearGradient id="areaGrad" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#0EA5E9" stop-opacity="0.35"/>
+        <stop offset="100%" stop-color="#0EA5E9" stop-opacity="0"/>
+      </linearGradient>
+    </defs>
+    <polyline id="chart-area" fill="url(#areaGrad)" stroke="none" points=""/>
+    <polyline id="chart-line" fill="none" stroke="url(#lineGrad)" stroke-width="2.5" points=""/>
+  </svg>
+</section>
+
+<!-- TICKER -->
+<div class="ticker-wrap">
+  <div class="ticker-track" id="ticker">
+    <div class="ticker-item"><strong>Forex</strong>EUR/USD stratégie</div>
+    <div class="ticker-item"><strong>Futures</strong>Intraday playbook</div>
+    <div class="ticker-item"><strong>Risk Mgmt</strong>Pozičné sizing</div>
+    <div class="ticker-item"><strong>Prop Firm</strong>Challenge guide</div>
+    <div class="ticker-item"><strong>Psychology</strong>Mindset a disciplína</div>
+    <div class="ticker-item"><strong>Price Action</strong>Technická analýza</div>
+    <div class="ticker-item"><strong>Live Trades</strong>Reálne recapy</div>
+    <div class="ticker-item"><strong>Komunita</strong>Privátny Discord</div>
+    <div class="ticker-item"><strong>Forex</strong>EUR/USD stratégie</div>
+    <div class="ticker-item"><strong>Futures</strong>Intraday playbook</div>
+    <div class="ticker-item"><strong>Risk Mgmt</strong>Pozičné sizing</div>
+    <div class="ticker-item"><strong>Prop Firm</strong>Challenge guide</div>
+    <div class="ticker-item"><strong>Psychology</strong>Mindset a disciplína</div>
+    <div class="ticker-item"><strong>Price Action</strong>Technická analýza</div>
+    <div class="ticker-item"><strong>Live Trades</strong>Reálne recapy</div>
+    <div class="ticker-item"><strong>Komunita</strong>Privátny Discord</div>
+  </div>
+</div>
+
+<!-- WHY ME -->
+<div class="section reveal">
+  <span class="s-tag">Prečo ja?</span>
+  <h2 class="s-title">Nie YouTube teória.<br>Reálne výsledky.</h2>
+  <p class="s-body">Som certifikovaný funded trader s reálnym kapitálom. Každá stratégia v kurze bola testovaná na živých trhoch — nie na demo účte.</p>
+  <div class="divider"></div>
+
+  <div class="stats-row">
+    <div class="stat-box">
+      <span class="stat-num" data-target="3" data-suffix="+">0</span>
+      <div class="stat-label">Roky obchodovania</div>
+    </div>
+    <div class="stat-box">
+      <span class="stat-num" style="font-size:1.9rem;padding-top:.5rem">Funded</span>
+      <div class="stat-label">Certifikovaný status</div>
+    </div>
+    <div class="stat-box">
+      <span class="stat-num" data-target="10" data-suffix="+">0</span>
+      <div class="stat-label">Unikátnych stratégií</div>
+    </div>
+    <div class="stat-box">
+      <span class="stat-num" data-target="100">0</span>
+      <div class="stat-label">Miest celkovo</div>
+    </div>
+  </div>
+</div>
+
+<!-- WHAT YOU GET -->
+<div class="section reveal">
+  <span class="s-tag">Obsah kurzu</span>
+  <h2 class="s-title">Čo dostaneš<br>po spustení</h2>
+
+  <div class="modules">
+    <div class="mod-card">
+      <span class="mod-icon">📊</span>
+      <div class="mod-title">Price Action Playbook</div>
+      <div class="mod-desc">Kompletná PDF stratégia — vstupy, výstupy, setup pravidlá pre rôzne podmienky trhu.</div>
+    </div>
+    <div class="mod-card">
+      <span class="mod-icon">🎯</span>
+      <div class="mod-title">Risk &amp; Money Management</div>
+      <div class="mod-desc">Ako správne riadiť kapitál, nastaviť stop-lossy a prežiť aj zlé obdobia bez zbytočných strát.</div>
+    </div>
+    <div class="mod-card">
+      <span class="mod-icon">🏦</span>
+      <div class="mod-title">Prop Firm Challenge Guide</div>
+      <div class="mod-desc">Krok za krokom ako prejsť funded trader challenge — presný plán, ktorý fungoval mne.</div>
+    </div>
+    <div class="mod-card">
+      <span class="mod-icon">🧠</span>
+      <div class="mod-title">Trading Psychology</div>
+      <div class="mod-desc">Disciplína, kontrola emócií a budovanie rutiny, ktorá oddeľuje profitabilných traderov.</div>
+    </div>
+    <div class="mod-card">
+      <span class="mod-icon">📈</span>
+      <div class="mod-title">Live Trade Recaps</div>
+      <div class="mod-desc">Reálne obchody rozobraté na súčiastky — čo som videl, kde vstúpil a prečo som sa tak rozhodol.</div>
+    </div>
+    <div class="mod-card">
+      <span class="mod-icon">💬</span>
+      <div class="mod-title">Privátna komunita</div>
+      <div class="mod-desc">Prístup do uzavretého Discordu, live Q&amp;A a zdieľanie obchodov s ostatnými členmi.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== FEATURED TRADES (live z Notion denníka) ===== -->
+<div class="section reveal">
+  <div class="section-head">
+    <div>
+      <span class="s-tag">Live z denníka</span>
+      <h2 class="s-title">Najlepšie obchody<br>z reálnych účtov</h2>
+      <p class="s-body">Každý obchod je zaznamenaný v mojom Notion denníku — narrative, RR, session, news. Tu je ukážka. Kompletný feed je za paywallom.</p>
+    </div>
+    <a class="link-btn" href="pages/trades.html">Celý feed <span>→</span></a>
+  </div>
+
+  <div class="trades-grid" id="featured-trades">
+    <div class="trade-skeleton"></div>
+    <div class="trade-skeleton"></div>
+    <div class="trade-skeleton"></div>
+  </div>
+
+  <div class="trades-footnote">
+    <span class="lock-icon">🔒</span> Ďalšie obchody (zatiaľ <strong id="trade-total">66+</strong>) — dostupné v Pro pláne
+  </div>
+</div>
+
+<!-- ===== COURSES PREVIEW ===== -->
+<div class="section reveal">
+  <div class="section-head">
+    <div>
+      <span class="s-tag">Kurzy</span>
+      <h2 class="s-title">Štruktúrované kurzy,<br>každý za paywallom</h2>
+      <p class="s-body">Kurz Trading Plan je rozdelený na samostatné stratégie — každá má svoju stránku s presnými pravidlami.</p>
+    </div>
+    <a class="link-btn" href="pages/courses.html">Všetky kurzy <span>→</span></a>
+  </div>
+
+  <div class="courses-grid">
+    <a class="course-card" href="pages/trading-plan.html">
+      <div class="course-tag">Hlavný kurz</div>
+      <div class="course-icon">📐</div>
+      <div class="course-title">Kompletný Trading Plan</div>
+      <div class="course-desc">Bias, Confirmation, Execution + Killzones a Macros. ICT/SMC metodika rozdelená na 6 lekcií.</div>
+      <div class="course-meta"><span>6 lekcií</span><span class="lock">🔒 Pro</span></div>
+    </a>
+    <a class="course-card" href="pages/courses.html">
+      <div class="course-icon">⏱️</div>
+      <div class="course-title">Killzones &amp; Macros</div>
+      <div class="course-desc">Presné časové okná pre Forex aj Futures — London, NY AM/PM, Power Hour, Asia Range + 9 macro intervals.</div>
+      <div class="course-meta"><span>4 lekcie</span><span class="lock">🔒 Pro</span></div>
+    </a>
+    <a class="course-card" href="pages/courses.html">
+      <div class="course-icon">📈</div>
+      <div class="course-title">Live Trade Recaps</div>
+      <div class="course-desc">Každý obchod z denníka rozobratý do narrative, entry, exit a lessons. Aktualizované zo živých účtov.</div>
+      <div class="course-meta"><span>Týždenne nový obsah</span><span class="lock">🔒 Pro</span></div>
+    </a>
+  </div>
+</div>
+
+<!-- PRICING -->
+<div class="section reveal">
+  <span class="s-tag">Plány</span>
+  <h2 class="s-title">Jednoduchá cena,<br>jasná hodnota</h2>
+
+  <div class="pricing-grid">
+    <div class="plan">
+      <div class="plan-name">Starter</div>
+      <div class="plan-price"><sup>€</sup>0</div>
+      <div class="plan-desc">Skús, než sa rozhodneš</div>
+      <ul class="plan-features">
+        <li>2 úvodné lekcie zadarmo</li>
+        <li>Bonus PDF pri registrácii</li>
+        <li>Newsletter s tipmi</li>
+      </ul>
+    </div>
+    <div class="plan featured">
+      <div class="plan-badge">Najpopulárnejší</div>
+      <div class="plan-name">Pro</div>
+      <div class="plan-price"><sup>€</sup>29<sub>/mes</sub></div>
+      <div class="plan-desc">Pre vážnych traderov</div>
+      <ul class="plan-features">
+        <li>Všetky PDF &amp; playbook materiály</li>
+        <li>Kompletná videoknižnica</li>
+        <li>Live trade recapy</li>
+        <li>Privátny Discord</li>
+        <li>Mesačné Q&amp;A</li>
+        <li>Nový obsah každý mesiac</li>
+      </ul>
+    </div>
+    <div class="plan">
+      <div class="plan-name">Mentoring</div>
+      <div class="plan-price"><sup>€</sup>99<sub>/mes</sub></div>
+      <div class="plan-desc">Pre rýchly rast</div>
+      <ul class="plan-features">
+        <li>Všetko z Pro</li>
+        <li>Týždenné 1:1 review</li>
+        <li>Analýza tvojich obchodov</li>
+        <li>Priamy kontakt cez chat</li>
+        <li>Personalizovaný plán</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- TESTIMONIALS -->
+<div class="section reveal">
+  <span class="s-tag">Komunita hovorí</span>
+  <h2 class="s-title">Čo hovorí<br>naša komunita</h2>
+
+  <div class="testi-grid">
+    <div class="testi">
+      <div class="testi-q">"</div>
+      <div class="testi-text">Konečne niekto kto vysvetľuje trading po slovensky a na reálnych príkladoch. Risk management sekcia mi otvorila oči.</div>
+      <div class="testi-author">
+        <div class="testi-avatar">MK</div>
+        <div>
+          <div class="testi-name">Martin K.</div>
+          <div class="testi-role">Futures trader, Bratislava</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi">
+      <div class="testi-q">"</div>
+      <div class="testi-text">Prop firm challenge guide bol presne to, čo som potreboval. Prešiel som na druhý pokus podľa tohto materiálu.</div>
+      <div class="testi-author">
+        <div class="testi-avatar">LH</div>
+        <div>
+          <div class="testi-name">Lukáš H.</div>
+          <div class="testi-role">Nový funded trader</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi">
+      <div class="testi-q">"</div>
+      <div class="testi-text">Discord komunita je zlatá. Ľudia skutočne zdieľajú svoje obchody a nie len marketing. Oplatí sa to.</div>
+      <div class="testi-author">
+        <div class="testi-avatar">PJ</div>
+        <div>
+          <div class="testi-name">Petra J.</div>
+          <div class="testi-role">Forex trader, Košice</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FINAL CTA -->
+<div class="cta-section">
+  <div class="cta-glow"></div>
+  <span class="s-tag" style="display:block;margin-bottom:1rem">Nezmeškaj launch</span>
+  <h2 class="s-title" style="font-size:clamp(2rem,4vw,3rem)">Limitovaných<br><em style="font-family:var(--serif);font-style:italic;background:linear-gradient(135deg,var(--blue-d),var(--blue));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">100 zakladateľských miest.</em></h2>
+  <p class="s-body" style="margin:.8rem auto 0;text-align:center;max-width:480px">Registrácia je zadarmo. Ako prvý sa dozvieš o spustení — vrátane exkluzívnej ceny len pre waitlist.</p>
+
+  <div class="cta-form">
+    <input class="cta-input" type="email" id="cta-email" placeholder="tvoj@email.sk" />
+    <button class="btn-cta" onclick="signup('cta-email','cta-success')">Zaisti si miesto →</button>
+  </div>
+  <div class="success-box" id="cta-success" style="max-width:440px;margin:1rem auto 0">✓ Výborne! Zaregistroval si sa. Ozveme sa pri spustení s exkluzívnou cenou.</div>
+  <div class="priv" style="margin-top:.8rem;font-size:11px;color:var(--muted-3)">Bez spamu · Odhlásenie kedykoľvek · 100% bezplatné</div>
+</div>
+
+<footer>
+  © 2026 TradeEdge Academy · Všetky práva vyhradené · Vyrobené na Slovensku 🇸🇰
+</footer>
+
+<script src="js/sidebar.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

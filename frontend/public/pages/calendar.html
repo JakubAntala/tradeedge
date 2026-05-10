@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ekonomický Kalendár – B.E.T.Trade</title>
+<meta name="theme-color" content="#0EA5E9">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,800;0,900;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<div class="bg-gradient"></div>
+<canvas id="bg-canvas"></canvas>
+<div id="cursor"></div>
+<div id="cursor-ring"></div>
+
+<div id="sidebar-mount"></div>
+
+<nav id="nav">
+  <div class="nav-left">
+    <button class="nav-toggle" id="sb-toggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <a class="logo" href="../index.html" style="text-decoration:none">
+      <span class="logo-dot"></span>
+      B.E.T.<span>Trade</span>
+    </a>
+  </div>
+  <div class="nav-right">
+    <a class="nav-btn" href="../index.html#cta-email" style="text-decoration:none">Pridaj sa</a>
+  </div>
+</nav>
+
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <a href="../index.html" class="breadcrumb">← Späť na úvod</a>
+    <span class="s-tag">Ekonomický kalendár</span>
+    <h1 class="page-title">Eventy ktoré <em>hýbu trhmi v blízkej dobe</em></h1>
+    <p class="page-sub">Live kalendár všetkých high-impact news — CPI, FOMC, NFP, Powell speaking, ECB, Bank Holidays. Filtruj podľa mien a dátumu, plánuj obchody okolo macro time slotov.</p>
+    <div class="page-meta">
+      <span class="trade-chip session">🟢 Live z Forex Factory</span>
+      <span class="trade-chip">USD · EUR · GBP · JPY</span>
+      <span class="trade-chip">Auto-refresh</span>
+    </div>
+  </div>
+</section>
+
+<!-- Quick range tabs + importance filter -->
+<div class="section">
+  <div class="cal-controls">
+    <div class="cal-tabs" id="cal-tabs">
+      <button class="cal-tab active" data-range="today">Dnes</button>
+      <button class="cal-tab" data-range="tomorrow">Zajtra</button>
+      <button class="cal-tab" data-range="week">Tento týždeň</button>
+      <button class="cal-tab" data-range="next-week">Budúci týždeň</button>
+    </div>
+    <div class="cal-importance" id="cal-importance">
+      <span class="cal-imp-label">Dôležitosť:</span>
+      <button class="cal-imp active" data-imp="-1,0,1" title="Všetko">
+        <span class="dot low"></span><span class="dot mid"></span><span class="dot high"></span> Všetko
+      </button>
+      <button class="cal-imp" data-imp="0,1" title="Stredné a vysoké">
+        <span class="dot mid"></span><span class="dot high"></span> Med + High
+      </button>
+      <button class="cal-imp" data-imp="1" title="Iba vysoké">
+        <span class="dot high"></span> Iba High
+      </button>
+    </div>
+  </div>
+
+  <!-- Primary widget: TradingView Events -->
+  <div class="cal-widget-wrap">
+    <div class="cal-widget" id="cal-tv-mount"></div>
+  </div>
+
+  <!-- Importance legend -->
+  <div class="cal-legend">
+    <strong>Legenda:</strong>
+    <span class="leg-item"><span class="dot high"></span> High impact (NFP, CPI, FOMC, rate decisions)</span>
+    <span class="leg-item"><span class="dot mid"></span> Medium impact (PMI, retail sales, jobless claims)</span>
+    <span class="leg-item"><span class="dot low"></span> Low impact </span>
+  </div>
+</div>
+
+<!-- Quick reference: macro time slots from Trading Plan -->
+<div class="section reveal">
+  <span class="s-tag">Macro time slots (NY local)</span>
+  <h2 class="s-title">Časové okná, ktoré <em>treba sledovať</em></h2>
+  <p class="s-body">Bez ohľadu na news — algoritmy hýbu trhom v týchto presných intervaloch. Kombinuj s news z kalendára vyššie. Tieto časy sú veľmi dôležité pri sledovaní Live Trhu. VŽDY sa nejaký move stane v tomto časovom okne.</p>
+
+  <div class="killzone-grid" style="margin-top:2rem">
+    <div class="kz-row"><span>London Macro 1</span><span>02:30 - 03:00</span></div>
+    <div class="kz-row"><span>London Macro 2</span><span>04:00 – 04:30</span></div>
+    <div class="kz-row"><span>NY AM Macro 1</span><span>08:50 – 09:10</span></div>
+    <div class="kz-row"><span>NY AM Macro 2</span><span>09:50 – 10:10</span></div>
+    <div class="kz-row"><span>NY AM Macro 3</span><span>10:50 – 11:10</span></div>
+    <div class="kz-row"><span>NY Lunch Macro</span><span>11:50 – 12:10</span></div>
+    <div class="kz-row"><span>NY PM Macro 1</span><span>13:10 – 13:40</span></div>
+    <div class="kz-row"><span>NY PM Macro 2</span><span>15:15 – 15:45</span></div>
+  </div>
+</div>
+
+<footer>© 2026 B.E.T.Trade · Všetky práva vyhradené · Dáta z Forex Factory cez TradingView</footer>
+
+<script src="../js/sidebar.js"></script>
+<script src="../js/main.js"></script>
+<script>
+/* ============================================
+   Economic calendar — TradingView Events widget
+   Reloaded whenever range / importance changes
+   ============================================ */
+(function () {
+  const mount = document.getElementById('cal-tv-mount');
+  let currentImportance = '-1,0,1';
+
+  function buildWidget(importance) {
+    mount.innerHTML = '';
+    const container = document.createElement('div');
+    container.className = 'tradingview-widget-container';
+    const inner = document.createElement('div');
+    inner.className = 'tradingview-widget-container__widget';
+    container.appendChild(inner);
+
+    const script = document.createElement('script');
+    script.type = 'text/javascript';
+    script.src = 'https://s3.tradingview.com/external-embedding/embed-widget-events.js';
+    script.async = true;
+    script.innerHTML = JSON.stringify({
+      colorTheme: 'dark',
+      isTransparent: true,
+      width: '100%',
+      height: 720,
+      locale: 'en',
+      importanceFilter: importance,
+      currencyFilter: 'USD,EUR,GBP,JPY,CHF,AUD,CAD,NZD,CNY',
+    });
+    container.appendChild(script);
+    mount.appendChild(container);
+  }
+
+  // Importance tabs
+  document.querySelectorAll('.cal-imp').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.cal-imp').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      currentImportance = btn.dataset.imp;
+      buildWidget(currentImportance);
+    });
+  });
+
+  // Range tabs — TradingView's free embed doesn't expose a date-range API, so we
+  // give the user a hint and switch a 2nd source (Investing/Myfxbook iframe) for
+  // specific ranges. For now we just style-toggle and scroll to the widget.
+  // Real date filtering happens inside the widget itself.
+  document.querySelectorAll('.cal-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      document.querySelectorAll('.cal-tab').forEach(b => b.classList.remove('active'));
+      tab.classList.add('active');
+      // Scroll to widget so user sees the filter take effect
+      mount.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+
+  buildWidget(currentImportance);
+})();
+</script>
+</body>
+</html>

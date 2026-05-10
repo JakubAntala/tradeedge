@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trade Recaps – B.E.T.Trade</title>
+<meta name="theme-color" content="#0EA5E9">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,800;0,900;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<div class="bg-gradient"></div>
+<canvas id="bg-canvas"></canvas>
+<div id="cursor"></div>
+<div id="cursor-ring"></div>
+
+<div id="sidebar-mount"></div>
+
+<nav id="nav">
+  <div class="nav-left">
+    <button class="nav-toggle" id="sb-toggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <a class="logo" href="../index.html" style="text-decoration:none">
+      <span class="logo-dot"></span>
+      B.E.T.<span>Trade</span>
+    </a>
+  </div>
+  <div class="nav-right">
+    <a class="nav-btn" href="../index.html#cta-email" style="text-decoration:none">Pridaj sa</a>
+  </div>
+</nav>
+
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <a href="../index.html" class="breadcrumb">← Späť na úvod</a>
+    <span class="s-tag">Live Trade Recaps</span>
+    <h1 class="page-title">Trade <em>denník</em><br>v reálnom čase</h1>
+    <p class="page-sub">Každý obchod čo zaznamenám v Notion sa zobrazí tu — narrative, RR, session, news, chart screenshot. Najlepšie obchody sú ukážka. Plný feed je za Pro paywallom.</p>
+    <div class="page-meta" id="page-stats">
+      <span class="trade-chip">Načítavam stats…</span>
+    </div>
+  </div>
+</section>
+
+<div class="section">
+  <div class="filters-row">
+    <span class="s-tag" style="margin-bottom:0">Verejná ukážka</span>
+    <div class="filters-info">Najlepšie obchody (RR ≥ 2, Win)</div>
+  </div>
+
+  <div class="trades-grid" id="public-trades">
+    <div class="trade-skeleton"></div>
+    <div class="trade-skeleton"></div>
+    <div class="trade-skeleton"></div>
+  </div>
+</div>
+
+<div class="section paywall-wall">
+  <div class="paywall-card">
+    <div class="paywall-icon">🔒</div>
+    <h2 class="s-title" style="font-size:clamp(1.6rem,3vw,2.4rem)">Ďalšie obchody<br>za <em>Pro tierom</em></h2>
+    <p class="s-body" style="margin:0 auto;text-align:center">Filtrovanie podľa páru, sessionu, výsledku, news. Chart screenshoty, RR analýza, kompletné narrative. Live sync z Notion — vždy aktuálne.</p>
+
+    <div class="paywall-stats" id="paywall-stats">
+      <div class="ps-box"><span class="ps-num" id="ps-total">—</span><span class="ps-lbl">obchodov</span></div>
+      <div class="ps-box"><span class="ps-num" id="ps-wr">—</span><span class="ps-lbl">win rate</span></div>
+      <div class="ps-box"><span class="ps-num" id="ps-avg">—</span><span class="ps-lbl">avg RR (W)</span></div>
+      <div class="ps-box"><span class="ps-num" id="ps-best">—</span><span class="ps-lbl">best RR</span></div>
+    </div>
+
+    <a href="../index.html#cta-email" class="btn-cta" style="margin-top:2rem;display:inline-block;text-decoration:none">Odomknúť celý feed →</a>
+  </div>
+</div>
+
+<footer>© 2026 B.E.T.Trade · Všetky práva vyhradené</footer>
+
+<script src="../js/sidebar.js"></script>
+<script src="../js/main.js"></script>
+<script>
+// Page-specific: render public list + stats from snapshot or API
+(async function() {
+  async function load() {
+    try {
+      const r = await fetch('/api/trades/featured');
+      if (r.ok) return await r.json();
+    } catch (_) {}
+    try {
+      const r = await fetch('../data/trades-snapshot.json');
+      if (r.ok) {
+        const j = await r.json();
+        return { trades: (j.trades || []).filter(t => t.featured), stats: j.stats };
+      }
+    } catch (_) {}
+    return { trades: [], stats: {} };
+  }
+
+  const { trades, stats } = await load();
+  const grid = document.getElementById('public-trades');
+
+  function fmtDate(d) {
+    try { return new Date(d).toLocaleDateString('sk-SK', { day:'2-digit', month:'short', year:'numeric' }); }
+    catch (_) { return d || ''; }
+  }
+  function fmtTime(t) {
+    if (typeof t !== 'number') return '';
+    const h = Math.floor(t), m = Math.round((t - h) * 100);
+    return `${String(h).padStart(2,'0')}:${String(m).padStart(2,'0')}`;
+  }
+
+  if (!trades.length) {
+    grid.innerHTML = `<div class="trades-footnote" style="grid-column:1/-1">Žiadne obchody v cache.</div>`;
+  } else {
+    grid.innerHTML = trades.map(t => {
+      const win = t.win ? 'win' : 'loss';
+      const dir = (t.direction || '').toLowerCase();
+      const rr = (t.rr ?? 0);
+      const news = (t.news || []).filter(n => n && n !== 'NONE').slice(0,2);
+      return `
+        <div class="trade-card ${win}">
+          <div class="trade-head">
+            <div class="trade-pair">${t.pair || '—'}</div>
+            <div class="trade-result ${win}">${t.win ? '✓ Win' : '× Loss'}</div>
+          </div>
+          <div class="trade-meta">
+            <span class="trade-chip dir-${dir}">${t.direction || ''}</span>
+            <span class="trade-chip session">${t.session || ''}</span>
+            ${t.dow ? `<span class="trade-chip">${t.dow}</span>` : ''}
+            ${news.map(n => `<span class="trade-chip">${n}</span>`).join('')}
+          </div>
+          <div class="trade-rr-row">
+            <span class="trade-rr ${win}">${rr.toFixed(2)}R</span>
+            <span class="trade-rr-label">RR</span>
+            ${t.potential_rr && t.potential_rr !== rr ? `<span class="trade-rr-pot">/ ${t.potential_rr}R potential</span>` : ''}
+          </div>
+          <div class="trade-narr">${(t.narrative || '').slice(0, 280)}</div>
+          <div class="trade-foot">
+            <span>${fmtDate(t.trade_date || t.date)} · ${fmtTime(t.entry_time)} NY</span>
+            <span>${t.units ? t.units + ' kontraktov' : ''}</span>
+          </div>
+        </div>`;
+    }).join('');
+  }
+
+  // Stats
+  const wrap = document.getElementById('page-stats');
+  if (stats && (stats.total_trades || stats.wins)) {
+    wrap.innerHTML = `
+      <span class="trade-chip">${stats.total_trades || 0} obchodov</span>
+      ${stats.win_rate != null ? `<span class="trade-chip">${Math.round(stats.win_rate * 100)}% win rate</span>` : ''}
+      ${stats.avg_rr_winners ? `<span class="trade-chip session">avg ${stats.avg_rr_winners}R</span>` : ''}
+      ${stats.most_traded_pair ? `<span class="trade-chip">${stats.most_traded_pair}</span>` : ''}
+    `;
+  }
+
+  // Paywall stats
+  document.getElementById('ps-total').textContent = stats?.total_trades ?? '—';
+  document.getElementById('ps-wr').textContent    = stats?.win_rate != null ? Math.round(stats.win_rate * 100) + '%' : '—';
+  document.getElementById('ps-avg').textContent   = stats?.avg_rr_winners ? stats.avg_rr_winners + 'R' : '—';
+  document.getElementById('ps-best').textContent  = stats?.best_rr ? stats.best_rr + 'R' : '—';
+})();
+</script>
+</body>
+</html>
