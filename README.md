@@ -1,6 +1,6 @@
-# B.E.T.Trade — Trading Academy 🇸🇰
+# B.E.T.Trade — Trading Academy
 
-> **Online platforma pre kurzy a videá o tradingu** od certified funded tradera. Kompletný Trading Plan, live trade recapy zo živých účtov, ekonomický kalendár a paywallované kurzy pre Forex / Futures / Crypto.
+> An online platform for trading courses and videos by a certified funded trader. Includes a complete Trading Plan, live trade recaps from real accounts, an economic calendar, and paywalled courses for Forex, Futures, and Crypto.
 
 ![Status](https://img.shields.io/badge/status-work_in_progress-orange?style=for-the-badge)
 ![Stage](https://img.shields.io/badge/stage-pre--launch-blue?style=for-the-badge)
@@ -15,117 +15,121 @@
 
 ---
 
-## 🚧 Work in Progress
+## Work in Progress
 
-Tento projekt je aktívne vo vývoji. Landing page, navigácia, kurz štruktúra, live sync z Notion-u a ekonomický kalendár fungujú. Auth, Stripe paywall a video player prídu v ďalších iteráciách.
+This project is under active development. The landing page, navigation, course structure, live Notion sync, and economic calendar are functional. Authentication, Stripe paywall, and the video player are coming in upcoming iterations.
 
-## ✨ Čo to je
+## About
 
-**B.E.T.Trade** je členská platforma pre traderov, kde:
+**B.E.T.Trade** is a membership platform for traders where users can:
 
-- Si kupia prístup k mojim kurzom (ICT/SMC metodika, Trading Plan, prop firm guide)
-- Vidia **live trade recapy** zo živých účtov — synchronizované z môjho Notion denníka
-- Sledujú **ekonomický kalendár** s high-impact news (CPI, FOMC, NFP)
-- Majú prístup do uzavretej Discord komunity
+- Purchase access to structured trading courses (ICT/SMC methodology, Trading Plan, prop firm guide)
+- Browse **live trade recaps** from real accounts, synchronized from a private Notion journal
+- Track an **economic calendar** with high-impact news (CPI, FOMC, NFP, ECB)
+- Join a private Discord community
 
-Kurzy sú rozdelené podľa asset class — **Forex** (EUR/USD, GBP/USD, XAU), **Futures** (MNQH, ES, NQ), **Crypto** (BTC, ETH) — plus univerzálne foundational kurzy (Trading Plan, Killzones, Risk Management).
+Courses are organized by asset class — **Forex** (EUR/USD, GBP/USD, XAU), **Futures** (MNQH, ES, NQ), **Crypto** (BTC, ETH) — plus universal foundational courses (Trading Plan, Killzones, Risk Management).
 
-## 🎯 Features
+## Features
 
-### Hotové
-- ✅ **Landing page** — dark theme (čierna / deeper blue / biela accent), animovaný hero, custom cursor, particle effects, scroll reveal
-- ✅ **Sidebar navigation** (Notion-style) — collapsible, persistent state, mobile overlay, SVG ikony, active state highlight
-- ✅ **Najlepšie obchody** — featured trades preview na landingu (live z Notion alebo cached snapshot)
-- ✅ **Trade Recaps page** — public ukážka + paywall card, štatistiky (win rate, avg RR, najobchodovanejší pár)
-- ✅ **Trading Plan kurz** — 6 lekcií so štruktúrou Bias → Confirmation → Execution → Killzones → Macros → News
-- ✅ **Asset categories** — Forex / Futures / Crypto sekcie, každá s vlastnými kurzami
-- ✅ **Ekonomický kalendár** — TradingView Events widget s importance + range filtrami, macro time slots reference
-- ✅ **Notion → DB live sync** — `trade_recaps` tabuľka, sync služba, scheduled job (cron / GitHub Actions ready)
-- ✅ **Privacy by design** — `Emotions` a `What did you learn today?` polia z Notion-u sa do nášho systému nikdy nedostanú (stripnuté pri sync-u)
-- ✅ **Backend scaffolding** — Express server, paywall middleware (`requireSubscription('pro')`), API routes pre auth, courses, trades, payments, waitlist
+### Done
 
-### V pláne
-- ⏳ Auth — register/login/JWT, password hashing
-- ⏳ Stripe checkout + customer portal + webhook handling
-- ⏳ Video player s signed URLs (Mux / Bunny / Cloudflare Stream)
-- ⏳ Per-strategy sub-pages pre Trading Plan (zatiaľ jeden anchor-link page)
-- ⏳ Discord OAuth invite gating po Pro subscribe
-- ⏳ Free úvodná lekcia + risk disclaimer
-- ⏳ Email notifikácie cez Resend
-- ⏳ Image upload Notion screenshotov do trvalého CDN (Notion S3 URLs expirujú)
-- ⏳ Custom kalendár s presným date filtrovaním (alternatíva k TradingView)
+- **Landing page** — dark theme (black / deeper blue / white accent), animated hero, custom cursor, particle effects, scroll reveal
+- **Sidebar navigation** (Notion-style) — collapsible, persistent state, mobile overlay, SVG icons, active-state highlight
+- **Featured trades** — best trade preview on the landing (live from Notion or cached snapshot)
+- **Trade Recaps page** — public preview with paywall card, aggregate stats (win rate, avg RR, most-traded pair)
+- **Trading Plan course** — six lessons structured as Bias → Confirmation → Execution → Killzones → Macros → News
+- **Asset categories** — Forex / Futures / Crypto sections, each with their own course list
+- **Economic calendar** — TradingView Events widget with importance and range filters, plus macro time slots reference
+- **Notion to DB live sync** — `trade_recaps` table, sync service, scheduled job (cron / GitHub Actions ready)
+- **Privacy by design** — `Emotions` and `What did you learn today?` fields from Notion never reach the system (stripped at sync time)
+- **Backend scaffolding** — Express server, paywall middleware (`requireSubscription('pro')`), API routes for auth, courses, trades, payments, waitlist
 
-## 🛠 Tech Stack
+### Planned
 
-| Vrstva       | Technológia                                            |
-|--------------|--------------------------------------------------------|
-| Frontend     | Vanilla HTML / CSS / JS (žiadny framework)             |
-| Backend      | Node.js 18+ · Express 4 · Helmet · CORS · rate-limit   |
-| Database     | PostgreSQL 16                                          |
-| Auth         | JWT + bcrypt (planned)                                 |
-| Payments     | Stripe (planned)                                       |
-| Content sync | Notion API (`@notionhq/client`)                        |
-| Calendar     | TradingView Events widget · Forex Factory JSON feed    |
-| Video        | Mux / Bunny / Cloudflare Stream (planned)              |
-| Email        | Resend (planned)                                       |
-| Hosting      | Vercel/Netlify (FE) · Railway/Render (BE) · Neon (DB)  |
+- Auth — register/login/JWT, password hashing
+- Stripe checkout, customer portal, webhook handling
+- Video player with signed URLs (Mux / Bunny / Cloudflare Stream)
+- Per-strategy sub-pages for the Trading Plan (currently a single anchor-link page)
+- Discord OAuth invite gating after Pro subscribe
+- Free introductory lesson plus risk disclaimer
+- Email notifications via Resend
+- Image upload of Notion screenshots to permanent CDN (Notion S3 URLs expire)
+- Custom calendar with precise date filtering (alternative to TradingView)
 
-Zámerne **bez React-u / Next-u** — projekt je zatiaľ malý, vanilla stack drží bundle pod 50 KB a build step je nulový.
+## Tech Stack
 
-## 🚀 Quick Start
+| Layer        | Technology                                              |
+|--------------|---------------------------------------------------------|
+| Frontend     | Vanilla HTML / CSS / JS (no framework)                  |
+| Backend      | Node.js 18+ · Express 4 · Helmet · CORS · rate-limit    |
+| Database     | PostgreSQL 16                                           |
+| Auth         | JWT and bcrypt (planned)                                |
+| Payments     | Stripe (planned)                                        |
+| Content sync | Notion API (`@notionhq/client`)                         |
+| Calendar     | TradingView Events widget · Forex Factory JSON feed     |
+| Video        | Mux / Bunny / Cloudflare Stream (planned)               |
+| Email        | Resend (planned)                                        |
+| Hosting      | Vercel/Netlify (FE) · Railway/Render (BE) · Neon (DB)   |
 
-### Frontend only (statika)
+Intentionally **without React or Next.js** — the project is small, vanilla stack keeps the bundle under 50 KB, and there is no build step.
+
+## Quick Start
+
+### Frontend only (static)
 
 ```bash
 cd frontend/public
 npx http-server -p 5500
 ```
-Otvor `http://localhost:5500`.
 
-### Full stack (backend + frontend z jedného portu)
+Open `http://localhost:5500`.
+
+### Full stack (backend serves frontend on a single port)
 
 ```bash
 cd backend
-cp .env.example .env       # vyplň DATABASE_URL, NOTION_TOKEN, ...
+cp .env.example .env       # fill in DATABASE_URL, NOTION_TOKEN, ...
 npm install
 npm run dev                # http://localhost:4000
 ```
 
-Backend servíruje aj frontend, takže všetko beží na `localhost:4000`.
+The backend serves the frontend, so everything runs at `localhost:4000`.
 
 ### Notion sync
 
-Pre live sync trade recapov z Notion denníka pozri **[`docs/NOTION_SYNC.md`](docs/NOTION_SYNC.md)**.
+For live sync of trade recaps from the Notion journal, see **[`docs/NOTION_SYNC.md`](docs/NOTION_SYNC.md)**.
 
-Stručne:
+In short:
+
 ```bash
-# 1) Vytvor integráciu na https://www.notion.so/my-integrations
-# 2) Zdielaj Trading Journal DB s integráciou
-# 3) Doplň NOTION_TOKEN a NOTION_TRADES_DB_ID do backend/.env
+# 1) Create an integration at https://www.notion.so/my-integrations
+# 2) Share the Trading Journal database with the integration
+# 3) Add NOTION_TOKEN and NOTION_TRADES_DB_ID to backend/.env
 npm run sync:trades
 ```
 
-## 📁 Štruktúra projektu
+## Project Structure
 
 ```
 TradersEdge/
 ├── frontend/
 │   ├── public/
 │   │   ├── index.html              # Landing page
-│   │   ├── css/style.css           # Štýly (dark theme, animácie)
+│   │   ├── css/style.css           # Styles (dark theme, animations)
 │   │   ├── js/
-│   │   │   ├── main.js             # Hero animácie, featured trades, signup
+│   │   │   ├── main.js             # Hero animations, featured trades, signup
 │   │   │   └── sidebar.js          # Notion-style left sidebar
 │   │   ├── pages/
-│   │   │   ├── courses.html        # Knižnica kurzov + 3 asset categories
-│   │   │   ├── trading-plan.html   # Hlavný kurz (6 lekcií)
-│   │   │   ├── trades.html         # Live trade recaps feed (paywall)
-│   │   │   ├── calendar.html       # Ekonomický kalendár
-│   │   │   ├── forex.html          # Forex kategória
-│   │   │   ├── futures.html        # Futures kategória
-│   │   │   └── crypto.html         # Crypto kategória
+│   │   │   ├── courses.html        # Course library and three asset categories
+│   │   │   ├── trading-plan.html   # Main course (six lessons)
+│   │   │   ├── trades.html         # Live trade recaps feed (paywalled)
+│   │   │   ├── calendar.html       # Economic calendar
+│   │   │   ├── forex.html          # Forex category
+│   │   │   ├── futures.html        # Futures category
+│   │   │   └── crypto.html         # Crypto category
 │   │   └── data/
-│   │       └── trades-snapshot.json  # Cached trade data (sanitized z Notion)
+│   │       └── trades-snapshot.json  # Cached trade data (sanitized from Notion)
 │   └── components/                 # (planned) reusable UI
 │
 ├── backend/
@@ -147,10 +151,10 @@ TradersEdge/
 ├── database/
 │   └── migrations/
 │       ├── 001_init.sql            # users, courses, lessons, videos, subs, waitlist
-│       └── 002_trades_and_courses.sql  # trade_recaps + course seed
+│       └── 002_trades_and_courses.sql  # trade_recaps and course seed
 │
-├── content/                        # Source materiál (gitignored — videá, PDFs)
-│   ├── courses/                    # Markdown lekcie
+├── content/                        # Source material (gitignored — videos, PDFs)
+│   ├── courses/                    # Markdown lessons
 │   ├── videos/
 │   └── pdfs/
 │
@@ -159,51 +163,51 @@ TradersEdge/
 │   ├── API.md
 │   └── NOTION_SYNC.md
 │
-├── _archive/                       # Stará gold paleta (gitignored)
+├── _archive/                       # Old gold palette (gitignored)
 ├── LICENSE
 └── README.md
 ```
 
-## 🎨 Color Palette
+## Color Palette
 
-Dark theme inspirovaný BlueEyes Trader:
+Dark theme inspired by BlueEyes Trader:
 
-| Token        | Hex       | Použitie                  |
-|--------------|-----------|---------------------------|
-| `--blue`     | `#0284C7` | primárny brand modrý      |
-| `--blue-l`   | `#0EA5E9` | hover / accent            |
-| `--blue-d`   | `#0369A1` | hĺbkový modrý             |
-| `--ink`      | `#F1F5F9` | hlavný text (off-white)   |
-| `--bg`       | `#000000` | dominantná čierna         |
-| `--bg-soft`  | `#06080C` | sekcie / cards            |
-| `--green`    | `#10B981` | success / live indikátor  |
+| Token        | Hex       | Usage                       |
+|--------------|-----------|-----------------------------|
+| `--blue`     | `#0284C7` | primary brand blue          |
+| `--blue-l`   | `#0EA5E9` | hover and accents           |
+| `--blue-d`   | `#0369A1` | deep blue                   |
+| `--ink`      | `#F1F5F9` | primary text (off-white)    |
+| `--bg`       | `#000000` | dominant black              |
+| `--bg-soft`  | `#06080C` | sections and cards          |
+| `--green`    | `#10B981` | success and live indicator  |
 
-## 🗺 Roadmap
+## Roadmap
 
 - [x] Landing page redesign (dark theme)
 - [x] Sidebar navigation (Notion-style)
-- [x] Trade recaps live sync z Notion
-- [x] Ekonomický kalendár (TradingView)
+- [x] Trade recaps live sync from Notion
+- [x] Economic calendar (TradingView)
 - [x] Asset class categories (Forex / Futures / Crypto)
-- [ ] Free úvodná lekcia + risk disclaimer
+- [ ] Free introductory lesson and risk disclaimer
 - [ ] Auth (register / login / JWT)
-- [ ] Stripe checkout + paywall
-- [ ] Discord OAuth invite po Pro subscribe
-- [ ] Sociálne siete (IG / X / YouTube)
-- [ ] Video player s signed URLs
-- [ ] Email notifikácie (Resend)
+- [ ] Stripe checkout and paywall
+- [ ] Discord OAuth invite after Pro subscribe
+- [ ] Social media (IG / X / YouTube)
+- [ ] Video player with signed URLs
+- [ ] Email notifications (Resend)
 - [ ] Production deploy
 
-## 📜 License
+## License
 
-[MIT](./LICENSE) — voľne použiteľné, atribúcia vítaná.
+[MIT](./LICENSE) — free to use, attribution welcome.
 
-## 👤 Author
+## Author
 
-**Jakub Antala** — Certified Funded Trader · Slovakia 🇸🇰
+**Jakub Antala** — Certified Funded Trader, Slovakia
 
 [![GitHub](https://img.shields.io/badge/GitHub-JakubAntala-181717?logo=github)](https://github.com/JakubAntala)
 
 ---
 
-> Ak ťa projekt zaujal alebo by si chcel byť informovaný o launchi, pridaj sa na waitlist priamo v aplikácii. ⭐ na repo poteší.
+> If the project caught your eye or you want to be notified at launch, join the waitlist directly in the app. A star on the repo is appreciated.
