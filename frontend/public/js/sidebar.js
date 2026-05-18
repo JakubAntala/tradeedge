@@ -1,5 +1,5 @@
 /**
- * B.E.T.Trade — left sidebar navigation (Notion-style)
+ * B.E.T.Trade - left sidebar navigation (Notion-style)
  *
  * Usage on any page:
  *   <div id="sidebar-mount"></div>
@@ -27,6 +27,9 @@
     mic:      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="3" width="6" height="12" rx="3"/><path d="M5 11a7 7 0 0 0 14 0"/><path d="M12 18v3"/></svg>',
     spark:    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v4"/><path d="M12 17v4"/><path d="M3 12h4"/><path d="M17 12h4"/><path d="M5.6 5.6 8.5 8.5"/><path d="M15.5 15.5l2.9 2.9"/><path d="M5.6 18.4 8.5 15.5"/><path d="M15.5 8.5l2.9-2.9"/></svg>',
     lock:     '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>',
+    globe:    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>',
+    bars:     '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 21V9"/><path d="M12 21V4"/><path d="M19 21v-8"/><path d="M3 21h18"/></svg>',
+    coin:     '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9 8h5a3 3 0 0 1 0 5H9V8z"/><path d="M9 13h6a3 3 0 0 1 0 5H9v-5z"/></svg>',
   };
 
   var GROUPS = [
@@ -36,6 +39,9 @@
         { href: homePrefix + 'index.html',     label: 'Domov',         icon: ICON.home,     match: ['index.html', '/'] },
         { href: prefix + 'courses.html',       label: 'Kurzy',         icon: ICON.book,     match: ['courses.html'] },
         { href: prefix + 'trading-plan.html',  label: 'Trading Plan',  icon: ICON.list,     match: ['trading-plan.html'], indent: true },
+        { href: prefix + 'forex.html',         label: 'Forex',         icon: ICON.globe,    match: ['forex.html'],        indent: true },
+        { href: prefix + 'futures.html',       label: 'Futures',       icon: ICON.bars,     match: ['futures.html'],      indent: true },
+        { href: prefix + 'crypto.html',        label: 'Crypto',        icon: ICON.coin,     match: ['crypto.html'],       indent: true },
         { href: prefix + 'trades.html',        label: 'Trade Recaps',  icon: ICON.chart,    match: ['trades.html'] },
         { href: prefix + 'calendar.html',      label: 'Kalendár',      icon: ICON.calendar, match: ['calendar.html'] },
       ],

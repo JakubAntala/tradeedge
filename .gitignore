@@ -27,7 +27,7 @@ Thumbs.db
 .idea/
 *.swp
 
-# Content (large media — keep on storage, not in git)
+# Content (large media - keep on storage, not in git)
 content/videos/*
 content/pdfs/*
 !content/videos/.gitkeep

@@ -1,6 +1,6 @@
 # Content / Courses
 
-Sem patrí **zdrojový materiál kurzov** — pred tým než sa nahrá do DB.
+Sem patrí **zdrojový materiál kurzov** - pred tým než sa nahrá do DB.
 
 Štruktúra (návrh):
 
@@ -23,7 +23,7 @@ content/courses/
 {
   "slug": "price-action-playbook",
   "title": "Price Action Playbook",
-  "description": "Kompletná stratégia — vstupy, výstupy, setup pravidlá.",
+  "description": "Kompletná stratégia - vstupy, výstupy, setup pravidlá.",
   "thumbnail": "thumbnails/price-action.jpg",
   "required_tier": "pro",
   "lessons": [

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Forex – B.E.T.Trade</title>
+<meta name="theme-color" content="#0EA5E9">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,800;0,900;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body class="asset-forex">
+
+<div class="bg-gradient"></div>
+<canvas id="bg-canvas"></canvas>
+<div id="cursor"></div>
+
+<div id="sidebar-mount"></div>
+
+<nav id="nav">
+  <div class="nav-left">
+    <button class="nav-toggle" id="sb-toggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <a class="logo" href="../index.html" style="text-decoration:none">
+      <span class="logo-dot"></span>
+      B.E.T.<span>Trade</span>
+    </a>
+  </div>
+  <div class="nav-right">
+    <a class="nav-btn" href="../index.html#cta-email" style="text-decoration:none">Pridaj sa</a>
+  </div>
+</nav>
+
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <a href="courses.html" class="breadcrumb">← Späť na kurzy</a>
+    <span class="s-tag">Kategória · Currency markets</span>
+    <h1 class="page-title"><em>Forex</em><br>kurzy a setupy</h1>
+    <p class="page-sub">Major páry - EUR/USD, GBP/USD, USD/JPY, XAU/USD. London a NY killzones aplikované špecificky na forex, spread &amp; pip mechanika, prop firm challenges (FTMO, MyForexFunds, FundedNext) a news trading okolo NFP, CPI, ECB, BoE.</p>
+    <div class="page-meta">
+      <span class="trade-chip session">5 kurzov · Pro tier</span>
+      <span class="trade-chip">EUR/USD · GBP/USD · XAU</span>
+      <span class="trade-chip">ICT/SMC aplikované</span>
+    </div>
+  </div>
+</section>
+
+<div class="section">
+  <span class="s-tag">Lekcie</span>
+  <h2 class="s-title">Čo sa naučíš<br>v Forex sekcii</h2>
+
+  <div class="lessons-list">
+
+    <a class="lesson-row" href="#basics">
+      <div class="lesson-num">01</div>
+      <div class="lesson-body">
+        <div class="lesson-title">Forex Basics - pip, lot, leverage, spread</div>
+        <div class="lesson-desc">Ako vypočítať hodnotu pipu pre rôzne páry, lot sizing, prečo má každý pár iný spread a kedy je trh „príliš drahý" na obchodovanie.</div>
+      </div>
+      <div class="lesson-tag preview">Preview zdarma</div>
+    </a>
+
+    <a class="lesson-row locked" href="#majors">
+      <div class="lesson-num">02</div>
+      <div class="lesson-body">
+        <div class="lesson-title">Major Pairs - EUR/USD, GBP/USD, USD/JPY</div>
+        <div class="lesson-desc">Charakteristiky každého páru, kedy sa hýbu, ako fungujú correlations a ktorý pár obchodovať v ktorej session.</div>
+      </div>
+      <div class="lesson-tag">Pro</div>
+    </a>
+
+    <a class="lesson-row locked" href="#xau">
+      <div class="lesson-num">03</div>
+      <div class="lesson-body">
+        <div class="lesson-title">XAU/USD (Gold) Playbook</div>
+        <div class="lesson-desc">Prečo sa gold správa inak ako forex páry, vzťah k DXY, behavior okolo NY open a v risk-off oknách.</div>
+      </div>
+      <div class="lesson-tag">Pro</div>
+    </a>
+
+    <a class="lesson-row locked" href="#killzones">
+      <div class="lesson-num">04</div>
+      <div class="lesson-body">
+        <div class="lesson-title">London + NY Killzones (Forex špecifika)</div>
+        <div class="lesson-desc">Ako forex páry reagujú v London Open (02:00–05:00 NY) a NY AM (08:30–11:00). Liquidity sweeps a kedy NEvstupovať.</div>
+      </div>
+      <div class="lesson-tag">Pro</div>
+    </a>
+
+    <a class="lesson-row locked" href="#propfirms">
+      <div class="lesson-num">05</div>
+      <div class="lesson-body">
+        <div class="lesson-title">Forex Prop Firms - FTMO &amp; spol.</div>
+        <div class="lesson-desc">FTMO, MyForexFunds, FundedNext - porovnanie pravidiel, max drawdown, daily loss, profit targets, scaling plans a payouts.</div>
+      </div>
+      <div class="lesson-tag">Pro</div>
+    </a>
+
+    <a class="lesson-row locked" href="#news">
+      <div class="lesson-num">06</div>
+      <div class="lesson-body">
+        <div class="lesson-title">News Trading - NFP, CPI, ECB, BoE</div>
+        <div class="lesson-desc">Ako narábať s high-impact news pre forex páry, kedy sa drží smer, kedy revertuje a prečo prop firmy zakazujú news trading.</div>
+      </div>
+      <div class="lesson-tag">Pro</div>
+    </a>
+
+  </div>
+</div>
+
+<!-- First lesson preview -->
+<div class="section reveal" id="basics">
+  <div class="lesson-preview">
+    <span class="s-tag">Lekcia 01 - Preview</span>
+    <h2 class="s-title">Forex <em>basics</em></h2>
+    <p class="s-body">Pred prvým reálnym obchodom musíš vedieť čo presne kupuješ. Pip nie je pip - pre EUR/USD je to $10 na štandardný lot, pre GBP/JPY $9, pre XAU/USD $1 (a všetko sa škáluje podľa lot sizu). Bez tohto základu si neviem dať risk management.</p>
+    <div class="divider"></div>
+    <ul class="bullet-list">
+      <li><a href="forex-pip-value.html"><strong>Pip value</strong> - koľko ti reálne zarobí/stojí 1 pip pohybu</a></li>
+      <li><a href="forex-lot-sizing.html"><strong>Lot sizing</strong> - koľko otvoriť aby si neumrel (zlatý vzorec)</a></li>
+      <li><a href="forex-leverage.html"><strong>Leverage</strong> - prečo 1:500 nie je dôvod ho použiť</a></li>
+      <li><strong>Spread</strong> - broker fee na každom vstupe, mení sa podľa session</li>
+    </ul>
+    <div class="cta-inline">Celá lekcia + video za <strong>Pro</strong> tierom - €29/mes</div>
+  </div>
+</div>
+
+<!-- Foundation reminder -->
+<div class="section reveal">
+  <span class="s-tag">Foundation</span>
+  <h2 class="s-title">ICT/SMC <em>univerzálne</em><br>platí aj pre forex</h2>
+  <p class="s-body">Killzones, macro time slots, Bias na W/D/4H, MSS, SMT divergencie - všetko funguje identicky na EUR/USD ako na MNQH. Ak si ešte neprešiel hlavný kurz, začni tam.</p>
+  <div style="margin-top:2rem">
+    <a href="trading-plan.html" class="link-btn">Kompletný Trading Plan <span>→</span></a>
+  </div>
+</div>
+
+<footer>© 2026 B.E.T.Trade · Všetky práva vyhradené</footer>
+
+<script src="../js/sidebar.js"></script>
+<script src="../js/main.js"></script>
+</body>
+</html>

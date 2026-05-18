@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Futures – B.E.T.Trade</title>
+<meta name="theme-color" content="#F59E0B">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,800;0,900;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body class="asset-futures">
+
+<div class="bg-gradient"></div>
+<canvas id="bg-canvas"></canvas>
+<div id="cursor"></div>
+
+<div id="sidebar-mount"></div>
+
+<nav id="nav">
+  <div class="nav-left">
+    <button class="nav-toggle" id="sb-toggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <a class="logo" href="../index.html" style="text-decoration:none">
+      <span class="logo-dot"></span>
+      B.E.T.<span>Trade</span>
+    </a>
+  </div>
+  <div class="nav-right">
+    <a class="nav-btn" href="../index.html#cta-email" style="text-decoration:none">Pridaj sa</a>
+  </div>
+</nav>
+
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <a href="courses.html" class="breadcrumb">← Späť na kurzy</a>
+    <span class="s-tag">Kategória · Index &amp; commodity futures</span>
+    <h1 class="page-title"><em>Futures</em><br>playbook</h1>
+    <p class="page-sub">MNQH (Nasdaq mikro), ES, NQ, MGC (gold mikro). Mikrokontrakty vs. mini, tick value math, RTH/ETH sessions, settlements a expiry/rollover. Prop firm futures challenges - Apex, TopStep, Tradeify. Toto je môj hlavný trh.</p>
+    <div class="page-meta">
+      <span class="trade-chip session">5 kurzov · Pro tier</span>
+      <span class="trade-chip">MNQH · ES · NQ · MGC</span>
+      <span class="trade-chip">Certified Funded</span>
+    </div>
+  </div>
+</section>
+
+<div class="section">
+  <span class="s-tag">Lekcie</span>
+  <h2 class="s-title">Čo sa naučíš<br>v Futures sekcii</h2>
+
+  <div class="lessons-list">
+
+    <a class="lesson-row" href="#basics">
+      <div class="lesson-num">01</div>
+      <div class="lesson-body">
+        <div class="lesson-title">Futures Basics - micro vs mini, tick value</div>
+        <div class="lesson-desc">Mikro kontrakty (MNQ, MES, MGC) vs. mini (NQ, ES, GC), tick size a tick value math, prečo začínať mikrami a kedy prejsť na mini.</div>
+      </div>
+      <div class="lesson-tag preview">Preview zdarma</div>
+    </a>
+
+    <a class="lesson-row locked" href="#mnqh">
+      <div class="lesson-num">02</div>
+      <div class="lesson-body">
+        <div class="lesson-title">MNQH Playbook - môj hlavný setup</div>
+        <div class="lesson-desc">Nasdaq mikro futures. London sweep + NY AM entry, 1st PFVG ako BISI/SIBI, Macro okná 9:50–10:10 a 10:50–11:10. Konkrétne entry pravidlá.</div>
+      </div>
+      <div class="lesson-tag">Pro</div>
+    </a>
+
+    <a class="lesson-row locked" href="#es-nq">
+      <div class="lesson-num">03</div>
+      <div class="lesson-body">
+        <div class="lesson-title">ES vs NQ - korelácia a divergencie</div>
+        <div class="lesson-desc">Prečo NQ vedie a ES nasleduje, ako čítať SMT divergencie medzi indexmi a kedy obchodovať len jeden z nich.</div>
+      </div>
+      <div class="lesson-tag">Pro</div>
+    </a>
+
+    <a class="lesson-row locked" href="#sessions">
+      <div class="lesson-num">04</div>
+      <div class="lesson-body">
+        <div class="lesson-title">RTH vs ETH, settlements, expiry</div>
+        <div class="lesson-desc">Regular Trading Hours vs Extended, kedy je settlement, ako sa správa cena pred rollover-om (Mar → Jun → Sep → Dec).</div>
+      </div>
+      <div class="lesson-tag">Pro</div>
+    </a>
+
+    <a class="lesson-row locked" href="#propfirms">
+      <div class="lesson-num">05</div>
+      <div class="lesson-body">
+        <div class="lesson-title">Prop Firm Futures - Apex, TopStep, Tradeify</div>
+        <div class="lesson-desc">Porovnanie 3 hlavných futures prop firiem, ich rules, trailing drawdown vs. EOD, payout schedule, scaling. Ako som prešiel ja.</div>
+      </div>
+      <div class="lesson-tag">Pro</div>
+    </a>
+
+    <a class="lesson-row locked" href="#orderflow">
+      <div class="lesson-num">06</div>
+      <div class="lesson-body">
+        <div class="lesson-title">Order Flow Basics</div>
+        <div class="lesson-desc">DOM (depth of market), footprint chart, volume profile, value area high/low - kedy to skutočne pomáha a kedy je to noise.</div>
+      </div>
+      <div class="lesson-tag">Pro</div>
+    </a>
+
+  </div>
+</div>
+
+<!-- First lesson preview -->
+<div class="section reveal" id="basics">
+  <div class="lesson-preview">
+    <span class="s-tag">Lekcia 01 - Preview</span>
+    <h2 class="s-title">Futures <em>basics</em></h2>
+    <p class="s-body">Futures sú kontrakty na budúce dodanie podkladu za danú cenu. Pre tradera to znamená: pevne stanovená tick value, žiadny spread (len commission), centralised exchange a expirácia. Najväčší rozdiel oproti forexu - váš P/L sa počíta v dolároch presne podľa tickov, nie podľa pipov × lot.</p>
+    <div class="divider"></div>
+    <ul class="bullet-list">
+      <li><strong>MNQ</strong> (Nasdaq micro) - 1 tick = 0.25 bodu = <strong>$0.50</strong></li>
+      <li><strong>NQ</strong> (Nasdaq mini)  - 1 tick = 0.25 bodu = <strong>$5.00</strong></li>
+      <li><strong>MES</strong> (S&amp;P micro) - 1 tick = 0.25 bodu = <strong>$1.25</strong></li>
+      <li><strong>ES</strong> (S&amp;P mini)   - 1 tick = 0.25 bodu = <strong>$12.50</strong></li>
+      <li><strong>MGC</strong> (Gold micro) - 1 tick = $0.10 = <strong>$1.00</strong></li>
+    </ul>
+    <div class="cta-inline">Celá lekcia + risk management math za <strong>Pro</strong> tierom - €29/mes</div>
+  </div>
+</div>
+
+<!-- Foundation reminder -->
+<div class="section reveal">
+  <span class="s-tag">Foundation</span>
+  <h2 class="s-title">Trading Plan platí<br>aj na <em>futures</em></h2>
+  <p class="s-body">Bias na W/D/4H, MSS, SIBI/BISI, killzones, macro okná - všetko z hlavného kurzu funguje na MNQH rovnako ako na EUR/USD. Futures len pridávajú tick math a session špecifiká.</p>
+  <div style="margin-top:2rem">
+    <a href="trading-plan.html" class="link-btn">Kompletný Trading Plan <span>→</span></a>
+  </div>
+</div>
+
+<footer>© 2026 B.E.T.Trade · Všetky práva vyhradené</footer>
+
+<script src="../js/sidebar.js"></script>
+<script src="../js/main.js"></script>
+</body>
+</html>

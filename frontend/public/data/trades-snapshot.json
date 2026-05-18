@@ -5,7 +5,7 @@
     "notion_data_source_id": "9397fa00-854d-45ab-8088-728f7cf1535c",
     "synced_at": "2026-05-06T11:20:00Z",
     "private_fields_stripped": ["Emotions", "What did you learn today?"],
-    "note": "Static snapshot — replaced by /api/trades when backend is wired. Updated by backend/src/jobs/syncTrades.js."
+    "note": "Static snapshot - replaced by /api/trades when backend is wired. Updated by backend/src/jobs/syncTrades.js."
   },
   "stats": {
     "total_trades": 66,
@@ -72,7 +72,7 @@
       "potential_rr": 1.4,
       "win": true,
       "news": ["ISM Services PMI"],
-      "narrative": "Silver Bullet setup — pred 10:00 zobratá BSL z London Session, SIBI v Premiume, MSS a retracement do tejto SIBI. Target NWOG Low.",
+      "narrative": "Silver Bullet setup - pred 10:00 zobratá BSL z London Session, SIBI v Premiume, MSS a retracement do tejto SIBI. Target NWOG Low.",
       "featured": true
     },
     {
@@ -148,7 +148,7 @@
       "potential_rr": 3.07,
       "win": false,
       "news": ["NONE"],
-      "narrative": "Zobratá News BSL a potom SIBI — entry bez MSS, setup faillo.",
+      "narrative": "Zobratá News BSL a potom SIBI - entry bez MSS, setup faillo.",
       "featured": false
     },
     {

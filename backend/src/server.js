@@ -1,5 +1,5 @@
 /**
- * TradeEdge Academy — Backend entrypoint
+ * TradeEdge Academy - Backend entrypoint
  * Express server with auth, courses, videos, payments, waitlist.
  *
  * NOTE: This is the initial scaffold. Routes/controllers/models are stubs
@@ -22,7 +22,7 @@ app.use(helmet({ contentSecurityPolicy: false }));
 app.use(cors({ origin: process.env.FRONTEND_URL || '*', credentials: true }));
 app.use(morgan(process.env.NODE_ENV === 'production' ? 'combined' : 'dev'));
 
-// Stripe webhook needs raw body — register BEFORE express.json()
+// Stripe webhook needs raw body - register BEFORE express.json()
 app.use('/api/payments/webhook', express.raw({ type: 'application/json' }));
 app.use(express.json({ limit: '1mb' }));
 

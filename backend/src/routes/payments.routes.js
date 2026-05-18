@@ -4,6 +4,6 @@ const { requireAuth } = require('../middleware/auth');
 
 router.post('/checkout',  requireAuth, c.createCheckoutSession);
 router.post('/portal',    requireAuth, c.createCustomerPortal);
-router.post('/webhook',   c.handleWebhook); // raw body — see server.js
+router.post('/webhook',   c.handleWebhook); // raw body - see server.js
 
 module.exports = router;

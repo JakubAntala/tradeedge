@@ -21,7 +21,7 @@ const TRADES_DB_ID = process.env.NOTION_TRADES_DB_ID;
 
 const notion = NOTION_TOKEN ? new Client({ auth: NOTION_TOKEN }) : null;
 
-/* ---------- Property helpers (defensive — Notion shapes are permissive) ---------- */
+/* ---------- Property helpers (defensive - Notion shapes are permissive) ---------- */
 const getTitle    = (p) => (p?.title?.[0]?.plain_text ?? '').trim();
 const getRich     = (p) => (p?.rich_text?.map(t => t.plain_text).join('') ?? '').trim();
 const getSelect   = (p) => p?.select?.name ?? null;
@@ -45,7 +45,7 @@ function mapNotionPageToTrade(page) {
   const potential_rr = getNumber(props['Potential RR']);
 
   // Find a chart image from the page's first image block (filled in by syncTrades job).
-  // We only fetch blocks for the first 100 pages on each sync — see syncTrades.
+  // We only fetch blocks for the first 100 pages on each sync - see syncTrades.
 
   return {
     notion_page_id: page.id,
@@ -70,7 +70,7 @@ function mapNotionPageToTrade(page) {
     // The user can override per-row in Notion later if we add a Featured checkbox.
     featured: Boolean(win && rr != null && rr >= 2),
 
-    // PRIVATE — explicitly NOT mapped:
+    // PRIVATE - explicitly NOT mapped:
     //   Emotions
     //   What did you learn today?
   };

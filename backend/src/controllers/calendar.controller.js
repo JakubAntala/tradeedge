@@ -1,5 +1,5 @@
 /**
- * Calendar controller — serves filtered economic events.
+ * Calendar controller - serves filtered economic events.
  * Filtering is timezone-aware: ranges are computed in the requested timezone
  * (defaults to America/New_York since that's the trader's base TZ per Trading Plan).
  */

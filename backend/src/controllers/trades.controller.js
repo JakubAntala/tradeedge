@@ -1,5 +1,5 @@
 /**
- * Trades controller — featured (public), full list (paywalled), single recap, manual sync.
+ * Trades controller - featured (public), full list (paywalled), single recap, manual sync.
  *
  * Falls back to the static snapshot at /data/trades-snapshot.json when the DB
  * is empty/unavailable, so the landing page works even pre-deployment.
@@ -94,7 +94,7 @@ exports.getOne = async (req, res) => {
       [req.params.id]
     );
     if (!r.rows[0]) return res.status(404).json({ error: 'Not found' });
-    // Just to be safe — never expose private fields even if a future migration adds them.
+    // Just to be safe - never expose private fields even if a future migration adds them.
     const trade = r.rows[0];
     delete trade.emotions;
     delete trade.learn;

@@ -1,4 +1,4 @@
-# B.E.T.Trade — Trading Academy
+# B.E.T.Trade - Trading Academy
 
 > An online platform for trading courses and videos by a certified funded trader. Includes a complete Trading Plan, live trade recaps from real accounts, an economic calendar, and paywalled courses for Forex, Futures, and Crypto.
 
@@ -28,26 +28,26 @@ This project is under active development. The landing page, navigation, course s
 - Track an **economic calendar** with high-impact news (CPI, FOMC, NFP, ECB)
 - Join a private Discord community
 
-Courses are organized by asset class — **Forex** (EUR/USD, GBP/USD, XAU), **Futures** (MNQH, ES, NQ), **Crypto** (BTC, ETH) — plus universal foundational courses (Trading Plan, Killzones, Risk Management).
+Courses are organized by asset class - **Forex** (EUR/USD, GBP/USD, XAU), **Futures** (MNQH, ES, NQ), **Crypto** (BTC, ETH) - plus universal foundational courses (Trading Plan, Killzones, Risk Management).
 
 ## Features
 
 ### Done
 
-- **Landing page** — dark theme (black / deeper blue / white accent), animated hero, custom cursor, particle effects, scroll reveal
-- **Sidebar navigation** (Notion-style) — collapsible, persistent state, mobile overlay, SVG icons, active-state highlight
-- **Featured trades** — best trade preview on the landing (live from Notion or cached snapshot)
-- **Trade Recaps page** — public preview with paywall card, aggregate stats (win rate, avg RR, most-traded pair)
-- **Trading Plan course** — six lessons structured as Bias → Confirmation → Execution → Killzones → Macros → News
-- **Asset categories** — Forex / Futures / Crypto sections, each with their own course list
-- **Economic calendar** — TradingView Events widget with importance and range filters, plus macro time slots reference
-- **Notion to DB live sync** — `trade_recaps` table, sync service, scheduled job (cron / GitHub Actions ready)
-- **Privacy by design** — `Emotions` and `What did you learn today?` fields from Notion never reach the system (stripped at sync time)
-- **Backend scaffolding** — Express server, paywall middleware (`requireSubscription('pro')`), API routes for auth, courses, trades, payments, waitlist
+- **Landing page** - dark theme (black / deeper blue / white accent), animated hero, custom cursor, particle effects, scroll reveal
+- **Sidebar navigation** (Notion-style) - collapsible, persistent state, mobile overlay, SVG icons, active-state highlight
+- **Featured trades** - best trade preview on the landing (live from Notion or cached snapshot)
+- **Trade Recaps page** - public preview with paywall card, aggregate stats (win rate, avg RR, most-traded pair)
+- **Trading Plan course** - six lessons structured as Bias → Confirmation → Execution → Killzones → Macros → News
+- **Asset categories** - Forex / Futures / Crypto sections, each with their own course list
+- **Economic calendar** - TradingView Events widget with importance and range filters, plus macro time slots reference
+- **Notion to DB live sync** - `trade_recaps` table, sync service, scheduled job (cron / GitHub Actions ready)
+- **Privacy by design** - `Emotions` and `What did you learn today?` fields from Notion never reach the system (stripped at sync time)
+- **Backend scaffolding** - Express server, paywall middleware (`requireSubscription('pro')`), API routes for auth, courses, trades, payments, waitlist
 
 ### Planned
 
-- Auth — register/login/JWT, password hashing
+- Auth - register/login/JWT, password hashing
 - Stripe checkout, customer portal, webhook handling
 - Video player with signed URLs (Mux / Bunny / Cloudflare Stream)
 - Per-strategy sub-pages for the Trading Plan (currently a single anchor-link page)
@@ -72,7 +72,7 @@ Courses are organized by asset class — **Forex** (EUR/USD, GBP/USD, XAU), **Fu
 | Email        | Resend (planned)                                        |
 | Hosting      | Vercel/Netlify (FE) · Railway/Render (BE) · Neon (DB)   |
 
-Intentionally **without React or Next.js** — the project is small, vanilla stack keeps the bundle under 50 KB, and there is no build step.
+Intentionally **without React or Next.js** - the project is small, vanilla stack keeps the bundle under 50 KB, and there is no build step.
 
 ## Quick Start
 
@@ -153,7 +153,7 @@ TradersEdge/
 │       ├── 001_init.sql            # users, courses, lessons, videos, subs, waitlist
 │       └── 002_trades_and_courses.sql  # trade_recaps and course seed
 │
-├── content/                        # Source material (gitignored — videos, PDFs)
+├── content/                        # Source material (gitignored - videos, PDFs)
 │   ├── courses/                    # Markdown lessons
 │   ├── videos/
 │   └── pdfs/
@@ -200,11 +200,11 @@ Dark theme inspired by BlueEyes Trader:
 
 ## License
 
-[MIT](./LICENSE) — free to use, attribution welcome.
+[MIT](./LICENSE) - free to use, attribution welcome.
 
 ## Author
 
-**Jakub Antala** — Certified Funded Trader, Slovakia
+**Jakub Antala** - Certified Funded Trader, Slovakia
 
 [![GitHub](https://img.shields.io/badge/GitHub-JakubAntala-181717?logo=github)](https://github.com/JakubAntala)
 

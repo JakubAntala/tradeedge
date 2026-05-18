@@ -1,26 +1,16 @@
 /* ============================================
-   TradeEdge Academy — main.js
+   TradeEdge Academy - main.js
    ============================================ */
 
 /* ---------- CUSTOM CURSOR ---------- */
 (function () {
   const cursor = document.getElementById('cursor');
-  const ring = document.getElementById('cursor-ring');
-  if (!cursor || !ring) return;
-  let mx = 0, my = 0, rx = 0, ry = 0;
+  if (!cursor) return;
 
   document.addEventListener('mousemove', e => {
-    mx = e.clientX; my = e.clientY;
-    cursor.style.left = mx + 'px';
-    cursor.style.top = my + 'px';
+    cursor.style.left = e.clientX + 'px';
+    cursor.style.top  = e.clientY + 'px';
   });
-
-  setInterval(() => {
-    rx += (mx - rx) * .15;
-    ry += (my - ry) * .15;
-    ring.style.left = rx + 'px';
-    ring.style.top = ry + 'px';
-  }, 16);
 
   document.querySelectorAll('button,input,a,.mod-card,.plan,.testi,.stat-box').forEach(el => {
     el.addEventListener('mouseenter', () => {
@@ -220,7 +210,7 @@
     return `
       <div class="trade-card ${win}">
         <div class="trade-head">
-          <div class="trade-pair">${t.pair || '—'}</div>
+          <div class="trade-pair">${t.pair || '-'}</div>
           <div class="trade-result ${win}">${t.win ? '✓ Win' : '× Loss'}</div>
         </div>
         <div class="trade-meta">

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pip Value - Forex Basics · B.E.T.Trade</title>
+<meta name="description" content="Pip Value rozsekaný od základov - koľko peňazí ti reálne robí 1 pip pohybu, ako sa to počíta a prečo to musíš mať v krvi pred prvým reálnym obchodom.">
+<meta name="theme-color" content="#0EA5E9">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,800;0,900;1,700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body class="asset-forex">
+
+<div class="bg-gradient"></div>
+<canvas id="bg-canvas"></canvas>
+<div id="cursor"></div>
+
+<div id="sidebar-mount"></div>
+
+<nav id="nav">
+  <div class="nav-left">
+    <button class="nav-toggle" id="sb-toggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <a class="logo" href="../index.html" style="text-decoration:none">
+      <span class="logo-dot"></span>
+      B.E.T.<span>Trade</span>
+    </a>
+  </div>
+  <div class="nav-right">
+    <a class="nav-btn" href="../index.html#cta-email" style="text-decoration:none">Pridaj sa</a>
+  </div>
+</nav>
+
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <a href="forex.html" class="breadcrumb">← Späť na Forex</a>
+    <span class="s-tag">Forex Basics · Lekcia 01.1</span>
+    <h1 class="page-title">Pip <em>Value</em></h1>
+    <p class="page-sub">Koľko peňazí ti naozaj robí jeden pip pohybu - a prečo bez tohto čísla strielaš naslepo aj keby si mal najlepší setup na svete.</p>
+    <div class="page-meta">
+      <span class="trade-chip session">~7 min čítania</span>
+      <span class="trade-chip">Foundational</span>
+      <span class="trade-chip">Zdarma</span>
+    </div>
+  </div>
+</section>
+
+<div class="section">
+  <article class="article">
+
+    <div class="tldr">
+      <span class="tldr-label">TL;DR - ak nemáš čas</span>
+      <p><strong>EUR/USD, 1 standard lot, 1 pip = $10.</strong> Toto si vryj do hlavy. Všetko ostatné je len odvodenina od tohto čísla cez lot size, pár a current rate.</p>
+    </div>
+
+    <h2>Otvorka - prečo by ťa to malo zaujímať</h2>
+    <p>„Pip" počuješ v každom druhom YouTube videu o forexe. Niekto kričí že spravil <em>120 pips</em> a všetci tlieskajú. Ale 120 pips znamená čo presne? <strong>120 dolárov? 12 dolárov? 1200?</strong></p>
+    <p>Odpoveď: <strong>záleží.</strong> A presne toto „záleží" je dôvod prečo si tu. Bez pip value math nikdy presne nevieš čo riskuješ a čo zarábaš. A trader ktorý nevie čo riskuje, to nie je trader - to je gambler s pekným grafom.</p>
+    <p>Tak poďme to rozsekať raz a navždy. Po tejto lekcii budeš vedieť v hlave spočítať koľko ti ide alebo padá z účtu pri každom pohybe, bez kalkulačky.</p>
+
+    <h2>Čo to <em>vlastne</em> je</h2>
+    <p>Pip = <strong>P</strong>ercentage <strong>i</strong>n <strong>P</strong>oint. Bolo by to pekné v 1980-tych, dnes je to v praxi „posledná desatinná čiarka, na ktorú sa vsádza". Pre väčšinu párov je to <strong>4. desatinné miesto</strong>. Pre JPY páry je to 2. desatinné - yen má historicky inú konvenciu.</p>
+
+    <div class="formula">EUR/USD: 1.0850 → 1.0851  =  pohyb o <strong>1 pip</strong>
+USD/JPY:  150.20 →  150.21  =  pohyb o <strong>1 pip</strong>
+GBP/USD: 1.2745 → 1.2746  =  pohyb o <strong>1 pip</strong></div>
+
+    <p>V moderných platformách (MT4/5, TradingView) uvidíš ešte <strong>5. desatinné miesto</strong> - alebo 3. pri JPY. To posledné navyše sa volá <strong>pipette</strong> a je to 1/10 pipu. Užitočné na sledovanie spreadu, ale na účet ti to dramaticky neublíži.</p>
+
+    <h2>Zlatá rovnica ktorá ti <em>zmení</em> hru</h2>
+    <p>Pip value sa nepočíta z páru - počíta sa z <strong>lot size</strong>. Lot je v podstate "veľkosť pozície" a má 4 štandardné stupne:</p>
+
+    <div class="formula">1 standard lot   = 100 000 jednotiek
+1 mini lot       =  10 000
+1 micro lot      =   1 000
+1 nano lot       =     100</div>
+
+    <p>Pre páry kde <strong>USD je quote</strong> (druhá mena), ako EUR/USD, GBP/USD, AUD/USD, vzorec je krásne jednoduchý:</p>
+
+    <div class="formula">Pip value = lot size × pip
+         = 100 000 × 0.0001 = <strong>$10</strong> na standard lot
+         =  10 000 × 0.0001 = <strong>$1</strong>  na mini lot
+         =   1 000 × 0.0001 = <strong>$0.10</strong> na micro lot
+         =     100 × 0.0001 = <strong>$0.01</strong> na nano lot</div>
+
+    <div class="callout">EUR/USD, standard lot, 1 pip = 10 dolárov. Toto si zapamätaj - od tohto všetko ostatné odvodíš.</div>
+
+    <h2>Príklad - koľko som <em>zarobil</em>?</h2>
+    <p>Povedzme že ideš short EUR/USD na 1 standard lote z <strong>1.0850 do 1.0810</strong>. To je pohyb o <strong>40 pips</strong> v tvoj prospech.</p>
+
+    <div class="example">
+      <span class="example-label">Príklad 1 - pekný deň</span>
+      <p>40 pips × $10/pip = <strong>$400 zisk</strong></p>
+      <p>Pekné, no nie?</p>
+    </div>
+
+    <p>A teraz si predstav opačný scenár - nezvládol si risk, nedal SL, držal cez NFP. Reverz 80 pips proti tebe:</p>
+
+    <div class="example">
+      <span class="example-label">Príklad 2 - zlý deň</span>
+      <p>80 pips × $10/pip = <strong>–$800 strata</strong></p>
+      <p>Auch. A toto je presne ten moment kedy začneš chápať že killzones, stop-loss a position sizing nie sú „odporúčania" - sú to životné poistenie tvojho účtu.</p>
+    </div>
+
+    <h2>JPY páry - pozor, <em>iný matematický svet</em></h2>
+    <p>Pri JPY pároch sa pip neráta z 4. ale z 2. desatinného miesta, čo všetko trochu posúva. Vzorec sa pridáva o jeden krok:</p>
+
+    <div class="formula">Pip value = (pip × lot size) / current rate</div>
+
+    <div class="example">
+      <span class="example-label">USD/JPY @ 150.20, standard lot</span>
+      <p>(0.01 × 100 000) / 150.20 = <strong>$6.66</strong> na 1 pip</p>
+    </div>
+
+    <p>Takže pri JPY pároch je 1 pip na standard lote zhruba <strong>$6–7</strong>, nie $10. Toto je dôvod prečo ti USD/JPY pozícia „neprináša toľko" ako EUR/USD pri rovnakom počte pipov - máš nominálne menšiu pip value.</p>
+
+    <h2>XAU/USD (gold) - <em>special snowflake</em></h2>
+    <p>Gold sa kotuje na 2 desatinné miesta a pip math je tu úplne mimo bežných pravidiel. Najjednoduchší spôsob ako to chápať: <strong>$1 pohyb ceny gold = $1 zisk na 1 micro lot (0.01)</strong>.</p>
+
+    <div class="formula">XAU/USD: 2350.00 → 2351.00  =  pohyb o $1
+1 micro lot (0.01) = <strong>$1</strong>
+1 mini lot  (0.10) = <strong>$10</strong>
+1 standard  (1.00) = <strong>$100</strong></div>
+
+    <p>Toto je presne dôvod prečo gold ľudí buď spraví alebo zničí. Tie 30–40 dolárové swingy v NY AM = <strong>$3000–4000 na standard lot</strong>. Pre risk management → menšia pozícia, väčší stop loss v dolároch, opatrnejší vstup.</p>
+
+    <h2>Prečo ti toto musí ísť <em>pod kožu</em></h2>
+    <p>Bez pip value math:</p>
+    <ul>
+      <li>Nevieš spočítať akú veľkú pozíciu otvoriť pri danom stop-losse</li>
+      <li>Nevieš v dolároch koľko skutočne riskuješ na jeden obchod</li>
+      <li>Každý vstup je v podstate strela naslepo</li>
+    </ul>
+
+    <p>S pip value math:</p>
+    <ul>
+      <li>Stanovíš si <strong>maximum risk per trade</strong> (napr. 1 % z účtu)</li>
+      <li>Spočítaš si <strong>lot size</strong> podľa vzdialenosti k SL</li>
+      <li>Riskuješ vždy presne to čo si si stanovil - žiadne prekvapenia</li>
+    </ul>
+
+    <div class="example">
+      <span class="example-label">Praktický príklad - accounting</span>
+      <p>Účet $5000. Max risk 1 % = $50 na obchod. Stop loss má 25 pipov od entry. Aký lot size?</p>
+      <p><strong>$50 / (25 × $0.10) = $50 / $2.50 = 20 micro lotov = 0.20 lota</strong></p>
+      <p>To je ten moment kedy z gamblingu prejdeš na mechanický business.</p>
+    </div>
+
+    <h2>Cheatsheet do mobilu</h2>
+    <p>Tu si daj screenshot a hoď si to ako wallpaper, kým ti to nesedne v hlave:</p>
+
+    <table class="recap-table">
+      <thead>
+        <tr>
+          <th>Pár</th>
+          <th>Standard</th>
+          <th>Mini</th>
+          <th>Micro</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>EUR/USD</td>          <td>$10</td>    <td>$1</td>    <td>$0.10</td></tr>
+        <tr><td>GBP/USD</td>          <td>$10</td>    <td>$1</td>    <td>$0.10</td></tr>
+        <tr><td>AUD/USD</td>          <td>$10</td>    <td>$1</td>    <td>$0.10</td></tr>
+        <tr><td>USD/JPY (@150)</td>   <td>$6.66</td>  <td>$0.67</td> <td>$0.07</td></tr>
+        <tr><td>USD/CHF (@0.90)</td>  <td>$11.11</td> <td>$1.11</td> <td>$0.11</td></tr>
+        <tr><td>USD/CAD (@1.36)</td>  <td>$7.35</td>  <td>$0.74</td> <td>$0.07</td></tr>
+        <tr><td>XAU/USD (gold)</td>   <td>$100</td>   <td>$10</td>   <td>$1</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Last words - choď si to <em>vyskúšať</em></h2>
+    <p>Pip value nie je teoretická hračka pre nerdov - je to <strong>základné meradlo všetkého</strong> čo robíš na trhu. Bez nej nepoznáš ani vlastný účet, nieto ešte trh.</p>
+    <p>Daj si dnes 10 minút. Vezmi svoj <strong>demo účet</strong>, otvor pár pozícií rôznymi lot sizmi a sleduj v history okne ako sa P/L mení s každým pipom. Po hodine to budeš mať v krvi a už nikdy nepoletíš naslepo.</p>
+    <p>A keď to budeš vedieť - môžeš pokračovať. Ďalšia lekcia je <strong>Lot Sizing</strong>, kde sa naučíme zlatý vzorec ako si vždy presne stanovíš pozíciu podľa risk % z účtu. To je ten skutočný gamechanger.</p>
+
+    <a class="next-lesson" href="forex-lot-sizing.html">
+      <div class="next-lesson-meta">
+        <span class="next-lesson-label">Pokračovať</span>
+        <span class="next-lesson-title">Lot Sizing - koľko otvoriť aby si neumrel</span>
+      </div>
+      <span class="next-lesson-arrow">→</span>
+    </a>
+
+  </article>
+</div>
+
+<footer>© 2026 B.E.T.Trade · Všetky práva vyhradené</footer>
+
+<script src="../js/sidebar.js"></script>
+<script src="../js/main.js"></script>
+</body>
+</html>

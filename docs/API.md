@@ -1,13 +1,13 @@
-# API – plánované endpointy
+# API - plánované endpointy
 
 Base URL: `/api`
 
 ## Auth
 | Method | Path                | Auth | Popis                       |
 |--------|---------------------|------|-----------------------------|
-| POST   | `/auth/register`    | –    | nový účet (email + heslo)   |
-| POST   | `/auth/login`       | –    | login → JWT                 |
-| POST   | `/auth/logout`      | –    | klient maže token           |
+| POST   | `/auth/register`    | -    | nový účet (email + heslo)   |
+| POST   | `/auth/login`       | -    | login → JWT                 |
+| POST   | `/auth/logout`      | -    | klient maže token           |
 | GET    | `/auth/me`          | ✓    | aktuálny užívateľ           |
 
 ## Users
@@ -20,8 +20,8 @@ Base URL: `/api`
 ## Courses
 | Method | Path                                | Auth | Paywall | Popis                            |
 |--------|-------------------------------------|------|---------|----------------------------------|
-| GET    | `/courses`                          | opt  | –       | verejný katalóg                  |
-| GET    | `/courses/:slug`                    | opt  | –       | detail (lekcie s `locked` flagom)|
+| GET    | `/courses`                          | opt  | -       | verejný katalóg                  |
+| GET    | `/courses/:slug`                    | opt  | -       | detail (lekcie s `locked` flagom)|
 | GET    | `/courses/:slug/lessons`            | ✓    | pro     | zoznam lekcií                    |
 | GET    | `/courses/:slug/lessons/:lessonId`  | ✓    | pro     | obsah lekcie                     |
 
@@ -36,10 +36,10 @@ Base URL: `/api`
 |--------|----------------------------|------|-------------------------------|
 | POST   | `/payments/checkout`       | ✓    | Stripe Checkout Session       |
 | POST   | `/payments/portal`         | ✓    | Stripe Customer Portal        |
-| POST   | `/payments/webhook`        | –    | Stripe webhook (raw body)     |
+| POST   | `/payments/webhook`        | -    | Stripe webhook (raw body)     |
 
 ## Waitlist
 | Method | Path                | Auth | Popis                             |
 |--------|---------------------|------|-----------------------------------|
-| POST   | `/waitlist`         | –    | pridanie e-mailu z landing page   |
-| GET    | `/waitlist/count`   | –    | počet ľudí (pre live counter)     |
+| POST   | `/waitlist`         | -    | pridanie e-mailu z landing page   |
+| GET    | `/waitlist/count`   | -    | počet ľudí (pre live counter)     |

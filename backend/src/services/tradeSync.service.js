@@ -78,7 +78,7 @@ function writeStaticSnapshot(rows) {
       best_rr: winnerRRs.length ? Math.max(...winnerRRs) : null,
       most_traded_pair: mostTradedPair,
     },
-    trades: featured,    // public preview only — full list lives behind API + paywall
+    trades: featured,    // public preview only - full list lives behind API + paywall
   };
 
   fs.mkdirSync(path.dirname(SNAPSHOT_PATH), { recursive: true });
@@ -98,7 +98,7 @@ async function runSync({ writeSnapshot = true, useDb = true } = {}) {
   if (useDb) {
     try {
       dbResult = await syncToDb(rows);
-      console.log(`[sync] DB upsert — inserted=${dbResult.inserted}, updated=${dbResult.updated}`);
+      console.log(`[sync] DB upsert - inserted=${dbResult.inserted}, updated=${dbResult.updated}`);
     } catch (e) {
       console.warn('[sync] DB upsert skipped:', e.message);
     }

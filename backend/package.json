@@ -2,7 +2,7 @@
   "name": "tradeedge-backend",
   "version": "0.1.0",
   "private": true,
-  "description": "TradeEdge Academy — backend (Node.js + Express). Auth, paywall, courses, videos, payments.",
+  "description": "TradeEdge Academy - backend (Node.js + Express). Auth, paywall, courses, videos, payments.",
   "main": "src/server.js",
   "scripts": {
     "start": "node src/server.js",

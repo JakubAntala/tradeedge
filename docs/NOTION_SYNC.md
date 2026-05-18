@@ -1,6 +1,6 @@
 # Notion → TradeEdge live sync
 
-Tvoj Notion `Trading Journal` je single source of truth. Backend ho periodicky číta, mapuje do našej DB a zverejňuje cez API. **Emotions** a **"What did you learn today?"** sa do nášho systému nikdy nedostanú — sú stripnuté priamo v `notion.service.js`.
+Tvoj Notion `Trading Journal` je single source of truth. Backend ho periodicky číta, mapuje do našej DB a zverejňuje cez API. **Emotions** a **"What did you learn today?"** sa do nášho systému nikdy nedostanú - sú stripnuté priamo v `notion.service.js`.
 
 ## Architektúra
 
@@ -25,7 +25,7 @@ backend/src/services/tradeSync.service.js
 ### 1) Vytvor Notion integráciu
 
 1. Choď na <https://www.notion.so/my-integrations>
-2. **+ New integration** — pomenuj napr. "TradeEdge Sync"
+2. **+ New integration** - pomenuj napr. "TradeEdge Sync"
 3. **Capabilities**: stačí *Read content* (nepotrebujeme write)
 4. Skopíruj **Internal Integration Token** (začína `secret_…` alebo `ntn_…`)
 
@@ -57,15 +57,15 @@ Po sync skripte:
 
 ### 4) Naplánuj automatický sync
 
-**Možnosť A — cron (lokálne / VPS):**
+**Možnosť A - cron (lokálne / VPS):**
 ```cron
 */10 * * * * cd /path/to/TradersEdge/backend && /usr/bin/npm run sync:trades >> /var/log/tradeedge-sync.log 2>&1
 ```
 
-**Možnosť B — Railway / Render / Fly.io cron job:**
+**Možnosť B - Railway / Render / Fly.io cron job:**
 nastav job ktorý spúšťa `npm run sync:trades` každých 5–10 min.
 
-**Možnosť C — GitHub Actions:**
+**Možnosť C - GitHub Actions:**
 ```yaml
 # .github/workflows/sync-trades.yml
 on:
@@ -92,7 +92,7 @@ jobs:
           git push
 ```
 
-**Možnosť D — true real-time (neskôr):** Notion webhook → `POST /api/trades/sync` (admin only).
+**Možnosť D - true real-time (neskôr):** Notion webhook → `POST /api/trades/sync` (admin only).
 
 ## Čo sa synchronizuje
 
@@ -134,13 +134,13 @@ To je TODO v `services/notion.service.js → fetchPageImage`. Zatiaľ landing pr
 
 ## Troubleshooting
 
-- **`NOTION_TOKEN not set`** — chýba env var
-- **`object_not_found`** — integrácia nemá zdielanú DB (krok 2)
-- **`Could not find database`** — zlý `NOTION_TRADES_DB_ID` (musí byť UUID s pomlčkami)
-- **DB upsert zlyhal** — migrácia 002 nebola pustená alebo `DATABASE_URL` nie je správny
+- **`NOTION_TOKEN not set`** - chýba env var
+- **`object_not_found`** - integrácia nemá zdielanú DB (krok 2)
+- **`Could not find database`** - zlý `NOTION_TRADES_DB_ID` (musí byť UUID s pomlčkami)
+- **DB upsert zlyhal** - migrácia 002 nebola pustená alebo `DATABASE_URL` nie je správny
 
 ## Bezpečnosť
 
 - `NOTION_TOKEN` má **read-only** capability
 - Frontend nikdy nevolá Notion API priamo
-- Súkromné Notion polia (Emotions/Learn) sa do nášho systému nedostanú nikdy — `notion.service.js` ich z mapovania úplne vynecháva, takže ani neexistujú v `req`/`res`/DB
+- Súkromné Notion polia (Emotions/Learn) sa do nášho systému nedostanú nikdy - `notion.service.js` ich z mapovania úplne vynecháva, takže ani neexistujú v `req`/`res`/DB

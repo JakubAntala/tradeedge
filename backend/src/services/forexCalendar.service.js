@@ -1,5 +1,5 @@
 /**
- * Forex Factory economic calendar — server-side fetch + cache.
+ * Forex Factory economic calendar - server-side fetch + cache.
  *
  * Public endpoints (free, no auth):
  *   https://nfs.faireconomy.media/ff_calendar_thisweek.json
@@ -46,7 +46,7 @@ async function fetchAllRaw() {
 }
 
 function normalize(e) {
-  // Some weeks the impact comes lowercase, some come "Holiday" — flatten:
+  // Some weeks the impact comes lowercase, some come "Holiday" - flatten:
   const impact = String(e.impact || '').toLowerCase();
   const impactRank = impact === 'high' ? 3
                   : impact === 'medium' ? 2
@@ -54,7 +54,7 @@ function normalize(e) {
                   : 0; // holiday / unknown
   const iso = e.date || e.datetime || null;
   return {
-    title: e.title || e.event || '—',
+    title: e.title || e.event || '-',
     country: e.country || '',
     impact,
     impactRank,

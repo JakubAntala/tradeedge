@@ -34,7 +34,7 @@
 
 1. FE žiada `GET /api/videos/:id/playback`
 2. Backend overí auth + subscription
-3. Backend získa od providera **short-lived signed URL** (5–15 min)
+3. Backend získa od providera **short-lived signed URL** (5-15 min)
 4. FE prehráva cez HLS player (hls.js / native Safari)
 5. Periodicky `POST /api/videos/:id/progress` na uloženie `seconds_watched`
 

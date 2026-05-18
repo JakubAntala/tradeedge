@@ -1,5 +1,5 @@
 -- =============================================
--- TradeEdge Academy — initial schema
+-- TradeEdge Academy - initial schema
 -- =============================================
 
 CREATE EXTENSION IF NOT EXISTS "pgcrypto";

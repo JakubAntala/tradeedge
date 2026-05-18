@@ -1,12 +1,12 @@
 /* ============================================
-   TradeEdge Academy — BlueEyes Trader (DARK)
+   TradeEdge Academy - BlueEyes Trader (DARK)
    Black dominant / Deeper Blue / White accents
    ============================================ */
 
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 
 :root{
-  /* Brand — deeper blue */
+  /* Brand - deeper blue */
   --blue:#0284C7;          /* primary deep sky */
   --blue-l:#0EA5E9;        /* slightly brighter for highlights */
   --blue-ll:#38BDF8;       /* pop accent */
@@ -19,7 +19,7 @@
   --green-l:#34D399;
   --red:#EF4444;
 
-  /* Surfaces — black dominant */
+  /* Surfaces - black dominant */
   --bg:#000000;
   --bg-soft:#06080C;
   --bg-soft-2:#0A0D13;
@@ -31,7 +31,7 @@
   --border-2:rgba(2,132,199,0.22);
   --border-blue:rgba(14,165,233,0.4);
 
-  /* Text — white sparingly */
+  /* Text - white sparingly */
   --white:#FFFFFF;
   --ink:#F1F5F9;           /* primary text (off-white) */
   --ink-2:#CBD5E1;
@@ -64,9 +64,10 @@ body{
   line-height:1.65;
   overflow-x:hidden;
   -webkit-font-smoothing:antialiased;
+  cursor:none;
 }
 
-/* ===== CUSTOM CURSOR ===== 
+/* ===== CUSTOM CURSOR ===== */
 #cursor{
   position:fixed;width:10px;height:10px;
   background:var(--blue-l);border-radius:50%;
@@ -76,18 +77,11 @@ body{
   mix-blend-mode:difference;
   box-shadow:0 0 14px rgba(14,165,233,0.6);
 }
-#cursor-ring{
-  position:fixed;width:36px;height:36px;
-  border:1.5px solid rgba(14,165,233,0.55);
-  border-radius:50%;pointer-events:none;z-index:9998;
-  transform:translate(-50%,-50%);
-  transition:all .14s ease;
-}
 @media (max-width:768px){
   body{cursor:auto}
-  #cursor,#cursor-ring{display:none}
+  #cursor{display:none}
 }
-*/
+
 /* ===== ANIMATED BACKGROUND ===== */
 #bg-canvas{
   position:fixed;inset:0;width:100%;height:100%;
@@ -958,6 +952,305 @@ body.sb-open .nav-toggle span:nth-child(3){transform:translateY(-4.5px) rotate(-
   body.sb-open nav{margin-left:0 !important}
 }
 
+/* ============================================
+   ASSET CLASS CATEGORY CARDS (courses.html)
+   ============================================ */
+.cat-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:1.2rem;margin-top:1rem;
+}
+@media(max-width:900px){.cat-grid{grid-template-columns:1fr}}
+
+.cat-card{
+  position:relative;display:block;
+  background:rgba(12,15,21,0.75);
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  border:1px solid var(--border);
+  border-radius:var(--radius-lg);
+  padding:2.2rem 1.9rem;
+  text-decoration:none;color:inherit;overflow:hidden;
+  transition:all .4s cubic-bezier(.2,.8,.2,1);
+  /* default accent (overridden per-class below) */
+  --cat-a:#0EA5E9; --cat-ad:#0369A1; --cat-rgb:14,165,233;
+}
+.cat-card.cat-forex   { --cat-a:#0EA5E9; --cat-ad:#0369A1; --cat-rgb:14,165,233; }
+.cat-card.cat-futures { --cat-a:#F59E0B; --cat-ad:#B45309; --cat-rgb:245,158,11; }
+.cat-card.cat-crypto  { --cat-a:#A78BFA; --cat-ad:#7C3AED; --cat-rgb:167,139,250; }
+
+.cat-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,transparent,var(--cat-a),transparent);
+  transform:scaleX(0);transition:transform .5s cubic-bezier(.2,.8,.2,1);
+}
+.cat-card:hover::before{transform:scaleX(1)}
+.cat-card:hover{
+  transform:translateY(-6px);
+  border-color:rgba(var(--cat-rgb),0.42);
+  box-shadow:0 24px 60px rgba(var(--cat-rgb),0.20), 0 10px 22px rgba(0,0,0,0.6);
+  background:rgba(16,20,28,0.92);
+}
+
+.cat-glow{
+  position:absolute;top:-30%;right:-30%;width:70%;height:70%;
+  background:radial-gradient(circle,rgba(var(--cat-rgb),0.20),transparent 70%);
+  pointer-events:none;opacity:.65;transition:opacity .4s;
+}
+.cat-card:hover .cat-glow{opacity:1}
+
+.cat-tag{
+  display:inline-block;
+  font-size:10.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--cat-a);
+  background:rgba(var(--cat-rgb),0.12);
+  border:1px solid rgba(var(--cat-rgb),0.3);
+  padding:4px 12px;border-radius:999px;margin-bottom:1.1rem;
+}
+
+.cat-icon{
+  width:54px;height:54px;border-radius:14px;
+  background:linear-gradient(135deg,rgba(var(--cat-rgb),0.20),rgba(var(--cat-rgb),0.06));
+  border:1px solid rgba(var(--cat-rgb),0.32);
+  display:inline-flex;align-items:center;justify-content:center;
+  color:var(--cat-a);margin-bottom:1rem;
+  transition:transform .4s cubic-bezier(.2,.8,.2,1);
+}
+.cat-icon svg{width:28px;height:28px;display:block}
+.cat-card:hover .cat-icon{transform:rotate(-6deg) scale(1.06)}
+
+.cat-title{
+  font-family:var(--serif);font-size:2.1rem;font-weight:900;
+  color:var(--white);letter-spacing:-.02em;line-height:1;margin-bottom:.7rem;
+}
+.cat-desc{
+  font-size:14px;color:var(--muted);line-height:1.7;
+  margin-bottom:1.4rem;min-height:110px;
+}
+
+.cat-meta{
+  display:flex;flex-wrap:wrap;gap:.7rem;
+  padding:.9rem 0 1.2rem;border-top:1px solid var(--border);
+}
+.cat-stat{font-size:11.5px;color:var(--muted-2);letter-spacing:.02em}
+.cat-stat strong{color:var(--cat-a);font-weight:700}
+
+.cat-arrow{
+  font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--cat-a);display:inline-block;
+  transition:transform .3s;
+}
+.cat-card:hover .cat-arrow{transform:translateX(5px)}
+
+/* PER-PAGE ASSET CLASS THEMING ============================== */
+body.asset-forex   { --page-a:#0EA5E9; --page-ad:#0369A1; --page-rgb:14,165,233; }
+body.asset-futures { --page-a:#F59E0B; --page-ad:#B45309; --page-rgb:245,158,11; }
+body.asset-crypto  { --page-a:#A78BFA; --page-ad:#7C3AED; --page-rgb:167,139,250; }
+
+/* Hero accent override on asset pages */
+body[class*="asset-"] .page-title em{
+  background:linear-gradient(120deg, var(--page-ad), var(--page-a), var(--page-ad));
+  background-size:300% auto;
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+body[class*="asset-"] .s-tag{ color:var(--page-a); }
+body[class*="asset-"] .s-tag::before{ background:var(--page-a); }
+body[class*="asset-"] .breadcrumb:hover{ color:var(--page-a); }
+body[class*="asset-"] .lesson-row:hover .lesson-num{ color:var(--page-a); }
+body[class*="asset-"] .lesson-tag{
+  color:var(--page-a);
+  background:rgba(var(--page-rgb),0.12);
+  border-color:rgba(var(--page-rgb),0.3);
+}
+body[class*="asset-"] .lesson-tag.preview{
+  color:var(--green-l);background:rgba(16,185,129,.12);border-color:rgba(16,185,129,.3);
+}
+body[class*="asset-"] .trade-chip.session{
+  color:var(--page-a);
+  border-color:rgba(var(--page-rgb),0.3);
+  background:rgba(var(--page-rgb),0.10);
+}
+
+/* ============================================
+   ARTICLE / LESSON PAGE (long-form reading)
+   ============================================ */
+.article{
+  max-width:740px;margin:0 auto;
+  font-size:1.05rem;line-height:1.78;
+  color:var(--ink-2);
+}
+.article h2, .article h3{
+  font-family:var(--serif);color:var(--white);
+  letter-spacing:-.015em;line-height:1.2;
+}
+.article h2{
+  font-size:clamp(1.7rem,3vw,2.2rem);
+  font-weight:800;margin:3rem 0 1rem;
+}
+.article h2:first-child{margin-top:0}
+.article h2 em{
+  font-style:italic;
+  background:linear-gradient(120deg,var(--page-ad,var(--blue-d)),var(--page-a,var(--blue-l)),var(--page-ad,var(--blue-d)));
+  background-size:300% auto;
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  animation:shimmer 5s linear infinite;
+}
+.article h3{
+  font-size:1.25rem;font-weight:700;
+  margin:2.2rem 0 .8rem;color:var(--white);
+}
+.article p{margin-bottom:1.1rem}
+.article p strong{color:var(--white);font-weight:600}
+.article a:not(.link-btn):not(.btn-cta){
+  color:var(--page-a,var(--blue-l));
+  border-bottom:1px solid rgba(var(--page-rgb,14 165 233),0.3);
+  text-decoration:none;transition:border-color .2s;
+}
+.article a:not(.link-btn):not(.btn-cta):hover{
+  border-bottom-color:var(--page-a,var(--blue-l));
+}
+.article ul, .article ol{
+  margin:0 0 1.4rem 1.2rem;padding-left:.6rem;
+}
+.article ul li, .article ol li{
+  margin-bottom:.5rem;padding-left:.3rem;
+}
+.article ul li::marker{color:var(--page-a,var(--blue-l))}
+
+/* Formula / code box */
+.formula{
+  background:rgba(0,0,0,0.4);
+  border:1px solid var(--border);
+  border-left:3px solid var(--page-a,var(--blue-l));
+  border-radius:var(--radius);
+  padding:1rem 1.2rem;
+  margin:1.4rem 0;
+  font-family:'JetBrains Mono','Fira Code','Courier New',monospace;
+  font-size:13.5px;line-height:1.7;
+  color:var(--ink);
+  white-space:pre;
+  overflow-x:auto;
+}
+.formula strong{color:var(--page-a,var(--blue-l));font-weight:700}
+
+/* Example box (concrete number example) */
+.example{
+  background:rgba(var(--page-rgb,14 165 233),0.06);
+  border:1px solid rgba(var(--page-rgb,14 165 233),0.22);
+  border-radius:var(--radius);
+  padding:1.2rem 1.4rem;
+  margin:1.6rem 0;
+}
+.example-label{
+  display:inline-block;
+  font-size:10.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--page-a,var(--blue-l));
+  margin-bottom:.5rem;
+}
+.example p{margin-bottom:.5rem}
+.example p:last-child{margin-bottom:0}
+
+/* Callout - pull-quote style */
+.callout{
+  position:relative;
+  margin:2rem 0;padding:1.4rem 1.6rem 1.4rem 2.4rem;
+  font-family:var(--serif);
+  font-size:1.2rem;font-style:italic;font-weight:500;
+  line-height:1.5;color:var(--white);
+  border-left:3px solid var(--page-a,var(--blue-l));
+  background:linear-gradient(90deg, rgba(var(--page-rgb,14 165 233),0.06), transparent);
+}
+.callout::before{
+  content:'"';position:absolute;left:.5rem;top:.4rem;
+  font-size:2.4rem;color:var(--page-a,var(--blue-l));opacity:.6;line-height:1;
+}
+
+/* Recap table */
+.recap-table{
+  width:100%;border-collapse:collapse;
+  margin:1.6rem 0;
+  background:rgba(12,15,21,0.6);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  overflow:hidden;
+  font-size:13.5px;
+}
+.recap-table th{
+  background:rgba(var(--page-rgb,14 165 233),0.10);
+  color:var(--page-a,var(--blue-l));
+  font-weight:700;letter-spacing:.04em;
+  text-align:left;padding:.7rem 1rem;
+  border-bottom:1px solid rgba(var(--page-rgb,14 165 233),0.25);
+  font-size:11.5px;text-transform:uppercase;
+}
+.recap-table th:not(:first-child){text-align:right}
+.recap-table td{
+  padding:.7rem 1rem;
+  border-bottom:1px solid var(--border);
+  color:var(--ink-2);
+}
+.recap-table td:not(:first-child){
+  text-align:right;
+  font-variant-numeric:tabular-nums;
+  color:var(--white);font-weight:500;
+}
+.recap-table tr:last-child td{border-bottom:none}
+.recap-table tr:hover{background:rgba(255,255,255,0.02)}
+
+/* TL;DR / key insight banner */
+.tldr{
+  background:linear-gradient(135deg, rgba(var(--page-rgb,14 165 233),0.10), rgba(var(--page-rgb,14 165 233),0.03));
+  border:1px solid rgba(var(--page-rgb,14 165 233),0.3);
+  border-radius:var(--radius-lg);
+  padding:1.4rem 1.6rem;
+  margin:2rem 0;
+}
+.tldr-label{
+  font-size:10.5px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--page-a,var(--blue-l));
+  display:block;margin-bottom:.5rem;
+}
+.tldr p{margin:0;color:var(--white);font-size:1.05rem;line-height:1.6}
+
+/* Next lesson CTA at the end */
+.next-lesson{
+  display:flex;align-items:center;justify-content:space-between;
+  background:rgba(12,15,21,0.7);
+  border:1px solid var(--border);
+  border-radius:var(--radius-lg);
+  padding:1.4rem 1.6rem;margin-top:3rem;
+  text-decoration:none;color:inherit;
+  transition:all .3s cubic-bezier(.2,.8,.2,1);
+  gap:1rem;
+}
+.next-lesson:hover{
+  transform:translateX(4px);
+  border-color:rgba(var(--page-rgb,14 165 233),0.4);
+  background:rgba(16,20,28,0.92);
+}
+.next-lesson-meta{display:flex;flex-direction:column;gap:.3rem}
+.next-lesson-label{
+  font-size:10.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--muted-2);
+}
+.next-lesson-title{
+  font-family:var(--serif);font-size:1.2rem;font-weight:700;
+  color:var(--white);line-height:1.2;
+}
+.next-lesson-arrow{
+  font-size:1.4rem;color:var(--page-a,var(--blue-l));
+  transition:transform .3s;
+}
+.next-lesson:hover .next-lesson-arrow{transform:translateX(4px)}
+
+/* Make bullet list items inside .article clickable links look clean */
+.bullet-list a{
+  color:var(--ink-2);text-decoration:none;border-bottom:none;
+  display:inline-flex;align-items:center;gap:.4rem;
+  transition:color .2s;
+}
+.bullet-list a:hover{color:var(--page-a,var(--blue-l))}
+.bullet-list a::after{content:'→';opacity:0;transition:opacity .2s,transform .2s;margin-left:4px}
+.bullet-list a:hover::after{opacity:1;transform:translateX(2px)}
+
 /* ===== INNER PAGES (courses, trading-plan, trades) ===== */
 .page-hero{
   position:relative;z-index:1;
@@ -1168,7 +1461,7 @@ body.sb-open .nav-toggle span:nth-child(3){transform:translateY(-4.5px) rotate(-
 .cal-widget{width:100%;min-height:720px}
 .cal-widget iframe{border-radius:var(--radius);background:transparent}
 
-/* Custom calendar — events list */
+/* Custom calendar - events list */
 .cal-status{
   padding:1.4rem 1rem;text-align:center;color:var(--muted);
   font-size:13.5px;
