@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Spread - Forex Basics · B.E.T.Trade</title>
+<meta name="description" content="Spread je skrytý poplatok ktorý ti broker účtuje pri každom obchode. Ako sa mení podľa session, prečo scalper bez správneho brokera nikdy nezarobí, a kedy spread zruinuje aj dobrý setup.">
+<meta name="theme-color" content="#0EA5E9">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,800;0,900;1,700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body class="asset-forex">
+
+<div class="bg-gradient"></div>
+<canvas id="bg-canvas"></canvas>
+<div id="cursor"></div>
+
+<div id="sidebar-mount"></div>
+
+<nav id="nav">
+  <div class="nav-left">
+    <button class="nav-toggle" id="sb-toggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <a class="logo" href="../index.html" style="text-decoration:none">
+      <span class="logo-dot"></span>
+      B.E.T.<span>Trade</span>
+    </a>
+  </div>
+  <div class="nav-right">
+    <a class="nav-btn" href="../index.html#cta-email" style="text-decoration:none">Pridaj sa</a>
+  </div>
+</nav>
+
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <a href="forex.html" class="breadcrumb">← Späť na Forex</a>
+    <span class="s-tag">Forex Basics · Lekcia 01.4 (posledná)</span>
+    <h1 class="page-title"><em>Spread</em></h1>
+    <p class="page-sub">Skrytý poplatok ktorý ti broker odráta pri každom jednom obchode. Niekedy je to centy, niekedy stovky dolárov. Tu sa naučíš kedy ti spread nevadí, kedy ti zožerie celý edge, a ako si vybrať brokera ktorý ti nevyfajčí konto cez ten najtichší poplatok v hre.</p>
+    <div class="page-meta">
+      <span class="trade-chip session">~6 min čítania</span>
+      <span class="trade-chip">Foundational</span>
+      <span class="trade-chip">Posledná Basics lekcia</span>
+    </div>
+  </div>
+</section>
+
+<div class="section">
+  <article class="article">
+
+    <div class="tldr">
+      <span class="tldr-label">TL;DR - bez okolkov</span>
+      <p><strong>Spread = bid/ask rozdiel = poplatok ktorý zaplatíš pri každom vstupe.</strong> Každý obchod začínaš v mínuse o veľkosť spreadu. Na EUR/USD je to zvyčajne $1-$10 na lot. Na exotic pároch alebo počas news $50-$200. Scalper bez správneho brokera tu prehrá vojnu skôr než stratégia ukáže edge.</p>
+    </div>
+
+    <h2>Čo to <em>vlastne</em> je</h2>
+    <p>Keď sa pozrieš na cenu EUR/USD, neexistuje len „jedna cena". Existujú vždy dve - <strong>bid</strong> (za koľko broker kúpi od teba) a <strong>ask</strong> (za koľko ti broker predá). Rozdiel medzi nimi je <strong>spread</strong>, a je to presne suma ktorú zaplatíš za otvorenie obchodu.</p>
+
+    <div class="formula">EUR/USD bid: 1.08495   (predaj)
+EUR/USD ask: 1.08502   (nákup)
+                ──────────
+Spread:         0.00007 = <strong>0.7 pip</strong></div>
+
+    <p>Otvoríš long za ask (1.08502), zatvoríš short za bid (1.08495). Hneď ako otvoríš, si v mínuse o 0.7 pip - pri 1 standard lote to je <strong>-$7</strong>. Kým sa cena pohne o 0.7 pip v tvoj prospech, len si dorovnal spread. Teprve potom zarábaš.</p>
+
+    <div class="callout">Spread je jediný daň ktorú zaplatíš pri každom vstupe. Bez výnimky. Bez ohľadu na to či vyhráš alebo prehráš.</div>
+
+    <h2>Typy spreadov - <em>ktorý chceš a ktorý nie</em></h2>
+    <ul>
+      <li><strong>Fixed spread</strong> - vždy rovnaký bez ohľadu na trh. Znie pekne, v praxi je to typický market-maker broker ktorý zarobí na rozdiele medzi tým čo dostane na medzibanke a tým čo ti účtuje. Vyhni sa.</li>
+      <li><strong>Variable / floating spread</strong> - mení sa podľa likvidity a session. Štandard u 90 % brokerov. Cez London/NY overlap úzky, cez Asian/rollover široký.</li>
+      <li><strong>Raw spread + commission</strong> - ECN model. Broker ti dá takmer 0 spread (0.0-0.3 pips) ale účtuje fixnú komisiu (typicky $3-$7 na 1 standard lot round-trip). Pre serious traderov najlepšia voľba.</li>
+    </ul>
+
+    <h2>Čo ovplyvňuje <em>veľkosť</em> spreadu</h2>
+    <ol>
+      <li><strong>Likvidita páru</strong> - EUR/USD má najmenší spread vôbec (najobchodovanejší). EUR/GBP, EUR/AUD vyššie. Exotic páry (USD/TRY, USD/MXN) môžu mať 30-100 pip spread.</li>
+      <li><strong>Session</strong> - najužší v London/NY overlap (13:00-17:00 NY čas). Najširší pri rollover (17:00 NY) a počas Asian session pre non-Asian páry.</li>
+      <li><strong>News events</strong> - pri NFP, CPI, FOMC sa spread na 30-60 sekúnd <strong>roztiahne 10-20×</strong>. EUR/USD z 0.5 pip na 8-15 pips. To je dôvod prečo prop firmy zakazujú news trading.</li>
+      <li><strong>Typ brokera</strong> - ECN < STP < Market maker. Pri ECN ti broker pasuje order priamo na medzibanku, pri MM je broker druhou stranou obchodu.</li>
+    </ol>
+
+    <h2>Príklad - <em>kedy ti spread zožerie edge</em></h2>
+
+    <div class="example">
+      <span class="example-label">Scenár - Scalper na EUR/USD</span>
+      <p>Stratégia: 100 obchodov mesačne, priemerný target 8 pipov, SL 5 pipov.</p>
+      <p>Broker A: 1.5 pip spread, žiadna komisia (STP)</p>
+      <p>Broker B: 0.1 pip spread + $7 komisia per RT lot (ECN raw)</p>
+      <br>
+      <p>Pri 1 standard lote, 100 obchodov:</p>
+      <p>Broker A: 100 × 1.5 pip × $10 = <strong>-$1500</strong> v spreadoch</p>
+      <p>Broker B: 100 × 0.1 pip × $10 + 100 × $7 = $100 + $700 = <strong>-$800</strong> celkové náklady</p>
+      <br>
+      <p>Rozdiel: <strong>$700 mesačne</strong>. Pri scalping stratégii s 1.5R cieľmi to je často rozdiel medzi profit a loss.</p>
+    </div>
+
+    <h2>Príklad - <em>swing trader</em>, kde to nevadí</h2>
+    <div class="example">
+      <span class="example-label">Scenár - Swing trader na EUR/USD</span>
+      <p>5 obchodov mesačne, priemerný target 80 pipov, SL 30 pipov.</p>
+      <p>Broker A: 1.5 pip spread → 5 × $15 = <strong>-$75 mesačne</strong></p>
+      <p>Broker B: 0.1 pip + $7 → 5 × $1 + 5 × $7 = <strong>-$40 mesačne</strong></p>
+      <br>
+      <p>Rozdiel: $35 mesačne. Vzhľadom k veľkým targetom a malému počtu trade-ov spread sotva pohne s celkovým výsledkom. Swing trader si môže dovoliť aj horšie spready.</p>
+    </div>
+
+    <h2>Spread a tvoj <em>SL / R:R</em></h2>
+    <p>Toto sa väčšina začiatočníkov ignoruje. Tvoj reálny SL je o spread <strong>širší</strong> než ten ktorý vidíš na charte:</p>
+
+    <div class="formula">Skutočný risk = (SL distance + spread) × pip value × lot</div>
+
+    <div class="example">
+      <span class="example-label">Praktický dopad</span>
+      <p>EUR/USD short, entry @ 1.0850, SL @ 1.0860 = <strong>10 pip SL</strong></p>
+      <p>Spread = 1 pip. Reálne riskuješ <strong>11 pipov</strong>, nie 10.</p>
+      <p>To je <strong>+10 % skrytý risk</strong> oproti tomu čo si si naplánoval.</p>
+      <p>Pri lot sizing zo zlatého vzorca toto skoriguj: dosaď do menovateľa (SL + spread) namiesto čistého SL.</p>
+    </div>
+
+    <h2>Kedy a kde sa <em>spread roztiahne</em></h2>
+    <ul>
+      <li><strong>17:00 NY čas (rollover)</strong> - spread blow-up na 1-3 minúty, na EUR/USD z 0.5 na 5-10 pips. Nikdy neotváraj pozíciu vtedy.</li>
+      <li><strong>Asian session (20:00-02:00 NY)</strong> - non-Asian páry (EUR/USD, GBP/USD) majú širšie spready kvôli nižšej likvidite.</li>
+      <li><strong>Piatok večer + nedeľa večer</strong> - okolo otvorenia trhu po víkende sú spready zdvihnuté kým sa likvidita zotaví.</li>
+      <li><strong>NFP, CPI, FOMC, ECB</strong> - 30 sekúnd pred a po release sa spread rozšíri 10-30×. Profíci stoja preč.</li>
+      <li><strong>Bank holidays</strong> - pri zatvorenom Tokio/London market sa likvidita na EUR/JPY/GBP pároch dramaticky znižuje.</li>
+    </ul>
+
+    <h2>Cheatsheet - <em>typické spready</em> dobrého brokera</h2>
+    <p>Hodnoty pre London-NY overlap (najlepší čas) na dobrom ECN brokerovi:</p>
+
+    <table class="recap-table">
+      <thead>
+        <tr><th>Pár</th><th>Raw (ECN)</th><th>Štandard (STP)</th><th>Market maker</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>EUR/USD</td>      <td>0.0-0.3 pip</td>  <td>0.8-1.5 pip</td>   <td>2-3 pip</td></tr>
+        <tr><td>GBP/USD</td>      <td>0.3-0.6 pip</td>  <td>1.2-2.0 pip</td>   <td>2.5-4 pip</td></tr>
+        <tr><td>USD/JPY</td>      <td>0.2-0.5 pip</td>  <td>1.0-1.5 pip</td>   <td>2-3 pip</td></tr>
+        <tr><td>EUR/GBP</td>      <td>0.4-0.8 pip</td>  <td>1.5-2.5 pip</td>   <td>3-5 pip</td></tr>
+        <tr><td>GBP/JPY</td>      <td>1.0-2.0 pip</td>  <td>3-5 pip</td>       <td>5-8 pip</td></tr>
+        <tr><td>XAU/USD</td>      <td>10-20 pips</td>   <td>25-40 pips</td>    <td>40-80 pips</td></tr>
+        <tr><td>USD/TRY (exotic)</td><td>30-60 pips</td><td>80-150 pips</td>   <td>200+ pips</td></tr>
+      </tbody>
+    </table>
+
+    <p style="font-size:13px;color:var(--muted-2);margin-top:.5rem">Pri raw spreade ráta sa ešte commission (~$7 per RT lot). Pri STP/MM nie je extra commission ale celkový náklad je vyšší.</p>
+
+    <h2>Common mistakes</h2>
+    <ol>
+      <li><strong>Ignorovať spread v R:R kalkulácii</strong> - tvoj 1:2 setup je v skutočnosti 1:1.8 keď zarátaš spread.</li>
+      <li><strong>Skalpovať na MM brokerovi</strong> - 2 pip spread × 200 obchodov mesačne = -$4000 v spreadoch na 1 lote. Bez šance.</li>
+      <li><strong>Otvárať pri rolloveri</strong> - ten 17:00 NY moment zožerie každý ten-cent edge.</li>
+      <li><strong>Trade exotic páry bez kontroly</strong> - USD/MXN spread môže byť 100 pip. Pre 10 pip target nemá zmysel.</li>
+      <li><strong>Porovnávať brokerov len podľa spreadu</strong> - vždy zarátaj aj commission. Raw 0.1 pip + $7 commission = ekvivalent 0.8 pip spreadu.</li>
+    </ol>
+
+    <h2>Praktické <em>odporúčania</em></h2>
+    <ul>
+      <li><strong>Pre intraday + scalp</strong>: ECN raw spread broker (IC Markets Raw, Pepperstone Razor, Tickmill Pro). Príplať commission ale ušetríš na spreade.</li>
+      <li><strong>Pre swing trade</strong>: STP broker s 1-1.5 pip spread úplne stačí. Žiadna potreba platiť commission.</li>
+      <li><strong>Vyhni sa</strong> market makerom s fixed spreadom alebo „no commission" marketingom - poplatok je tam, len je skrytý v širšom spreade.</li>
+      <li><strong>Načasovanie</strong>: hlavné setupy plánuj na London-NY overlap (13:00-17:00 NY), keď je likvidita najvyššia a spreads najnižšie.</li>
+    </ul>
+
+    <h2>Forex Basics - <em>hotovo</em></h2>
+    <p>To je celá Forex Basics sekcia. Máš v hlave:</p>
+    <ul>
+      <li><strong>Pip Value</strong> - koľko ti 1 pip prinesie alebo zoberie</li>
+      <li><strong>Lot Sizing</strong> - zlatý vzorec na pozíciu podľa risk %</li>
+      <li><strong>Leverage</strong> - prečo je to len strop, nie odporúčanie</li>
+      <li><strong>Spread</strong> - skrytý poplatok pri každom obchode</li>
+    </ul>
+    <p>To je foundation. Bez tohoto nikam nejdeš. S týmto môžeš ísť na ďalšie - <strong>Major Pairs</strong>, kde si rozsekáme EUR/USD, GBP/USD a USD/JPY: ich charakteristiky, kedy sa hýbu, ako fungujú correlations, a ktorý pár obchodovať v ktorej session.</p>
+    <p>Daj si pauzu, najedz sa, vráť sa s čistou hlavou a poďme ďalej.</p>
+
+    <a class="next-lesson" href="forex.html">
+      <div class="next-lesson-meta">
+        <span class="next-lesson-label">Ďalšia lekcia</span>
+        <span class="next-lesson-title">Major Pairs - EUR/USD, GBP/USD, USD/JPY</span>
+      </div>
+      <span class="next-lesson-arrow">→</span>
+    </a>
+
+  </article>
+</div>
+
+<footer>© 2026 B.E.T.Trade · Všetky práva vyhradené</footer>
+
+<script src="../js/sidebar.js"></script>
+<script src="../js/main.js"></script>
+</body>
+</html>
