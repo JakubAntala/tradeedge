@@ -191,7 +191,7 @@
 
   function fmtDate(d) {
     try {
-      return new Date(d).toLocaleDateString('sk-SK', { day: '2-digit', month: 'short', year: 'numeric' });
+      return new Date(d).toLocaleDateString('en-US', { day: '2-digit', month: 'short', year: 'numeric' });
     } catch (_) { return d || ''; }
   }
   function fmtTime(t) {
@@ -227,7 +227,7 @@
         <div class="trade-narr">${(t.narrative || '').slice(0, 280)}</div>
         <div class="trade-foot">
           <span>${fmtDate(t.trade_date || t.date)} · ${fmtTime(t.entry_time)} NY</span>
-          <span>${t.units ? t.units + ' kontraktov' : ''}</span>
+          <span>${t.units ? t.units + ' contracts' : ''}</span>
         </div>
       </div>`;
   }
@@ -235,7 +235,7 @@
   const trades = await loadTrades();
   if (!trades.length) {
     grid.innerHTML = `<div class="trades-footnote" style="grid-column:1/-1">
-      Zatiaľ žiadne obchody v cache. Spusti <code>npm run sync:trades</code> v backende.
+      No trades in cache yet. Run <code>npm run sync:trades</code> in the backend.
     </div>`;
     return;
   }
@@ -252,11 +252,11 @@ window.signup = function (inputId, successId) {
   if (!email || !email.includes('@') || !email.includes('.')) {
     input.style.borderColor = 'rgba(239,68,68,.5)';
     input.style.background = 'rgba(239,68,68,.04)';
-    input.placeholder = 'Zadaj platný email...';
+    input.placeholder = 'Enter a valid email...';
     setTimeout(() => {
       input.style.borderColor = '';
       input.style.background = '';
-      input.placeholder = 'tvoj@email.sk';
+      input.placeholder = 'your@email.com';
     }, 2000);
     return;
   }

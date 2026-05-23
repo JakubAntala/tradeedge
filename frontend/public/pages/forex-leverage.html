@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="sk">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Leverage - Forex Basics · B.E.T.Trade</title>
-<meta name="description" content="Leverage rozsekaný - prečo 1:500 nie je dôvod ho použiť, ako sa počíta margin, čo je margin call a prečo ti správny lot sizing robí celý leverage drama bezpredmetným.">
+<meta name="description" content="Leverage demystified - why 1:500 isn't a reason to use it, how margin is calculated, what a margin call is, and why proper lot sizing makes the whole leverage drama irrelevant.">
 <meta name="theme-color" content="#0EA5E9">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -30,20 +30,20 @@
     </a>
   </div>
   <div class="nav-right">
-    <a class="nav-btn" href="../index.html#cta-email" style="text-decoration:none">Pridaj sa</a>
+    <a class="nav-btn" href="../index.html#cta-email" style="text-decoration:none">Join</a>
   </div>
 </nav>
 
 <section class="page-hero">
   <div class="page-hero-inner">
-    <a href="forex.html" class="breadcrumb">← Späť na Forex</a>
-    <span class="s-tag">Forex Basics · Lekcia 01.3</span>
+    <a href="forex.html" class="breadcrumb">← Back to Forex</a>
+    <span class="s-tag">Forex Basics · Lesson 01.3</span>
     <h1 class="page-title"><em>Leverage</em></h1>
-    <p class="page-sub">Najviac nepochopený koncept v tradingu. Marketing ti predáva 1:500 ako výhodu. Pravda je že ak používaš lot sizing zo zlatého vzorca, leverage je len strop ktorý takmer nikdy nedosiahneš. Tu je celý príbeh.</p>
+    <p class="page-sub">The most misunderstood concept in trading. Marketing sells you 1:500 as an advantage. The truth is, if you use lot sizing from the golden formula, leverage is just a ceiling you almost never hit. Here's the whole story.</p>
     <div class="page-meta">
-      <span class="trade-chip session">~7 min čítania</span>
+      <span class="trade-chip session">~7 min read</span>
       <span class="trade-chip">Foundational</span>
-      <span class="trade-chip">Nadväzuje na Lot Sizing</span>
+      <span class="trade-chip">Follows Lot Sizing</span>
     </div>
   </div>
 </section>
@@ -52,83 +52,83 @@
   <article class="article">
 
     <div class="tldr">
-      <span class="tldr-label">TL;DR - payoff zo sneak peek</span>
-      <p><strong>Leverage je strop, nie odporúčanie.</strong> Ak používaš lot size z predošlej lekcie (1 % risk, vzorec), tak 1:30 a 1:500 ti vyjde úplne rovnako - riskuješ to isté, otvoríš tú istú pozíciu, len ti broker zarezervuje iný margin. Leverage ťa zabije jedine ak ignoruješ lot sizing a používaš ho ako násobič.</p>
+      <span class="tldr-label">TL;DR - payoff from the sneak peek</span>
+      <p><strong>Leverage is a ceiling, not a recommendation.</strong> If you use lot size from the previous lesson (1 % risk, formula), then 1:30 and 1:500 give you the exact same result - you risk the same, you open the same position, the broker just reserves a different margin. Leverage kills you only if you ignore lot sizing and use it as a multiplier.</p>
     </div>
 
-    <h2>Najväčší mýtus v tradingu</h2>
-    <p>YouTube je plný titulkov typu „GET 1:500 LEVERAGE NOW!!!" a začínajúci traderi si myslia že vyššia leverage = vyšší zisk. Realita: <strong>leverage sám o sebe ti nedáva ani cent zisku navyše</strong>. Leverage je len kapitálová efektivita - ako veľkú pozíciu broker povolí vzhľadom na to čo máš na účte.</p>
-    <p>Ak má dvaja traderi rovnakú stratégiu, rovnaký účet $5000, rovnaký risk 1 %, otvárajú rovnakú pozíciu (0.20 lot na EUR/USD) - jeden má broker s 1:30, druhý s 1:500. Po roku majú <strong>identický výsledok</strong>. Jediný rozdiel: ten s 1:500 mohol mať viac súčasných pozícií alebo väčšiu wiggle room pri margin calle.</p>
+    <h2>The biggest myth in trading</h2>
+    <p>YouTube is full of titles like "GET 1:500 LEVERAGE NOW!!!" and beginners think higher leverage = higher profit. Reality: <strong>leverage by itself doesn't give you a single cent of extra profit</strong>. Leverage is just capital efficiency - how big a position the broker lets you open relative to what you have in the account.</p>
+    <p>If two traders have the same strategy, the same $5000 account, the same 1 % risk, they open the same position (0.20 lot on EUR/USD) - one is at a 1:30 broker, the other at 1:500. After a year they have <strong>identical results</strong>. The only difference: the one at 1:500 could have had more concurrent positions or more wiggle room before margin call.</p>
 
-    <div class="callout">Leverage nezarobí peniaze. Ani nestratí. Iba mení koľko peňazí ti broker rezervuje keď otvoríš pozíciu.</div>
+    <div class="callout">Leverage doesn't make money. It doesn't lose it either. It only changes how much capital the broker reserves when you open a position.</div>
 
-    <h2>Čo to <em>presne</em> je - mechanika</h2>
-    <p>Leverage je pomer ktorý ti hovorí <strong>akú veľkú pozíciu môžeš otvoriť na jednotku vlastného kapitálu</strong>:</p>
+    <h2>What it <em>actually</em> is - the mechanics</h2>
+    <p>Leverage is a ratio that tells you <strong>how big a position you can open per unit of your own capital</strong>:</p>
 
-    <div class="formula">1:30   → na $1 môžeš otvoriť pozíciu za $30
-1:100  → na $1 môžeš otvoriť pozíciu za $100
-1:500  → na $1 môžeš otvoriť pozíciu za $500</div>
+    <div class="formula">1:30   → on $1 you can open a position worth $30
+1:100  → on $1 you can open a position worth $100
+1:500  → on $1 you can open a position worth $500</div>
 
-    <p>Ten kapitál ktorý broker zarezervuje na otvorenú pozíciu sa volá <strong>margin</strong>. Vzorec je obrátený leverage:</p>
+    <p>The capital the broker reserves for an open position is called <strong>margin</strong>. The formula is inverse leverage:</p>
 
     <div class="formula">Margin = Position size / Leverage
 
-EUR/USD, 1 standard lot = $100 000 notional
-@ 1:30  → margin = $100 000 / 30  = $3 333
-@ 1:100 → margin = $100 000 / 100 = $1 000
-@ 1:500 → margin = $100 000 / 500 = $200</div>
+EUR/USD, 1 standard lot = $100,000 notional
+@ 1:30  → margin = $100,000 / 30  = $3,333
+@ 1:100 → margin = $100,000 / 100 = $1,000
+@ 1:500 → margin = $100,000 / 500 = $200</div>
 
-    <p>Takže s leverage 1:500 ti broker „zablokuje" len $200 z účtu aby si otvoril 1 lot pozíciu. Zvyšok ($4800 na $5000 účte) máš ako <strong>free margin</strong> - voľný kapitál na ďalšie pozície alebo na absorbovanie pohybu proti tebe.</p>
+    <p>So at 1:500 the broker only "locks" $200 of your account to open a 1 lot position. The rest ($4800 on a $5000 account) you have as <strong>free margin</strong> - free capital for additional positions or to absorb adverse movement.</p>
 
-    <h2>Payoff zo <em>sneak peek</em></h2>
-    <p>V <a href="forex-lot-sizing.html">Lot Sizing lekcii</a> som ti sľúbil že ti vysvetlím prečo leverage neovplyvní tradera ktorý vie počítať lot size. Tu prichádza ten moment.</p>
-    <p>Zoberme dvoch traderov, obaja s účtom $5000, obaja chcú 1 % risk, EUR/USD setup s 25 pip SL.</p>
+    <h2>The <em>sneak peek</em> payoff</h2>
+    <p>In the <a href="forex-lot-sizing.html">Lot Sizing lesson</a> I promised you'd see why leverage doesn't affect a trader who knows how to calculate lot size. Here's that moment.</p>
+    <p>Let's take two traders, both with a $5000 account, both wanting 1 % risk, EUR/USD setup with a 25 pip SL.</p>
 
     <div class="example">
-      <span class="example-label">Trader A - broker EU regulovaný (1:30)</span>
+      <span class="example-label">Trader A - EU-regulated broker (1:30)</span>
       <p>Lot size = $50 / (25 × $10) = <strong>0.20 lot</strong></p>
-      <p>Notional = $20 000. Margin requirement = $20 000 / 30 = <strong>$667</strong></p>
-      <p>Voľný margin: $5000 − $667 = <strong>$4 333</strong></p>
+      <p>Notional = $20,000. Margin requirement = $20,000 / 30 = <strong>$667</strong></p>
+      <p>Free margin: $5000 − $667 = <strong>$4,333</strong></p>
     </div>
 
     <div class="example">
       <span class="example-label">Trader B - offshore broker (1:500)</span>
-      <p>Lot size = $50 / (25 × $10) = <strong>0.20 lot</strong> (rovnako)</p>
-      <p>Notional = $20 000. Margin requirement = $20 000 / 500 = <strong>$40</strong></p>
-      <p>Voľný margin: $5000 − $40 = <strong>$4 960</strong></p>
+      <p>Lot size = $50 / (25 × $10) = <strong>0.20 lot</strong> (same)</p>
+      <p>Notional = $20,000. Margin requirement = $20,000 / 500 = <strong>$40</strong></p>
+      <p>Free margin: $5000 − $40 = <strong>$4,960</strong></p>
     </div>
 
-    <p>Pri stope obaja stratia presne <strong>$50</strong>. Pri 2R obaja zarobia $100. <strong>Rozdiel pre P/L: nula.</strong></p>
-    <p>Jediný rozdiel je voľný margin. Trader B s 1:500 môže mať viac pozícií súčasne alebo absorbovať väčší unrealized drawdown bez margin callu. Pre teoretického swing tradera s viacerými otvorenými pozíciami môže to byť relevantné. Pre intraday tradera so single position setup-om: bezvýznamné.</p>
+    <p>At the stop both lose exactly <strong>$50</strong>. At 2R both make $100. <strong>P/L difference: zero.</strong></p>
+    <p>The only difference is free margin. Trader B at 1:500 can have more concurrent positions or absorb a bigger unrealized drawdown without a margin call. For a theoretical swing trader with multiple open positions that could matter. For an intraday trader with single-position setups: irrelevant.</p>
 
-    <h2>Kedy <em>zabije</em> leverage</h2>
-    <p>Leverage zabije len ak ho používaš ako násobič. Príklad noob mistake:</p>
+    <h2>When leverage <em>kills</em></h2>
+    <p>Leverage kills only if you use it as a multiplier. A noob mistake example:</p>
 
     <div class="example">
-      <span class="example-label">Trader C - ignoruje lot sizing</span>
-      <p>Účet $5000. 1:500 leverage. „Mám margin na 5 standard lotov, tak otvorím 5 lotov!"</p>
-      <p>Notional = $500 000. Pri 10 pip pohybe proti = <strong>5 × $100 = $500 strata</strong></p>
-      <p>Pri 25 pip pohybe proti = <strong>$1250 strata</strong> = 25 % účtu na jednom obchode.</p>
-      <p>Po 4 takých stratách → účet sa zníži na polovicu. Po 8 → koniec.</p>
+      <span class="example-label">Trader C - ignores lot sizing</span>
+      <p>Account $5000. 1:500 leverage. "I've got margin for 5 standard lots, so I'll open 5!"</p>
+      <p>Notional = $500,000. With a 10 pip move against = <strong>5 × $100 = $500 loss</strong></p>
+      <p>With a 25 pip move against = <strong>$1250 loss</strong> = 25 % of the account on one trade.</p>
+      <p>After 4 such losses → account cut in half. After 8 → done.</p>
     </div>
 
-    <p>Vidíš to? <strong>Nie leverage spôsobil stratu - spôsobil ju nesprávny lot size.</strong> Leverage len umožnil otvoriť tú obrovskú pozíciu. Pri 1:30 by si 5 lotov nemohol vôbec otvoriť ($150 000 notional × 1/30 = $5000 margin = celý účet zablokovaný).</p>
+    <p>See it? <strong>Leverage didn't cause the loss - bad lot sizing did.</strong> Leverage just enabled opening that huge position. At 1:30 you couldn't have opened 5 lots at all ($150,000 notional × 1/30 = $5000 margin = whole account locked).</p>
 
-    <h2>Margin call &amp; stop out - <em>kedy ti broker zatvorí pozíciu</em></h2>
-    <p>Toto sú dve hranice ktoré musíš poznať:</p>
+    <h2>Margin call &amp; stop out - <em>when the broker closes your position</em></h2>
+    <p>Two thresholds you must know:</p>
     <ul>
       <li><strong>Margin level</strong> = (Equity / Used margin) × 100 %</li>
-      <li><strong>Margin call</strong> = upozornenie keď margin level klesne pod určitú hranicu (typicky 100 % alebo 50 %)</li>
-      <li><strong>Stop out</strong> = broker násilne zatvorí pozície keď klesneš ešte nižšie (typicky 50 % alebo 20 %)</li>
+      <li><strong>Margin call</strong> = warning when margin level falls below a threshold (typically 100 % or 50 %)</li>
+      <li><strong>Stop out</strong> = broker force-closes positions when you drop even lower (typically 50 % or 20 %)</li>
     </ul>
-    <p>Keď ti margin level padne pod stop-out úroveň, broker začne <strong>automaticky zatvárať tvoje pozície</strong> - od najväčšej straty po najmenšiu - kým sa margin nedostane späť nad hranicu. Žiadne dovolenie, žiadne varovanie. Skončíš s realizovanou stratou bez šance na recovery.</p>
+    <p>When margin level falls below stop-out, the broker starts <strong>automatically closing your positions</strong> - from biggest loss to smallest - until margin returns above the threshold. No permission, no warning. You end up with a realized loss and no chance to recover.</p>
 
-    <h2>Regulácia - <em>prečo EU má 1:30 a offshore 1:500</em></h2>
-    <p>Po roku 2018 ESMA (European Securities and Markets Authority) zaviedla limity v EU/UK:</p>
+    <h2>Regulation - <em>why EU is 1:30 and offshore is 1:500</em></h2>
+    <p>After 2018 ESMA (European Securities and Markets Authority) introduced caps in the EU/UK:</p>
 
     <table class="recap-table">
       <thead>
-        <tr><th>Inštrument</th><th>EU/UK max</th><th>Offshore max</th></tr>
+        <tr><th>Instrument</th><th>EU/UK max</th><th>Offshore max</th></tr>
       </thead>
       <tbody>
         <tr><td>Major forex (EUR/USD…)</td>  <td>1:30</td>  <td>1:500+</td></tr>
@@ -139,51 +139,51 @@ EUR/USD, 1 standard lot = $100 000 notional
       </tbody>
     </table>
 
-    <p>Dôvod: chrániť retail traderov pred sebou samými. Brokeri ako Pepperstone, IC Markets majú aj EU subjekt (1:30) aj offshore subjekt (1:500). Ak vieš čo robíš a používaš lot sizing, je úplne jedno ktorý si vyberieš. Ak nevieš čo robíš, ESMA limity ti zachránia účet.</p>
+    <p>Reason: protect retail traders from themselves. Brokers like Pepperstone, IC Markets have both an EU entity (1:30) and an offshore entity (1:500). If you know what you're doing and use lot sizing, it makes no difference which you pick. If you don't know what you're doing, ESMA limits will save your account.</p>
 
-    <h2>Prop firmy - <em>iný príbeh</em></h2>
-    <p>Prop firmy ti dajú „funded" účet rádovo $25k–$200k. Aby si ho nezničil, leverage tam je typicky obmedzená:</p>
+    <h2>Prop firms - <em>a different story</em></h2>
+    <p>Prop firms give you a "funded" account in the range of $25k-$200k. To keep you from blowing it, leverage is typically capped:</p>
     <ul>
       <li><strong>FTMO</strong> - Forex 1:100, Index 1:30, Gold 1:50, Crypto 1:2</li>
       <li><strong>MyForexFunds</strong> - Forex 1:100, Gold 1:50</li>
       <li><strong>FundedNext</strong> - Forex 1:100</li>
-      <li><strong>The5ers</strong> - Forex 1:30 (európska firma)</li>
-      <li><strong>Apex / TopStep (futures)</strong> - nemajú „leverage", majú tick-based margin</li>
+      <li><strong>The5ers</strong> - Forex 1:30 (European firm)</li>
+      <li><strong>Apex / TopStep (futures)</strong> - no "leverage", they use tick-based margin</li>
     </ul>
-    <p>Pri prop firmách je ale leverage <strong>najmenší problém</strong> - ich limity na daily loss a max drawdown ťa zabijú oveľa skôr ako margin level. Trust the lot sizing formula a budeš v pohode.</p>
+    <p>At prop firms leverage is the <strong>least of your problems</strong> - their daily loss and max drawdown limits will kill you long before margin level. Trust the lot sizing formula and you'll be fine.</p>
 
     <h2>Common mistakes</h2>
     <ol>
-      <li><strong>„Vyberiem broker s vyšším leverage lebo zarobím viac"</strong> - leverage sám o sebe nezarobí ani cent</li>
-      <li><strong>Otváranie pozícií podľa dostupného marginu</strong> - „mám margin na 3 loty, otvorím 3" je gambling, nie trading</li>
-      <li><strong>Ignorovanie unrealized drawdownu</strong> - pozícia môže ísť 100 pipov proti tebe pred reverze. Ak nemáš free margin, stop out ťa vykopne pred zotavením</li>
-      <li><strong>Hold pozíciu cez víkend bez ratania funding</strong> - overnight swap fees ti môžu zožrať margin postupne, najmä na vysoko leverovaných exotic pároch</li>
-      <li><strong>Slepá viera v „regulated broker"</strong> - regulácia ti dá ochranu, neznamená že stratégia funguje</li>
+      <li><strong>"I'll pick a broker with higher leverage because I'll earn more"</strong> - leverage by itself doesn't earn a cent</li>
+      <li><strong>Opening positions based on available margin</strong> - "I have margin for 3 lots, I'll open 3" is gambling, not trading</li>
+      <li><strong>Ignoring unrealized drawdown</strong> - a position can go 100 pips against you before reversing. Without free margin, stop out kicks you out before recovery</li>
+      <li><strong>Holding through the weekend without counting funding</strong> - overnight swap fees eat margin gradually, especially on highly leveraged exotic pairs</li>
+      <li><strong>Blind faith in "regulated broker"</strong> - regulation gives you protection, it doesn't make your strategy work</li>
     </ol>
 
-    <h2>Cheatsheet - <em>margin requirement</em> pre 1 standard lot</h2>
+    <h2>Cheatsheet - <em>margin requirement</em> for 1 standard lot</h2>
     <table class="recap-table">
       <thead>
-        <tr><th>Pár / instrument</th><th>1:30</th><th>1:100</th><th>1:500</th></tr>
+        <tr><th>Pair / instrument</th><th>1:30</th><th>1:100</th><th>1:500</th></tr>
       </thead>
       <tbody>
-        <tr><td>EUR/USD</td>           <td>$3 333</td>  <td>$1 000</td>  <td>$200</td></tr>
-        <tr><td>GBP/USD</td>           <td>$4 250</td>  <td>$1 275</td>  <td>$255</td></tr>
-        <tr><td>USD/JPY (@150)</td>    <td>$3 333</td>  <td>$1 000</td>  <td>$200</td></tr>
-        <tr><td>XAU/USD (@2350)</td>   <td>$11 750</td> <td>$2 350</td>  <td>$470</td></tr>
+        <tr><td>EUR/USD</td>           <td>$3,333</td>  <td>$1,000</td>  <td>$200</td></tr>
+        <tr><td>GBP/USD</td>           <td>$4,250</td>  <td>$1,275</td>  <td>$255</td></tr>
+        <tr><td>USD/JPY (@150)</td>    <td>$3,333</td>  <td>$1,000</td>  <td>$200</td></tr>
+        <tr><td>XAU/USD (@2350)</td>   <td>$11,750</td> <td>$2,350</td>  <td>$470</td></tr>
       </tbody>
     </table>
-    <p style="font-size:13px;color:var(--muted-2);margin-top:.5rem">Margin sa počíta z notional value pozície v base mene. Pri exotic pároch a komoditách sa môže líšiť - vždy si over u brokera.</p>
+    <p style="font-size:13px;color:var(--muted-2);margin-top:.5rem">Margin is calculated from notional value in the base currency. For exotic pairs and commodities it can differ - always verify with your broker.</p>
 
-    <h2>Last words - <em>prestaň riešiť leverage</em></h2>
-    <p>Ak si si zobral z týchto troch lekcií aspoň niečo: <strong>leverage je tá najmenej dôležitá vec na ktorej by si mal stratiť čo i len minútu</strong>. Vyber si regulovaného brokera v EU (Pepperstone EU, IC Markets EU, Tickmill EU), ber ich predvolených 1:30 a sústreď sa na vec ktorá rozhoduje - <strong>správny lot size na každý obchod</strong>.</p>
-    <p>Profitabilní traderi nikdy nehovoria o leverage. Hovoria o risk per trade, o setupoch, o psychológii. Leverage je téma marketingových oddelení offshore brokerov, ktorí potrebujú zaujať tých čo nevedia o čom hovoria.</p>
-    <p>Ďalšia lekcia - <strong>Spread</strong>. Tam si rozsekáme jediný „skrytý" náklad ktorý ti broker účtuje pri každom obchode, prečo sa mení podľa session a páru, a ako ho zarátať do svojich vstupov tak aby ti nezruinoval mathematický edge.</p>
+    <h2>Last words - <em>stop worrying about leverage</em></h2>
+    <p>If you take one thing from these three lessons: <strong>leverage is the least important thing you should spend a single minute on</strong>. Pick a regulated EU broker (Pepperstone EU, IC Markets EU, Tickmill EU), take their default 1:30, and focus on the thing that actually matters - <strong>correct lot size on every trade</strong>.</p>
+    <p>Profitable traders never talk about leverage. They talk about risk per trade, about setups, about psychology. Leverage is a topic from the marketing departments of offshore brokers who need to hook people who don't know what they're talking about.</p>
+    <p>Next lesson - <strong>Spread</strong>. There we'll break down the only "hidden" cost the broker charges on every trade, why it changes by session and pair, and how to factor it into your entries so it doesn't ruin your mathematical edge.</p>
 
     <a class="next-lesson" href="forex-spread.html">
       <div class="next-lesson-meta">
-        <span class="next-lesson-label">Pokračovať</span>
-        <span class="next-lesson-title">Spread - skrytý poplatok ktorý môže zruinovať tvoj edge</span>
+        <span class="next-lesson-label">Continue</span>
+        <span class="next-lesson-title">Spread - the hidden fee that can ruin your edge</span>
       </div>
       <span class="next-lesson-arrow">→</span>
     </a>
@@ -191,7 +191,7 @@ EUR/USD, 1 standard lot = $100 000 notional
   </article>
 </div>
 
-<footer>© 2026 B.E.T.Trade · Všetky práva vyhradené</footer>
+<footer>© 2026 B.E.T.Trade · All rights reserved</footer>
 
 <script src="../js/sidebar.js"></script>
 <script src="../js/main.js"></script>

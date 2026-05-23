@@ -34,29 +34,29 @@
 
   var GROUPS = [
     {
-      title: 'Hlavné',
+      title: 'Main',
       items: [
-        { href: homePrefix + 'index.html',     label: 'Domov',         icon: ICON.home,     match: ['index.html', '/'] },
-        { href: prefix + 'courses.html',       label: 'Kurzy',         icon: ICON.book,     match: ['courses.html'] },
+        { href: homePrefix + 'index.html',     label: 'Home',          icon: ICON.home,     match: ['index.html', '/'] },
+        { href: prefix + 'courses.html',       label: 'Courses',       icon: ICON.book,     match: ['courses.html'] },
         { href: prefix + 'trading-plan.html',  label: 'Trading Plan',  icon: ICON.list,     match: ['trading-plan.html'], indent: true },
         { href: prefix + 'forex.html',         label: 'Forex',         icon: ICON.globe,    match: ['forex.html'],        indent: true },
         { href: prefix + 'futures.html',       label: 'Futures',       icon: ICON.bars,     match: ['futures.html'],      indent: true },
         { href: prefix + 'crypto.html',        label: 'Crypto',        icon: ICON.coin,     match: ['crypto.html'],       indent: true },
         { href: prefix + 'trades.html',        label: 'Trade Recaps',  icon: ICON.chart,    match: ['trades.html'] },
-        { href: prefix + 'calendar.html',      label: 'Kalendár',      icon: ICON.calendar, match: ['calendar.html'] },
+        { href: prefix + 'calendar.html',      label: 'Calendar',      icon: ICON.calendar, match: ['calendar.html'] },
       ],
     },
     {
-      title: 'Komunita',
+      title: 'Community',
       items: [
         { href: '#', label: 'Discord',  icon: ICON.chat, locked: true },
         { href: '#', label: 'Live Q&amp;A', icon: ICON.mic, locked: true },
       ],
     },
     {
-      title: 'Účet',
+      title: 'Account',
       items: [
-        { href: '#', label: 'Pridaj sa', icon: ICON.spark, accent: true, action: 'cta' },
+        { href: '#', label: 'Join', icon: ICON.spark, accent: true, action: 'cta' },
       ],
     },
   ];
@@ -109,13 +109,13 @@
             '<span class="sb-logo-dot"></span>',
             'B.E.T.<span>Trade</span>',
           '</a>',
-          '<button class="sb-close" aria-label="Zavrieť" id="sb-close">',
+          '<button class="sb-close" aria-label="Close" id="sb-close">',
             '<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg>',
           '</button>',
         '</div>',
         '<div class="sb-body" role="navigation">' + renderGroups() + '</div>',
         '<div class="sb-foot">',
-          '<div class="sb-stat"><span class="sb-dot"></span><span><span id="sb-online-num">47</span> ľudí v rade</span></div>',
+          '<div class="sb-stat"><span class="sb-dot"></span><span><span id="sb-online-num">47</span> on waitlist</span></div>',
           '<div class="sb-version">v0.1 · ' + year + '</div>',
         '</div>',
       '</aside>',

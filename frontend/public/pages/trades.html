@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="sk">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Trade Recaps – B.E.T.Trade</title>
+<title>Trade Recaps - B.E.T.Trade</title>
 <meta name="theme-color" content="#0EA5E9">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -29,26 +29,26 @@
     </a>
   </div>
   <div class="nav-right">
-    <a class="nav-btn" href="../index.html#cta-email" style="text-decoration:none">Pridaj sa</a>
+    <a class="nav-btn" href="../index.html#cta-email" style="text-decoration:none">Join</a>
   </div>
 </nav>
 
 <section class="page-hero">
   <div class="page-hero-inner">
-    <a href="../index.html" class="breadcrumb">← Späť na úvod</a>
+    <a href="../index.html" class="breadcrumb">← Back home</a>
     <span class="s-tag">Live Trade Recaps</span>
-    <h1 class="page-title">Trade <em>denník</em><br>v reálnom čase</h1>
-    <p class="page-sub">Každý obchod čo zaznamenám v Notion sa zobrazí tu - narrative, RR, session, news, chart screenshot. Najlepšie obchody sú ukážka. Plný feed je za Pro paywallom.</p>
+    <h1 class="page-title">Trade <em>journal</em><br>in real time</h1>
+    <p class="page-sub">Every trade I log in Notion shows up here - narrative, RR, session, news, chart screenshot. The best trades are the preview. The full feed is behind the Pro paywall.</p>
     <div class="page-meta" id="page-stats">
-      <span class="trade-chip">Načítavam stats…</span>
+      <span class="trade-chip">Loading stats…</span>
     </div>
   </div>
 </section>
 
 <div class="section">
   <div class="filters-row">
-    <span class="s-tag" style="margin-bottom:0">Verejná ukážka</span>
-    <div class="filters-info">Najlepšie obchody (RR ≥ 2, Win)</div>
+    <span class="s-tag" style="margin-bottom:0">Public preview</span>
+    <div class="filters-info">Best trades (RR ≥ 2, Win)</div>
   </div>
 
   <div class="trades-grid" id="public-trades">
@@ -61,21 +61,21 @@
 <div class="section paywall-wall">
   <div class="paywall-card">
     <div class="paywall-icon">🔒</div>
-    <h2 class="s-title" style="font-size:clamp(1.6rem,3vw,2.4rem)">Ďalšie obchody<br>za <em>Pro tierom</em></h2>
-    <p class="s-body" style="margin:0 auto;text-align:center">Filtrovanie podľa páru, sessionu, výsledku, news. Chart screenshoty, RR analýza, kompletné narrative. Live sync z Notion - vždy aktuálne.</p>
+    <h2 class="s-title" style="font-size:clamp(1.6rem,3vw,2.4rem)">More trades<br>on the <em>Pro tier</em></h2>
+    <p class="s-body" style="margin:0 auto;text-align:center">Filter by pair, session, result, news. Chart screenshots, RR analysis, full narrative. Live sync from Notion - always up to date.</p>
 
     <div class="paywall-stats" id="paywall-stats">
-      <div class="ps-box"><span class="ps-num" id="ps-total">-</span><span class="ps-lbl">obchodov</span></div>
+      <div class="ps-box"><span class="ps-num" id="ps-total">-</span><span class="ps-lbl">trades</span></div>
       <div class="ps-box"><span class="ps-num" id="ps-wr">-</span><span class="ps-lbl">win rate</span></div>
       <div class="ps-box"><span class="ps-num" id="ps-avg">-</span><span class="ps-lbl">avg RR (W)</span></div>
       <div class="ps-box"><span class="ps-num" id="ps-best">-</span><span class="ps-lbl">best RR</span></div>
     </div>
 
-    <a href="../index.html#cta-email" class="btn-cta" style="margin-top:2rem;display:inline-block;text-decoration:none">Odomknúť celý feed →</a>
+    <a href="../index.html#cta-email" class="btn-cta" style="margin-top:2rem;display:inline-block;text-decoration:none">Unlock the full feed →</a>
   </div>
 </div>
 
-<footer>© 2026 B.E.T.Trade · Všetky práva vyhradené</footer>
+<footer>© 2026 B.E.T.Trade · All rights reserved</footer>
 
 <script src="../js/sidebar.js"></script>
 <script src="../js/main.js"></script>
@@ -101,7 +101,7 @@
   const grid = document.getElementById('public-trades');
 
   function fmtDate(d) {
-    try { return new Date(d).toLocaleDateString('sk-SK', { day:'2-digit', month:'short', year:'numeric' }); }
+    try { return new Date(d).toLocaleDateString('en-US', { day:'2-digit', month:'short', year:'numeric' }); }
     catch (_) { return d || ''; }
   }
   function fmtTime(t) {
@@ -111,7 +111,7 @@
   }
 
   if (!trades.length) {
-    grid.innerHTML = `<div class="trades-footnote" style="grid-column:1/-1">Žiadne obchody v cache.</div>`;
+    grid.innerHTML = `<div class="trades-footnote" style="grid-column:1/-1">No trades in cache.</div>`;
   } else {
     grid.innerHTML = trades.map(t => {
       const win = t.win ? 'win' : 'loss';
@@ -138,7 +138,7 @@
           <div class="trade-narr">${(t.narrative || '').slice(0, 280)}</div>
           <div class="trade-foot">
             <span>${fmtDate(t.trade_date || t.date)} · ${fmtTime(t.entry_time)} NY</span>
-            <span>${t.units ? t.units + ' kontraktov' : ''}</span>
+            <span>${t.units ? t.units + ' contracts' : ''}</span>
           </div>
         </div>`;
     }).join('');
@@ -148,7 +148,7 @@
   const wrap = document.getElementById('page-stats');
   if (stats && (stats.total_trades || stats.wins)) {
     wrap.innerHTML = `
-      <span class="trade-chip">${stats.total_trades || 0} obchodov</span>
+      <span class="trade-chip">${stats.total_trades || 0} trades</span>
       ${stats.win_rate != null ? `<span class="trade-chip">${Math.round(stats.win_rate * 100)}% win rate</span>` : ''}
       ${stats.avg_rr_winners ? `<span class="trade-chip session">avg ${stats.avg_rr_winners}R</span>` : ''}
       ${stats.most_traded_pair ? `<span class="trade-chip">${stats.most_traded_pair}</span>` : ''}

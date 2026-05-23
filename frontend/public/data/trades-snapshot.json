@@ -34,7 +34,7 @@
       "potential_rr": 4.79,
       "win": true,
       "news": ["CB Consumer Confidence"],
-      "narrative": "Potom ako sa zobrala London SSL sa telá sviečok nezavreli ani pod touto liquiditou a tak kde som mal už od začiatku Bullish Bias som čakal kým sa Premium PDA prebije a premení na Discount. Použil som recent SIBI ako +IFVG a targetoval 15min BSL Equal Highs.",
+      "narrative": "After London SSL was taken the candle bodies didn't close below that liquidity, so since I had a Bullish bias from the start I waited until the Premium PDA flipped into Discount. Used a recent SIBI as +IFVG and targeted the 15min BSL Equal Highs.",
       "featured": true
     },
     {
@@ -53,7 +53,7 @@
       "potential_rr": 5.49,
       "win": true,
       "news": ["Bank Holiday"],
-      "narrative": "Bullish NWOG a push po 9:30 na zobranie BSL. 5min SIBI bola respektovaná, BISI na 1min. Po MSS som enteroval pod 1min SIBI ktorá sa nezavrela celá. Cena consolidovala a v Macro okne padla až do 11:00 lunch reversal.",
+      "narrative": "Bullish NWOG and a push after 9:30 to take BSL. 5min SIBI was respected, BISI on the 1min. After MSS I entered below the 1min SIBI that didn't fully close. Price consolidated and in the macro window dropped all the way into the 11:00 lunch reversal.",
       "featured": true
     },
     {
@@ -72,7 +72,7 @@
       "potential_rr": 1.4,
       "win": true,
       "news": ["ISM Services PMI"],
-      "narrative": "Silver Bullet setup - pred 10:00 zobratá BSL z London Session, SIBI v Premiume, MSS a retracement do tejto SIBI. Target NWOG Low.",
+      "narrative": "Silver Bullet setup - before 10:00 BSL was taken from the London Session, SIBI in Premium, MSS and retracement back into that SIBI. Target was NWOG Low.",
       "featured": true
     },
     {
@@ -91,7 +91,7 @@
       "potential_rr": 1.19,
       "win": true,
       "news": ["CB Consumer Confidence"],
-      "narrative": "Bullish NWOG a ORG, hneď po opene Premium arraye respektované a Discount prebíjané. 5min +OB prebitý nadol, -IFVG 1min entry na London Lows.",
+      "narrative": "Bullish NWOG and ORG; right after open Premium arrays were respected and Discount broken. 5min +OB broken down, -IFVG 1min entry into London Lows.",
       "featured": true
     },
     {
@@ -110,7 +110,7 @@
       "potential_rr": 2.72,
       "win": false,
       "news": ["NONE"],
-      "narrative": "1st PFVG ako -IFVG a risk do 25% ORG.",
+      "narrative": "1st PFVG used as -IFVG, risk up to 25% ORG.",
       "featured": false
     },
     {
@@ -129,7 +129,7 @@
       "potential_rr": 1.19,
       "win": false,
       "news": ["NONE"],
-      "narrative": "1st PFVG ako BISI, zobratá SSL pred openom, clean London Highs nad 1st PFVG.",
+      "narrative": "1st PFVG as BISI, SSL taken before open, clean London Highs above the 1st PFVG.",
       "featured": false
     },
     {
@@ -148,7 +148,7 @@
       "potential_rr": 3.07,
       "win": false,
       "news": ["NONE"],
-      "narrative": "Zobratá News BSL a potom SIBI - entry bez MSS, setup faillo.",
+      "narrative": "News BSL taken and then SIBI - entry without MSS, setup failed.",
       "featured": false
     },
     {
@@ -167,7 +167,7 @@
       "potential_rr": 2.62,
       "win": false,
       "news": ["NONE"],
-      "narrative": "9:50–10:10 macro. 15min a 5min SIBI s Volume Imbalance respektované, prepad dole + MSS, entry pri retracemente, target včerajšia 1st PFVG.",
+      "narrative": "9:50-10:10 macro. 15min and 5min SIBI with Volume Imbalance respected, drop down + MSS, entry on the retracement, target yesterday's 1st PFVG.",
       "featured": false
     }
   ]
