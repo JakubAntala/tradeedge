@@ -2,27 +2,7 @@
    TradeEdge Academy - main.js
    ============================================ */
 
-/* ---------- CUSTOM CURSOR ---------- */
-(function () {
-  const cursor = document.getElementById('cursor');
-  if (!cursor) return;
-
-  document.addEventListener('mousemove', e => {
-    cursor.style.left = e.clientX + 'px';
-    cursor.style.top  = e.clientY + 'px';
-  });
-
-  document.querySelectorAll('button,input,a,.mod-card,.plan,.testi,.stat-box').forEach(el => {
-    el.addEventListener('mouseenter', () => {
-      cursor.style.width = '22px';
-      cursor.style.height = '22px';
-    });
-    el.addEventListener('mouseleave', () => {
-      cursor.style.width = '10px';
-      cursor.style.height = '10px';
-    });
-  });
-})();
+/* (custom cursor removed - using default system cursor) */
 
 /* ---------- ANIMATED CANVAS BACKGROUND ---------- */
 (function () {

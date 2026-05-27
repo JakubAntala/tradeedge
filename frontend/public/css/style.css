@@ -64,22 +64,6 @@ body{
   line-height:1.65;
   overflow-x:hidden;
   -webkit-font-smoothing:antialiased;
-  cursor:none;
-}
-
-/* ===== CUSTOM CURSOR ===== */
-#cursor{
-  position:fixed;width:10px;height:10px;
-  background:var(--blue-l);border-radius:50%;
-  pointer-events:none;z-index:9999;
-  transform:translate(-50%,-50%);
-  transition:width .2s,height .2s,background .2s;
-  mix-blend-mode:difference;
-  box-shadow:0 0 14px rgba(14,165,233,0.6);
-}
-@media (max-width:768px){
-  body{cursor:auto}
-  #cursor{display:none}
 }
 
 /* ===== ANIMATED BACKGROUND ===== */
@@ -953,6 +937,179 @@ body.sb-open .nav-toggle span:nth-child(3){transform:translateY(-4.5px) rotate(-
 }
 
 /* ============================================
+   ADMIN MODE (client-side bypass via /pages/admin.html)
+   Real backend auth comes later; this only changes visuals.
+   ============================================ */
+:root{
+  --admin: #FBBF24;
+  --admin-rgb: 251, 191, 36;
+}
+
+/* Sidebar badge */
+.sb-admin-badge{
+  display:flex;align-items:center;gap:8px;
+  padding:7px 10px;margin-bottom:.6rem;
+  background:rgba(var(--admin-rgb),0.10);
+  border:1px solid rgba(var(--admin-rgb),0.35);
+  border-radius:6px;
+  font-size:10.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--admin);
+}
+.sb-admin-dot{
+  width:7px;height:7px;border-radius:50%;background:var(--admin);
+  box-shadow:0 0 8px rgba(var(--admin-rgb),0.7);
+  animation:pulse 2s infinite;flex-shrink:0;
+}
+.sb-admin-label{flex:1}
+.sb-admin-badge a{
+  color:inherit;text-decoration:underline;opacity:.7;
+  font-size:10px;letter-spacing:.06em;text-transform:none;
+}
+.sb-admin-badge a:hover{opacity:1}
+
+/* Admin login page */
+.admin-card{
+  background:rgba(12,15,21,0.85);
+  backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+  border:1px solid var(--border-blue);
+  border-radius:var(--radius-lg);
+  padding:2rem 1.8rem;
+  margin:2rem 0;
+  box-shadow:var(--shadow-lg);
+  text-align:left;
+}
+.admin-label{
+  display:block;font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--blue-l);margin-bottom:.6rem;
+}
+.admin-input{
+  width:100%;padding:14px 16px;
+  background:rgba(255,255,255,0.04);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  color:var(--ink);font-family:var(--sans);font-size:14px;
+  outline:none;transition:all .2s;
+  font-family:'JetBrains Mono','Fira Code',monospace;letter-spacing:.06em;
+}
+.admin-input:focus{
+  border-color:var(--blue-l);background:rgba(14,165,233,0.04);
+  box-shadow:0 0 0 4px rgba(14,165,233,.10);
+}
+.admin-btn{
+  width:100%;margin-top:1rem;border:none;cursor:pointer;
+}
+.admin-error{
+  min-height:18px;margin-top:.7rem;font-size:13px;color:#F87171;font-weight:500;
+}
+.admin-hint{
+  margin-top:1.4rem;padding-top:1rem;border-top:1px solid var(--border);
+  font-size:11.5px;color:var(--muted-2);line-height:1.6;
+}
+.admin-hint code{
+  background:rgba(14,165,233,0.10);color:var(--blue-l);
+  padding:1px 6px;border-radius:3px;font-size:11px;
+  font-family:'JetBrains Mono','Fira Code',monospace;
+}
+.admin-icon-ok{
+  font-size:2.4rem;color:var(--green-l);
+  width:64px;height:64px;border-radius:50%;
+  background:rgba(16,185,129,0.10);
+  border:1px solid rgba(16,185,129,0.35);
+  display:flex;align-items:center;justify-content:center;
+  margin:0 auto 1rem;
+  box-shadow:0 0 30px rgba(16,185,129,0.20);
+}
+.admin-title{
+  font-family:var(--serif);font-size:1.6rem;font-weight:800;
+  text-align:center;color:var(--white);margin-bottom:.6rem;
+}
+.admin-text{
+  text-align:center;font-size:14px;color:var(--muted);line-height:1.6;
+  margin-bottom:1.5rem;
+}
+.admin-actions{
+  display:flex;flex-direction:column;gap:.7rem;align-items:center;
+}
+.admin-btn-secondary{
+  background:transparent;border:1px solid var(--border);
+  color:var(--muted);cursor:pointer;
+  padding:10px 22px;border-radius:var(--radius);
+  font-family:var(--sans);font-size:12.5px;letter-spacing:.04em;
+  transition:all .2s;
+}
+.admin-btn-secondary:hover{
+  border-color:rgba(var(--admin-rgb),.4);color:var(--admin);
+}
+.admin-note{
+  margin-top:1.5rem;padding:1rem 1.2rem;
+  background:rgba(var(--admin-rgb),0.06);
+  border:1px solid rgba(var(--admin-rgb),0.25);
+  border-radius:var(--radius);
+  font-size:12.5px;color:var(--ink-2);line-height:1.6;text-align:left;
+}
+.admin-note strong{color:var(--admin)}
+
+/* ============================================
+   ADMIN MODE OVERRIDES - active when body.is-admin
+   ============================================ */
+
+/* Unlock the sidebar locked items */
+body.is-admin .sb-item.locked{
+  color:var(--ink-2);cursor:pointer;
+}
+body.is-admin .sb-item.locked:hover{background:rgba(255,255,255,.04);color:var(--white)}
+body.is-admin .sb-item.locked .sb-lock{display:none}
+
+/* Unlock the locked lesson rows */
+body.is-admin .lesson-row.locked{
+  opacity:1;
+}
+body.is-admin .lesson-row.locked .lesson-num{
+  opacity:.85;
+}
+body.is-admin .lesson-row.locked:hover{
+  background:rgba(var(--admin-rgb),0.06);
+}
+body.is-admin .lesson-row.locked:hover .lesson-num{
+  color:var(--admin);opacity:1;
+}
+
+/* Recolor "Pro" tag chips into "ADMIN" chips */
+body.is-admin .lesson-tag:not(.preview){
+  color:var(--admin);
+  background:rgba(var(--admin-rgb),0.12);
+  border-color:rgba(var(--admin-rgb),0.35);
+}
+body.is-admin .lesson-tag:not(.preview)::after{
+  content:' · UNLOCKED';font-size:9px;opacity:.7;
+}
+
+/* Hide locked overlays on lesson previews */
+body.is-admin .locked-overlay{display:none !important}
+body.is-admin .lesson-preview.locked{padding-bottom:2.5rem}
+
+/* Paywall card on trades.html - show as "admin view" */
+body.is-admin .paywall-card{
+  border-color:rgba(var(--admin-rgb),0.35);
+  background:linear-gradient(180deg, rgba(var(--admin-rgb),0.08), rgba(12,15,21,0.7));
+}
+body.is-admin .paywall-card::before{
+  background:linear-gradient(90deg,transparent,var(--admin),transparent);
+}
+body.is-admin .paywall-icon::before{content:'👁'}
+body.is-admin .paywall-icon{font-size:0}
+body.is-admin .paywall-icon::before{font-size:2.5rem}
+
+/* Course meta locks in courses index page */
+body.is-admin .course-meta .lock,
+body.is-admin .cat-meta .lock{
+  color:var(--admin);
+}
+
+/* "🔒 Pro" chips inline */
+body.is-admin .trade-chip{}
+
+/* ============================================
    ASSET CLASS CATEGORY CARDS (courses.html)
    ============================================ */
 .cat-grid{
@@ -1209,6 +1366,78 @@ body[class*="asset-"] .trade-chip.session{
   display:block;margin-bottom:.5rem;
 }
 .tldr p{margin:0;color:var(--white);font-size:1.05rem;line-height:1.6}
+
+/* ============================================
+   OWN NOTES - per-lesson notepad (localStorage)
+   ============================================ */
+.own-notes{
+  background:rgba(12,15,21,0.70);
+  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  border:1px solid var(--border);
+  border-radius:var(--radius-lg);
+  padding:1.5rem 1.6rem;
+  margin:2.5rem 0 0;
+  position:relative;overflow:hidden;
+}
+.own-notes::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,transparent,var(--page-a,var(--blue-l)),transparent);
+}
+.own-notes-head{
+  display:flex;align-items:center;justify-content:space-between;
+  gap:1rem;flex-wrap:wrap;margin-bottom:1rem;
+}
+.own-notes-title{
+  display:flex;align-items:center;gap:.6rem;
+  font-family:var(--serif);font-size:1.2rem;font-weight:800;
+  color:var(--white);letter-spacing:-.01em;margin:0;
+}
+.own-notes-title svg{
+  width:18px;height:18px;color:var(--page-a,var(--blue-l));flex-shrink:0;
+}
+.own-notes-meta{
+  display:flex;align-items:center;gap:.7rem;
+}
+.own-notes-status{
+  font-size:11px;color:var(--muted-2);letter-spacing:.04em;
+  min-width:60px;text-align:right;
+  transition:color .2s;
+}
+.own-notes-clear{
+  background:transparent;border:1px solid var(--border);
+  color:var(--muted);font-family:var(--sans);
+  font-size:10.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;
+  padding:5px 12px;border-radius:var(--radius);cursor:pointer;
+  transition:all .2s;
+}
+.own-notes-clear:hover{
+  color:#FCA5A5;border-color:rgba(239,68,68,.4);
+  background:rgba(239,68,68,.06);
+}
+.own-notes-area{
+  width:100%;min-height:140px;
+  padding:1rem 1.1rem;
+  background:rgba(255,255,255,0.03);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  color:var(--ink);
+  font-family:var(--sans);font-size:14px;line-height:1.65;
+  resize:vertical;outline:none;
+  transition:border-color .2s,background .2s,box-shadow .2s;
+  display:block;box-sizing:border-box;
+}
+.own-notes-area:focus{
+  border-color:var(--page-a,var(--blue-l));
+  background:rgba(255,255,255,0.05);
+  box-shadow:0 0 0 4px rgba(var(--page-rgb,14 165 233),0.10);
+}
+.own-notes-area::placeholder{
+  color:var(--muted-3);font-style:italic;
+}
+.own-notes-foot{
+  margin-top:.7rem;
+  font-size:11px;color:var(--muted-3);letter-spacing:.03em;
+}
 
 /* Next lesson CTA at the end */
 .next-lesson{
