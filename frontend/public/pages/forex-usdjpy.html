@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>USD/JPY - Major Pairs · B.E.T.Trade</title>
+<meta name="description" content="USD/JPY - the safe-haven pair - explained from first principles. Why JPY strengthens when markets panic, the BoJ vs Fed yield gap, intervention risk, 2-decimal pip mechanics. Plus the full correlations system tying EUR/USD, GBP/USD and USD/JPY together as one trading framework.">
+<meta name="theme-color" content="#0EA5E9">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,800;0,900;1,700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body class="asset-forex">
+
+<div class="bg-gradient"></div>
+<canvas id="bg-canvas"></canvas>
+
+<div id="sidebar-mount"></div>
+
+<nav id="nav">
+  <div class="nav-left">
+    <button class="nav-toggle" id="sb-toggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <a class="logo" href="../index.html" style="text-decoration:none">
+      <span class="logo-dot"></span>
+      B.E.T.<span>Trade</span>
+    </a>
+  </div>
+  <div class="nav-right">
+    <a class="nav-btn" href="../index.html#cta-email" style="text-decoration:none">Join</a>
+  </div>
+</nav>
+
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <a href="forex.html" class="breadcrumb">← Back to Forex</a>
+    <span class="s-tag">Major Pairs · Lesson 02.3 (final)</span>
+    <h1 class="page-title">USD<em>/JPY</em></h1>
+    <p class="page-sub">The safe-haven pair. The yen story. The only major where pips work differently and where the global "fear gauge" sets direction. Plus - the final section pulls all three majors together into one system: correlations, session matching, and how to stop accidentally tripling your risk by trading three pairs that secretly move as one.</p>
+    <div class="page-meta">
+      <span class="trade-chip session">~14 min read</span>
+      <span class="trade-chip">Major Pairs</span>
+      <span class="trade-chip">+ Correlations system</span>
+    </div>
+  </div>
+</section>
+
+<div class="section">
+  <article class="article">
+
+    <div class="tldr">
+      <span class="tldr-label">TL;DR - the pair in one paragraph</span>
+      <p><strong>USD/JPY is the global stress barometer.</strong> JPY strengthens in panic (USD/JPY falls) and weakens in greed (USD/JPY rises). It's driven by the yield gap between US Treasuries and Japanese Government Bonds - the bigger the gap, the more capital flows into USD, the higher USD/JPY climbs. The BoJ runs ultra-loose policy (negative-or-near-zero rates) while the Fed runs whatever it runs - that differential is the macro engine. Pip mechanics are different (2 decimals, not 4). Tokyo session matters here. Watch for intervention risk above 150.</p>
+    </div>
+
+    <h2>Why USD/JPY is the <em>odd one out</em></h2>
+    <p>EUR/USD and GBP/USD are basically the same trade in slightly different costumes. Both are "anti-dollar" pairs - they go up when the dollar weakens, both have major Western central banks pulling on them, both peak in volume during the London-NY overlap. If you understand EUR/USD, you mostly understand GBP/USD.</p>
+    <p>USD/JPY breaks that mold. Three things make it fundamentally different:</p>
+    <p><strong>One - the direction convention is flipped.</strong> EUR/USD up = dollar weak. GBP/USD up = dollar weak. USD/JPY up = dollar strong (because USD is the base, JPY is the quote). When DXY breaks out of a range higher, EUR/USD and GBP/USD fall; USD/JPY rises. It's the only major where "dollar strength" looks like an uptrend on the chart.</p>
+    <p><strong>Two - the yen is a safe-haven currency.</strong> When global markets panic - stocks crash, geopolitics escalates, credit spreads blow out - capital flees to "safe" currencies: USD, CHF, and JPY. JPY strengthens. USD/JPY falls. This makes USD/JPY behave like an inverse VIX in a lot of stress scenarios.</p>
+    <p><strong>Three - the time zone difference matters.</strong> EUR/USD and GBP/USD are quiet during the Tokyo session. USD/JPY isn't - it's the home session for one of the two currencies. The Asian session can produce real, tradeable moves on USD/JPY that you'd never see on the other majors.</p>
+
+    <div class="callout">EUR/USD trades politics and policy. GBP/USD trades drama. USD/JPY trades fear and yields. Different game.</div>
+
+    <h2>The fundamentals - <em>BoJ vs Fed (and the carry trade)</em></h2>
+    <p>The macro story on USD/JPY is the simplest of any major, even if the dynamics underneath are wild:</p>
+    <ul>
+      <li><strong>The Bank of Japan (BoJ)</strong> - keeps interest rates extremely low, often negative or zero, and runs yield curve control (YCC) - it actively buys JGBs (Japanese Government Bonds) to keep long-term yields capped. The BoJ has been "ultra-loose" since basically forever, with brief recent shifts toward normalization.</li>
+      <li><strong>The US Federal Reserve (Fed)</strong> - normal rate-setting central bank, hiking or cutting in response to inflation and employment data.</li>
+    </ul>
+    <p>The result: US interest rates are almost always far higher than Japanese ones. If you can borrow yen at 0.1% and buy US Treasuries paying 4.5%, you earn 4.4% on the spread - the famous <strong>"yen carry trade"</strong>. Trillions of dollars are tied up in some version of this trade.</p>
+    <p>Carry trade flows are why USD/JPY tends to grind higher for months at a time when the yield gap widens, then crash violently when something forces carry-trade unwinds (risk-off events, BoJ surprise hikes, sudden VIX spikes).</p>
+
+    <h2>The <em>signal source</em> nobody talks about - US 10Y yield</h2>
+    <p>This is the most important external indicator for USD/JPY traders, and almost no retail platform shows it next to the chart:</p>
+
+    <div class="formula">USD/JPY ←→ US 10Y Treasury yield
+
+correlation ≈ +0.85 (very high)
+direction: same (yield up → USD/JPY up)</div>
+
+    <p>Practical use: when US 10Y yield breaks out of a multi-week consolidation, USD/JPY follows within hours or days. When 10Y yield breaks down through a key support, USD/JPY does the same. The yield chart is often <strong>cleaner</strong> than the USD/JPY chart for picking direction.</p>
+    <p>Set up a yield chart in your workspace. TradingView ticker: <strong>US10Y</strong>. Watch it. When 10Y yield is making higher highs and you're short USD/JPY, you're fighting the bond market - and the bond market wins.</p>
+
+    <div class="example">
+      <span class="example-label">Real-world example using yields</span>
+      <p>USD/JPY consolidating in a 145.50-147.00 range for two weeks. No clear breakout signal on the pair itself.</p>
+      <p>US 10Y yield breaks out of 4.20-4.35% range, closes above 4.40%.</p>
+      <p>USD/JPY follows within 24 hours, breaks 147.00, runs to 148.50.</p>
+      <p>The setup was on the yield chart, not on USD/JPY. Yields lead.</p>
+    </div>
+
+    <h2>Risk-on vs risk-off - <em>the panic engine</em></h2>
+    <p>The "safe haven" status of JPY is the second-biggest driver after yields. Here's the mechanism:</p>
+    <p>Japan has been a net creditor to the world for decades - Japanese pension funds, insurance companies, and households hold enormous amounts of foreign assets (US stocks, US Treasuries, European bonds, etc.) bought with borrowed yen. When global markets panic, those Japanese institutions <strong>repatriate</strong> - they sell foreign assets and bring the money home, converting back to yen. That conversion buys yen and sells the foreign currency, strengthening JPY.</p>
+    <p>So when you see a major sell-off in equities, USD/JPY tends to fall even if nothing changed about US-Japan fundamentals. The mechanical flow is enough.</p>
+    <ul>
+      <li><strong>Risk-on day</strong> (stocks up, VIX down): USD/JPY tends to grind higher</li>
+      <li><strong>Risk-off day</strong> (stocks down, VIX up): USD/JPY tends to fall sharply</li>
+      <li><strong>Geopolitical shock</strong> (war, terrorist attack, surprise election): USD/JPY can drop 200+ pips in a few hours on pure flight-to-safety</li>
+    </ul>
+
+    <div class="callout">If S&amp;P futures are down 2% premarket, you're probably not going long USD/JPY into NY open - regardless of what your technicals say.</div>
+
+    <h2>2-decimal pip mechanics - <em>quick recap</em></h2>
+    <p>Critical reminder from the <a href="forex-pip-value.html">Pip Value lesson</a>:</p>
+    <ul>
+      <li>For EUR/USD and GBP/USD, 1 pip = 0.0001 (the 4th decimal)</li>
+      <li>For USD/JPY, 1 pip = 0.01 (the 2nd decimal)</li>
+    </ul>
+    <p>This is purely a historical convention - the yen was never redenominated, so its quotes look like 149.85 instead of 1.4985. The math adapts.</p>
+
+    <div class="formula">USD/JPY @ 150.20 → 150.21  = move of 1 pip
+USD/JPY @ 150.20 → 150.50  = move of 30 pips
+
+Pip value formula for JPY pairs:
+  Pip value = (pip × lot size) / current rate
+
+USD/JPY @ 150.20, 1 standard lot:
+  (0.01 × 100,000) / 150.20 = <strong>$6.66 per pip</strong></div>
+
+    <p>One standard lot on USD/JPY produces about $6.66 per pip at current rates - <strong>roughly 33% less than the $10/pip on USD-quoted pairs</strong>. To get the same dollar profit on USD/JPY as you'd get on EUR/USD, you either need more pips or a bigger position.</p>
+
+    <h2>Volatility profile</h2>
+
+    <table class="recap-table">
+      <thead>
+        <tr>
+          <th>Session</th>
+          <th>NY time</th>
+          <th>Typical range</th>
+          <th>Character</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Tokyo (Asian)</td>     <td>20:00 - 02:00</td>  <td>30-60 pips</td>  <td>Active - home session</td></tr>
+        <tr><td>London Open</td>       <td>02:00 - 05:00</td>  <td>30-50 pips</td>  <td>Continuation or fade</td></tr>
+        <tr><td>London-NY overlap</td> <td>08:00 - 12:00</td>  <td>40-80 pips</td>  <td>The real moves</td></tr>
+        <tr><td>NY afternoon</td>      <td>12:00 - 17:00</td>  <td>20-40 pips</td>  <td>Trend continuation</td></tr>
+        <tr><td>Rollover</td>          <td>17:00 - 20:00</td>  <td>10-20 pips</td>  <td>Avoid</td></tr>
+      </tbody>
+    </table>
+
+    <p>Unique to USD/JPY: the Tokyo session actually moves. Range during Asian hours is 2-3x larger than EUR/USD's Asian range. This means you have more session windows to work with on USD/JPY - Tokyo morning setups are real, not just "wait for London".</p>
+
+    <h2>Intervention risk - <em>when the Japanese government gets involved</em></h2>
+    <p>Unique to USD/JPY: above certain levels (historically 150, 155, 160), Japanese authorities start making noise about "currency intervention" - the Ministry of Finance (MoF) can authorize the BoJ to literally sell USD/buy JPY in the open market to push USD/JPY lower.</p>
+    <p>Intervention happens in waves:</p>
+    <ol>
+      <li><strong>Verbal intervention (jawboning)</strong> - MoF officials warn that "excessive moves are not desirable", "all options are on the table". Usually causes 100-200 pip retracement immediately.</li>
+      <li><strong>Rate checks</strong> - BoJ asks banks for live USD/JPY quotes (the precursor to real intervention). Markets see this as a serious warning - 200-400 pip retracement common.</li>
+      <li><strong>Actual intervention</strong> - BoJ sells billions of USD against JPY. Causes 500-1000+ pip moves in minutes. Has happened multiple times in the 2022-2024 window.</li>
+    </ol>
+    <p>Practical implication: <strong>USD/JPY long positions above 150 carry asymmetric risk</strong>. The upside is bounded by intervention threats; the downside is a sudden cliff. Adjust sizing or use wider SLs above key intervention zones.</p>
+
+    <h2>Key levels USD/JPY <em>respects</em></h2>
+    <ol>
+      <li><strong>Round numbers - especially the "5" and "0" levels</strong> - USD/JPY respects 145.00, 147.50, 150.00 with religious devotion. Liquidity clusters at these levels.</li>
+      <li><strong>Previous Day's High / Low (PDH / PDL)</strong> - swept about 60% of days. Slightly less reliable than EUR/USD because Tokyo session can move price away from PDH/PDL before London even opens.</li>
+      <li><strong>Previous Week's High / Low</strong> - very respected. First test usually produces a clean reaction.</li>
+      <li><strong>Asian session high / low</strong> - much more meaningful than on EUR/USD because Asian session is active. Often becomes a sweep target for London/NY.</li>
+      <li><strong>Big psychological levels (150, 155, 160)</strong> - intervention zones. Always watch what happens here.</li>
+    </ol>
+
+    <h2>ICT/SMC concepts on USD/JPY</h2>
+    <ul>
+      <li><strong>Liquidity sweeps</strong> - work well, but watch the Asian session as a sweep target rather than ignoring it. London Open might sweep the Asian high or low instead of the previous day's range.</li>
+      <li><strong>MSS</strong> - very clean during NY AM. Tokyo session MSS can be noisy due to lower volume.</li>
+      <li><strong>FVGs</strong> - reliable, especially on 1H and 4H. JPY pairs sometimes leave wider FVGs because of news spikes - those wide FVGs often get filled cleanly later.</li>
+      <li><strong>Killzones</strong> - Tokyo killzone (20:00-23:00 NY) is real on USD/JPY. London killzone (02:00-05:00 NY) still works. NY AM (08:30-11:00) is prime.</li>
+    </ul>
+
+    <h2>News events that move USD/JPY</h2>
+
+    <table class="recap-table">
+      <thead>
+        <tr>
+          <th>Event</th>
+          <th>Frequency</th>
+          <th>Typical move</th>
+          <th>Side</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>FOMC rate decision</td>     <td>~8x/year</td>  <td>60-150 pips</td>  <td>USD</td></tr>
+        <tr><td>BoJ rate decision</td>      <td>~8x/year</td>  <td>50-200 pips</td>  <td>JPY</td></tr>
+        <tr><td>US CPI</td>                  <td>Monthly</td>   <td>40-90 pips</td>   <td>USD</td></tr>
+        <tr><td>NFP</td>                     <td>Monthly</td>   <td>40-90 pips</td>   <td>USD</td></tr>
+        <tr><td>US 10Y auction (3pm NY)</td><td>Monthly</td>   <td>15-30 pips</td>   <td>USD yields</td></tr>
+        <tr><td>Japan CPI</td>               <td>Monthly</td>   <td>30-60 pips</td>   <td>JPY</td></tr>
+        <tr><td>MoF intervention warnings</td><td>Unpredictable</td><td>100-300 pips</td><td>JPY</td></tr>
+        <tr><td>Major risk-off events</td>   <td>Unpredictable</td><td>100-500+ pips</td><td>Cross-asset</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Bread-and-butter setups</h2>
+
+    <h3 style="color:var(--white);font-family:var(--serif);font-size:1.2rem;margin-top:1.5rem">Setup 1 - Tokyo Range Break with NY Continuation</h3>
+    <p>Pre-market mark the Tokyo session range (20:00-02:00 NY). At London Open, USD/JPY often breaks the Tokyo range in one direction. If that breakout holds through London and NY AM continues in the same direction, enter on the first pullback into a 5m or 15m FVG during the NY-AM hours (08:30-11:00).</p>
+    <div class="example">
+      <span class="example-label">Setup mechanics</span>
+      <p>Tokyo range: 149.80-150.20.</p>
+      <p>03:00 NY - USD/JPY breaks above 150.20, runs to 150.45.</p>
+      <p>05:00 NY - retraces to 150.30, holds above broken range.</p>
+      <p>08:30 NY - US CPI comes in hot. USD/JPY pops to 150.70.</p>
+      <p>09:00 NY - pullback to a 15m bullish FVG at 150.50. Long, SL below 150.30 (below the 5am hold). Target: 151.00.</p>
+      <p>Typical RR: 2.5-4R.</p>
+    </div>
+
+    <h3 style="color:var(--white);font-family:var(--serif);font-size:1.2rem;margin-top:1.5rem">Setup 2 - Risk-Off Yen Strength Trade</h3>
+    <p>When S&P futures or NQ futures drop significantly premarket (1%+) and VIX is spiking, USD/JPY often follows with a flush. Wait for the initial panic move to exhaust (don't catch the falling knife), look for a 5m or 15m MSS confirmation in the new direction, then enter on a retest.</p>
+    <div class="example">
+      <span class="example-label">Setup mechanics</span>
+      <p>06:30 NY - S&P futures down 1.5% on geopolitical headlines. VIX up 4 points.</p>
+      <p>USD/JPY drops from 150.20 to 149.50 by 07:30 NY.</p>
+      <p>08:00 NY - 15m bearish MSS confirms on the lower TF.</p>
+      <p>08:20 NY - retest of the bearish FVG at 149.75. Short, SL above 149.95 (above the MSS high). Target: 149.00 or next support.</p>
+      <p>Typical RR: 2-3R.</p>
+    </div>
+
+    <h2>Risk profile for USD/JPY</h2>
+    <p>Typical intraday SL: <strong>15-35 pips</strong>. Similar to EUR/USD, slightly wider during high-volatility regimes.</p>
+    <p>Pip value math means a 20 pip SL on 1 standard lot of USD/JPY = $133 risk (20 × $6.66), versus $200 on EUR/USD. So for the same dollar risk, you can size <strong>about 50% bigger</strong> on USD/JPY than on EUR/USD.</p>
+
+    <div class="example">
+      <span class="example-label">Sizing comparison - $5,000 account, 1% risk = $50</span>
+      <p>EUR/USD setup, 20 pip SL: $50 / (20 × $10) = <strong>0.25 lot</strong></p>
+      <p>GBP/USD setup, 40 pip SL: $50 / (40 × $10) = <strong>0.125 lot</strong></p>
+      <p>USD/JPY setup, 20 pip SL: $50 / (20 × $6.66) = <strong>0.375 lot</strong></p>
+      <p>Same dollar risk, three different position sizes. Use the formula, never the feel.</p>
+    </div>
+
+    <h2>When <em>not</em> to trade USD/JPY</h2>
+    <ul>
+      <li><strong>Above intervention zones during quiet sessions</strong> - if you're above 155 and there's no liquidity, a single MoF tweet can dump 200 pips in seconds.</li>
+      <li><strong>30 minutes before BoJ or FOMC</strong> - spreads blow out.</li>
+      <li><strong>Major risk-off mornings without a hedge</strong> - if S&P is crashing, USD/JPY is unpredictable. Either be flat or be the short side.</li>
+      <li><strong>During Japan bank holidays</strong> - Tokyo session is dead, Asian liquidity is thin.</li>
+      <li><strong>Friday afternoon</strong> - thin into the weekend, position-square moves dominate over technicals.</li>
+    </ul>
+
+    <h2>Cheatsheet for your phone</h2>
+
+    <table class="recap-table">
+      <thead>
+        <tr>
+          <th>What</th>
+          <th>Number</th>
+          <th>Context</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Daily ATR</td>             <td>70-110 pips</td>     <td>Variable with risk regime</td></tr>
+        <tr><td>Spread (ECN raw)</td>      <td>0.2-0.5 pip</td>     <td>Tight on majors</td></tr>
+        <tr><td>Pip value (1 lot @ 150)</td><td>$6.66</td>           <td>Lower than EUR/GBP</td></tr>
+        <tr><td>Pip = decimal</td>         <td>0.01</td>            <td>2 decimals, not 4</td></tr>
+        <tr><td>Best session</td>          <td>08:00-12:00 NY</td>  <td>London-NY overlap</td></tr>
+        <tr><td>Secondary session</td>     <td>20:00-23:00 NY</td>  <td>Tokyo killzone</td></tr>
+        <tr><td>External indicator</td>    <td>US 10Y yield</td>    <td>+0.85 correlation</td></tr>
+        <tr><td>Intervention zones</td>    <td>150, 155, 160</td>   <td>Asymmetric risk</td></tr>
+      </tbody>
+    </table>
+
+    <hr style="border:none;border-top:1px solid var(--border-2);margin:3.5rem 0 2.5rem">
+
+    <h2>The <em>correlations system</em> - tying all three majors together</h2>
+    <p>Now the payoff. You've got EUR/USD, GBP/USD, and USD/JPY in your head as individual pairs. Most retail traders stop here. The problem: these three pairs don't move independently. They move as a <strong>system</strong>, mostly driven by the dollar. Trading them as if they're independent is how you accidentally triple your risk.</p>
+
+    <h2>The correlation matrix - <em>what actually correlates</em></h2>
+
+    <table class="recap-table">
+      <thead>
+        <tr>
+          <th></th>
+          <th>EUR/USD</th>
+          <th>GBP/USD</th>
+          <th>USD/JPY</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>EUR/USD</strong></td>  <td>1.00</td>     <td>+0.80</td>   <td>-0.70</td></tr>
+        <tr><td><strong>GBP/USD</strong></td>  <td>+0.80</td>    <td>1.00</td>    <td>-0.55</td></tr>
+        <tr><td><strong>USD/JPY</strong></td>  <td>-0.70</td>    <td>-0.55</td>   <td>1.00</td></tr>
+      </tbody>
+    </table>
+
+    <p style="font-size:13px;color:var(--muted-2);margin-top:.5rem">Approximate rolling 60-day correlations. Exact values shift with macro regime. The signs are stable; the magnitudes wobble.</p>
+
+    <p>Read this carefully:</p>
+    <ul>
+      <li><strong>EUR/USD and GBP/USD correlate +0.80</strong> - they move together about 80% of the time. Both anti-dollar pairs, both pulled by the USD side.</li>
+      <li><strong>EUR/USD and USD/JPY correlate -0.70</strong> - they move opposite each other most of the time. When EUR/USD goes up, USD/JPY goes down. Mostly.</li>
+      <li><strong>GBP/USD and USD/JPY correlate -0.55</strong> - same direction logic as EUR vs JPY but weaker, because GBP has its own UK-specific drivers.</li>
+    </ul>
+
+    <h2>The trap - <em>accidentally tripling your risk</em></h2>
+
+    <p>Let's say you have three "great setups" on the same morning:</p>
+    <ul>
+      <li>Long EUR/USD (1% risk)</li>
+      <li>Long GBP/USD (1% risk)</li>
+      <li>Short USD/JPY (1% risk)</li>
+    </ul>
+
+    <p>You think: "1% per trade, three trades, 3% total risk - diversified across three majors". Wrong.</p>
+    <p>All three trades are essentially the same trade: <strong>short the dollar</strong>. If the dollar strengthens unexpectedly (DXY breakout, hot CPI, hawkish Fed comment), all three positions hit SL roughly together. You don't lose 1% three times - you lose 3% in one move, because the trades are correlated.</p>
+
+    <div class="callout">Three correlated trades at 1% each is not 3% risk. It's 1.7-2.5x that, depending on correlation strength. The dollar moves, everything moves.</div>
+
+    <div class="example">
+      <span class="example-label">Risk math when correlated</span>
+      <p>Three trades, each 1% risk, with +0.7 average correlation:</p>
+      <p>Effective combined risk ≈ 1% × √(3 + 2×0.7×3) = 1% × √(7.2) ≈ <strong>2.7% combined risk</strong></p>
+      <p>You thought you risked 3% across uncorrelated bets. You're actually risking 2.7% on essentially one trade tripled. And if you got the dollar direction wrong, you lose all three together.</p>
+    </div>
+
+    <h2>The practical <em>rules</em> - how to actually trade the three together</h2>
+
+    <ol>
+      <li><strong>Rule 1 - One USD direction per session.</strong> If you're short the dollar, pick one pair to express that view. Don't long EUR/USD <em>and</em> long GBP/USD <em>and</em> short USD/JPY at the same time. Pick the strongest setup, scale your normal position size.</li>
+      <li><strong>Rule 2 - Use DXY as the dollar lens.</strong> Before any major trade, pull up DXY. If DXY is breaking down, you're looking for long EUR/USD, long GBP/USD, or short USD/JPY - <em>but pick one</em>. If DXY is breaking up, do the opposite, pick one.</li>
+      <li><strong>Rule 3 - Combined positions for hedging, not amplification.</strong> If you must have multiple pairs open, use them for asymmetric exposure - e.g. long EUR/USD as the directional bet, hedged by a small long USD/JPY as insurance against unexpected dollar strength. This is advanced - most beginners shouldn't bother.</li>
+      <li><strong>Rule 4 - Cap total dollar-direction exposure at 1.5x your normal trade size.</strong> If you really see two setups (EUR/USD and GBP/USD), enter at half size each rather than full size each. Your combined risk approximates one full-size trade.</li>
+      <li><strong>Rule 5 - When in doubt, EUR/USD only.</strong> When the correlations are confusing or the setups are unclear, default to EUR/USD as your "house pair". Don't add complexity.</li>
+    </ol>
+
+    <h2>Session matching - <em>which pair in which session</em></h2>
+
+    <table class="recap-table">
+      <thead>
+        <tr>
+          <th>Session</th>
+          <th>NY time</th>
+          <th>Best pair</th>
+          <th>Why</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Tokyo</td>             <td>20:00 - 02:00</td>  <td>USD/JPY</td>           <td>JPY home session</td></tr>
+        <tr><td>London Open</td>       <td>02:00 - 05:00</td>  <td>GBP/USD</td>           <td>GBP home session, biggest sweeps</td></tr>
+        <tr><td>Late London</td>       <td>05:00 - 08:00</td>  <td>EUR/USD</td>           <td>European liquidity peak</td></tr>
+        <tr><td>NY AM</td>             <td>08:00 - 11:00</td>  <td>EUR/USD or USD/JPY</td><td>News-driven, tight spreads</td></tr>
+        <tr><td>NY PM</td>             <td>11:00 - 17:00</td>  <td>USD/JPY</td>           <td>Trend continuation</td></tr>
+        <tr><td>Rollover</td>          <td>17:00 - 20:00</td>  <td>None</td>              <td>Avoid all majors</td></tr>
+      </tbody>
+    </table>
+
+    <p>Practical use: instead of having all three majors on your screen all day looking for setups, focus on the right pair for the session you're trading. If you're a London Open trader, the Cable is your primary focus. If you're a Tokyo session trader, USD/JPY is your focus. EUR/USD works across overlapping sessions but is best in NY AM.</p>
+
+    <h2>DXY - <em>the universal lens</em></h2>
+    <p>The single most useful chart for trading all three majors is <strong>DXY</strong> (Dollar Index). Why? Because DXY tells you the dollar's direction directly, and all three majors are mostly dollar trades.</p>
+
+    <ul>
+      <li><strong>DXY breaks up</strong> → EUR/USD falls, GBP/USD falls, USD/JPY rises. Look for shorts on EUR/GBP, longs on USD/JPY.</li>
+      <li><strong>DXY breaks down</strong> → EUR/USD rises, GBP/USD rises, USD/JPY falls. Look for longs on EUR/GBP, shorts on USD/JPY.</li>
+      <li><strong>DXY consolidating</strong> → no clear dollar direction, look for pair-specific stories (UK CPI for GBP, Japan intervention for JPY, ECB headlines for EUR).</li>
+    </ul>
+
+    <p>Use DXY to <strong>pick your direction</strong>, then use the individual pair charts to <strong>pick your entry</strong>. That's the workflow.</p>
+
+    <h2>Last words - <em>master the three as one</em></h2>
+    <p>Most retail traders treat EUR/USD, GBP/USD, and USD/JPY as three separate trading instruments. They aren't - they're three views of the dollar with idiosyncratic side stories (UK politics, Japan intervention, ECB pace). Once you internalize the correlations, the session matching, and DXY as your universal lens, you stop "diversifying" by accident and start actually choosing the best expression of each macro view.</p>
+    <p>The framework: <strong>DXY for direction. Pair selection for execution. One USD trade per session. Lot sizing per pair (because pip values differ).</strong></p>
+    <p>You're done with the Major Pairs section. The next stops in the Forex track are <strong>XAU/USD (Gold) Playbook</strong> (which behaves nothing like a currency pair), <strong>London + NY Killzones</strong> applied specifically to forex, <strong>Prop Firms - FTMO and friends</strong>, and <strong>News Trading - NFP, CPI, ECB, BoE</strong> with surgical entry rules. Each one builds on what you have now.</p>
+    <p>Take a break. Open a chart. Watch DXY, EUR/USD, GBP/USD, and USD/JPY for one full session as a system. Feel how they move together. Then come back when you're ready to keep going.</p>
+
+    <div class="own-notes">
+      <div class="own-notes-head">
+        <h3 class="own-notes-title">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 1 1 3 3L7 19l-4 1 1-4 12.5-12.5z"/></svg>
+          Write your own notes if needed
+        </h3>
+        <div class="own-notes-meta">
+          <span class="own-notes-status" id="own-notes-status"></span>
+          <button class="own-notes-clear" id="own-notes-clear" title="Clear notes">Clear</button>
+        </div>
+      </div>
+      <textarea class="own-notes-area" id="own-notes-area" placeholder="Write down concepts, feelings, and key takeaways from this lesson..."></textarea>
+    </div>
+
+    <a class="next-lesson" href="forex.html">
+      <div class="next-lesson-meta">
+        <span class="next-lesson-label">Back to Forex hub</span>
+        <span class="next-lesson-title">Major Pairs section complete - browse the next sections</span>
+      </div>
+      <span class="next-lesson-arrow">→</span>
+    </a>
+
+  </article>
+</div>
+
+<footer>© 2026 B.E.T.Trade · All rights reserved</footer>
+
+<script src="../js/sidebar.js"></script>
+<script src="../js/admin.js"></script>
+<script src="../js/main.js"></script>
+<script src="../js/notes.js"></script>
+</body>
+</html>

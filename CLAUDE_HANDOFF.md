@@ -108,11 +108,17 @@ Landing page redesigned to dark theme, BlueEyes-Trader-inspired. Left Notion-sty
 
 Four Forex Basics lessons exist with full content in the informal/playful voice: pip value, lot sizing, leverage, spread. Each lesson page has a hero, article body, and a `<a class="next-lesson">` CTA to the next lesson. Each has the asset-forex body class for accent theming.
 
+Three **Major Pairs** sub-lessons exist in the same voice, deeper format (~10-14 min reads each): `forex-eurusd.html` (02.1 - DXY relationship as secret indicator, London Open Sweep & NY AM Continuation setups), `forex-gbpusd.html` (02.2 - the "Cable" name origin, signature double-sweep pattern, BoE Decision Day Fade setup, head-to-head sizing comparison vs EUR/USD), `forex-usdjpy.html` (02.3 - safe-haven mechanics, BoJ-Fed yield gap and the carry trade, US 10Y yield as external indicator, 2-decimal pip recap, intervention risk above 150/155/160). The USD/JPY lesson also carries the **Correlations System outro** which ties all three majors together: full correlation matrix, the "accidentally tripling your risk" trap with √-formula math, five practical rules, session matching table, and DXY as the universal lens for direction-then-pair-selection workflow. The Forex hub (`pages/forex.html`) now has a `#majors` lesson-preview block mirroring the existing `#basics` block, with bullets to the three sub-pages. The last Basics lesson (`forex-spread.html`) Next CTA was rewired to link directly to `forex-eurusd.html` so 01.1 → 01.4 → 02.1 → 02.3 reads as one continuous chain. Major Pairs lessons live under `body.asset-forex` like Basics, with Own Notes (final "Write your own notes if needed" shape, no foot div) and `notes.js` script wired in.
+
 Backend scaffolded but not deployed: Express server, Notion service that maps trades and explicitly omits Emotions/Learn, routes for `/api/trades` and `/api/trades/featured`, waitlist route stub, Postgres migrations folder. No auth, no Stripe yet.
 
 Admin bypass: `js/admin.js` reads `localStorage['bet.admin']`. If `'true'`, it adds `body.is-admin` and injects an "ADMIN MODE" badge into the sidebar footer. `window.bet.setAdmin(true|false)` toggles it from devtools.
 
 Own Notes notepad: `js/notes.js` is in place. It looks for `#own-notes-area`, loads localStorage value scoped by URL filename (`bet.notes.<filename>`), debounces save 600ms, also saves on blur and beforeunload, supports a Clear button with confirm. CSS for `.own-notes`, `.own-notes-head`, `.own-notes-title`, `.own-notes-area`, `.own-notes-clear`, `.own-notes-status`, `.own-notes-foot` already lives in `style.css`.
+
+The Own Notes block has been added to all 4 Forex Basics lessons (pip value, lot sizing, leverage, spread), positioned after the lesson body text and before the `<a class="next-lesson">` CTA, with `<script src="../js/notes.js"></script>` wired in after `main.js`. The heading text was tweaked to **"Write your own notes if needed"** (not "Own notes") and the `.own-notes-foot` "Saved locally..." footer line was removed - so when adding the block to new lessons, use that final shape (heading text + no footer div).
+
+**Dev-mode unlock (paywall bypass for everyone, temporary):** `frontend/public/js/admin.js` was rewritten so it unconditionally sets `body.is-admin` on every page load, and `window.bet.isAdmin()` always returns true. This activates all the existing CSS overrides in `style.css` (the `body.is-admin ...` block around lines 1052-1110), which: hide sidebar lock icons, fully reveal `.lesson-row.locked` rows, hide `.locked-overlay`, restyle `.paywall-card`, and add a " · UNLOCKED" suffix to `Pro` tags. The "ADMIN MODE · exit" badge in the sidebar foot is no longer injected. The `setAdmin()` API surface is preserved so `pages/admin.html` keeps working (it just always shows the "active" view). All `.locked` class names in HTML and all `body.is-admin` CSS rules are untouched - when the real backend paywall (JWT + Stripe) is ready, reverting `js/admin.js` from git is a one-step re-lock.
 
 Site is fully English. README is English, MIT, no emojis. GitHub repo set up with topics. Em-dashes replaced with hyphens site-wide.
 
@@ -120,23 +126,21 @@ Site is fully English. README is English, MIT, no emojis. GitHub repo set up wit
 
 ## 6. Pending work
 
-**Immediate next task (in progress, not finished):**
-Add the Own Notes HTML block to all four Forex lesson pages, placed AFTER the lesson body text and BEFORE the `<a class="next-lesson">` CTA. Also add `<script src="../js/notes.js"></script>` after the existing `<script src="../js/main.js"></script>` in each of those four files.
+**Remaining Forex track lessons** (same pattern as Basics + Majors - sub-lessons where it makes sense, informal/playful voice, ~10+ min reads, Own Notes block, asset-forex theming, `notes.js` wired in, chained next-lesson CTAs, and a matching `#anchor` lesson-preview block added to `pages/forex.html`):
 
-Files to edit:
-- `frontend/public/pages/forex-pip-value.html`
-- `frontend/public/pages/forex-lot-sizing.html`
-- `frontend/public/pages/forex-leverage.html`
-- `frontend/public/pages/forex-spread.html`
+- **03 XAU/USD (Gold) Playbook** - why gold behaves nothing like a currency pair, the DXY relationship, NY open behaviour, risk-off windows, $/move math reminder (1 standard lot = $100/pip)
+- **04 London + NY Killzones (Forex-specific)** - how forex pairs react in London Open (02:00-05:00 NY) and NY AM (08:30-11:00), the liquidity sweep playbook, when NOT to enter
+- **05 Forex Prop Firms - FTMO and friends** - FTMO, MyForexFunds, FundedNext, The5ers comparison of rules, max DD, daily loss, profit targets, scaling, payouts
+- **06 News Trading - NFP, CPI, ECB, BoE** - high-impact news handling, when direction holds vs reverses, why prop firms ban it
 
-HTML block to insert before each `<a class="next-lesson" ...>`:
+Final Own Notes block shape to reuse (agreed final version - heading text changed, no foot div):
 
 ```html
 <div class="own-notes">
   <div class="own-notes-head">
     <h3 class="own-notes-title">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 1 1 3 3L7 19l-4 1 1-4 12.5-12.5z"/></svg>
-      Own notes
+      Write your own notes if needed
     </h3>
     <div class="own-notes-meta">
       <span class="own-notes-status" id="own-notes-status"></span>
@@ -144,16 +148,17 @@ HTML block to insert before each `<a class="next-lesson" ...>`:
     </div>
   </div>
   <textarea class="own-notes-area" id="own-notes-area" placeholder="Write down concepts, feelings, and key takeaways from this lesson..."></textarea>
-  <div class="own-notes-foot">Saved locally on your device - not synced to the server</div>
 </div>
 ```
 
-Use the `Edit` tool one file at a time. Do NOT use bash `sed`.
+Also remember `<script src="../js/notes.js"></script>` after `main.js`.
+
+**Futures and Crypto sections** (in `pages/futures.html`, `pages/crypto.html`) - same level of content build-out is still to come.
 
 **From the original BET.txt task list, still open:**
 - Free intro lesson + risk disclaimer page.
 - Social media links + Discord invite section.
-- Real backend deploy: hook up Notion API, Postgres, JWT auth, Stripe paywall.
+- Real backend deploy: hook up Notion API, Postgres, JWT auth, Stripe paywall - at which point revert `js/admin.js` to its localStorage-gated form so the paywall actually paywalls again.
 - Replace the snapshot-based featured trades with the live `/api/trades/featured` once backend runs.
 
 ---
@@ -161,8 +166,11 @@ Use the `Edit` tool one file at a time. Do NOT use bash `sed`.
 ## 7. Known landmines
 
 - **Bash on Windows mount can corrupt files.** `sed -i` and similar in-place edits previously appended null bytes to JS files (causing `SyntaxError`) and truncated HTML files (lost testimonials, CTA, footer, scripts from `index.html`; truncated `pages/forex.html`). Use the `Edit` / `Write` tools. If you absolutely must use bash, write to a temp file and `mv` - never `-i`.
+- **Null bytes resurfaced in lesson HTMLs.** When we added Own Notes, three of the four forex lesson files (`forex-pip-value.html`, `forex-lot-sizing.html`, `forex-leverage.html`) had hundreds of null bytes scattered through them - leftover from older `sed -i` runs. ripgrep (and therefore the Grep tool) silently skipped matching them, which made it look like the files didn't contain the pattern. Fix: `tr -d '\0' < file > file.clean && mv file.clean file`. Always check `file <path>` - clean HTML reports as "HTML document, Unicode text, UTF-8 text"; corrupted reports as just "data".
+- **After any bash modification of a file, the `Edit` tool will refuse with "File has been modified since read".** Re-`Read` the file before trying to `Edit` again.
 - **`<nav class="sb-body">` breaks the sidebar.** Global CSS `nav { position:fixed; top:0; left:0; right:0; display:flex }` hijacks any `<nav>`. Keep the sidebar body as `<div role="navigation">`.
 - **Custom calendar didn't render right.** We reverted to TradingView Events widget per user's request "vrat mi to na povodne". Don't rebuild a custom one unless the user asks again.
+- **Dev-mode unlock lives in one file.** `js/admin.js` unconditionally adds `body.is-admin`. Do NOT add a second "always unlock" mechanism elsewhere - one source of truth. When real auth is wired, revert that file and the paywall returns intact.
 
 ---
 
