@@ -30,6 +30,7 @@
     globe:    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>',
     bars:     '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 21V9"/><path d="M12 21V4"/><path d="M19 21v-8"/><path d="M3 21h18"/></svg>',
     coin:     '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9 8h5a3 3 0 0 1 0 5H9V8z"/><path d="M9 13h6a3 3 0 0 1 0 5H9v-5z"/></svg>',
+    tag:      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>',
   };
 
   var GROUPS = [
@@ -37,6 +38,7 @@
       title: 'Main',
       items: [
         { href: homePrefix + 'index.html',     label: 'Home',          icon: ICON.home,     match: ['index.html', '/'] },
+        { href: prefix + 'pricing.html',       label: 'Pricing',       icon: ICON.tag,      match: ['pricing.html'] },
         { href: prefix + 'courses.html',       label: 'Courses',       icon: ICON.book,     match: ['courses.html'] },
         { href: prefix + 'trading-plan.html',  label: 'Trading Plan',  icon: ICON.list,     match: ['trading-plan.html'], indent: true },
         { href: prefix + 'forex.html',         label: 'Forex',         icon: ICON.globe,    match: ['forex.html'],        indent: true },

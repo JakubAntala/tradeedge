@@ -122,6 +122,10 @@ The Own Notes block has been added to all 4 Forex Basics lessons (pip value, lot
 
 Site is fully English. README is English, MIT, no emojis. GitHub repo set up with topics. Em-dashes replaced with hyphens site-wide.
 
+**Pricing page** (`pages/pricing.html`) was added - a standalone page with 3 plan cards in prop-firm style: Starter (€0), Pro (€5/mo, featured/highlighted), Mentoring (€99/mo). Each card has a CTA button (outline / solid / ghost variant), a divider, and a feature list using ✓ checkmarks for included items and ✗ (`.no` class, greyed strikethrough) for excluded items. Below the cards: a 30-day guarantee block and a 6-item FAQ section. The page uses `.pricing-hero` for the header, `.pricing-grid` for the cards, `.pricing-guarantee` and `.pricing-faq` for the lower sections. **Pricing** was added to the sidebar (`js/sidebar.js`) as the second item in the Main group, right after Home, using a tag SVG icon (`ICON.tag`). CSS additions in `style.css` for this page: `.plan-features li.no`, `.plan-divider`, `.plan-btn` (with `.outline`, `.solid`, `.ghost` variants), `.pricing-hero`, `.pricing-faq`, `.pfaq-item`, `.pfaq-q`, `.pfaq-a`, `.pricing-guarantee`. The cards section uses `style="max-width:none;width:auto"` on the `.section` wrapper so the grid can center freely with `max-width:960px;margin:0 auto` regardless of sidebar state.
+
+**Pro plan price changed** from €29/mo to **€5/mo** in three places: `index.html` (pricing grid), `pages/forex.html` (CTA under Basics lessons), `pages/forex.html` (CTA under Major Pairs lessons).
+
 ---
 
 ## 6. Pending work
@@ -187,7 +191,7 @@ ls frontend/public/js              # confirm sidebar.js, main.js, admin.js, note
 
 Open `frontend/public/index.html` in a browser to sanity-check the landing. Open one of the `pages/forex-*.html` lessons to confirm the asset accent theming still works.
 
-When you (Claude) are ready to resume, the very next concrete action is the Own Notes HTML insertion described in section 6.
+When you (Claude) are ready to resume, the next concrete actions are the remaining Forex lesson builds described in section 6 (lessons 03-06).
 
 ---
 
