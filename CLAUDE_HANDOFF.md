@@ -49,9 +49,13 @@ tradeedge/
         notes.js                  (per-lesson Own Notes notepad, localStorage scoped by filename)
       data/
         trades-snapshot.json      (8 trades, English narratives, Emotions/Learn fields ABSENT)
+      downloads/
+        forex-basics-notes.pdf        (auto-generated course notes - 4 Basics lessons, 16pp)
+        forex-major-pairs-notes.pdf   (auto-generated course notes - EUR/USD, GBP/USD, USD/JPY, 23pp)
       pages/
+        pricing.html              (standalone 3-plan pricing page)
         courses.html              (3 asset cards: Forex, Futures, Crypto)
-        forex.html                (Forex hub - links to 4 basics lessons)
+        forex.html                (Forex hub - basics + majors previews, each with a Download PDF button)
         forex-pip-value.html      (lesson 1)
         forex-lot-sizing.html     (lesson 2)
         forex-leverage.html       (lesson 3)
@@ -125,6 +129,12 @@ Site is fully English. README is English, MIT, no emojis. GitHub repo set up wit
 **Pricing page** (`pages/pricing.html`) was added - a standalone page with 3 plan cards in prop-firm style: Starter (€0), Pro (€5/mo, featured/highlighted), Mentoring (€99/mo). Each card has a CTA button (outline / solid / ghost variant), a divider, and a feature list using ✓ checkmarks for included items and ✗ (`.no` class, greyed strikethrough) for excluded items. Below the cards: a 30-day guarantee block and a 6-item FAQ section. The page uses `.pricing-hero` for the header, `.pricing-grid` for the cards, `.pricing-guarantee` and `.pricing-faq` for the lower sections. **Pricing** was added to the sidebar (`js/sidebar.js`) as the second item in the Main group, right after Home, using a tag SVG icon (`ICON.tag`). CSS additions in `style.css` for this page: `.plan-features li.no`, `.plan-divider`, `.plan-btn` (with `.outline`, `.solid`, `.ghost` variants), `.pricing-hero`, `.pricing-faq`, `.pfaq-item`, `.pfaq-q`, `.pfaq-a`, `.pricing-guarantee`. The cards section uses `style="max-width:none;width:auto"` on the `.section` wrapper so the grid can center freely with `max-width:960px;margin:0 auto` regardless of sidebar state.
 
 **Pro plan price changed** from €29/mo to **€5/mo** in three places: `index.html` (pricing grid), `pages/forex.html` (CTA under Basics lessons), `pages/forex.html` (CTA under Major Pairs lessons).
+
+**Pricing page card centering (May 2026).** On `pages/pricing.html` the plan cards used to shift 260px right when the sidebar opened (global `body.sb-open .section{margin-left:260px}`) while the centered `.pricing-hero` stayed put, so the Pro card no longer lined up under the "Pricing" heading. Fix: added `class="pricing-page"` to the `<body>` and a scoped override `body.pricing-page.sb-open .section{margin-left:0}` (inside the existing `@media (min-width:901px)` block in `style.css`). Now the cards stay centered on the full page in both sidebar states; the sidebar slides over them like it already did for the hero.
+
+**CSS lint cleanup (May 2026).** Fixed the 3 warnings VS Code's built-in validator reported in `style.css`: added the standard `line-clamp` next to `-webkit-line-clamp` (`.trade-narr`), added the standard `mask` next to `-webkit-mask` (`.course-card::before`), and removed the empty ruleset `body.is-admin .trade-chip{}`. File now lints clean. NOTE: while doing this, successive `Edit`-tool calls truncated the large CRLF `style.css` at the end - recovered from `git show HEAD:...`, reapplied fixes in a temp file, and copied back as CRLF. After any multi-edit on a big mounted file, verify brace balance and that `file` still reports "with CRLF line terminators".
+
+**Download PDF feature (May 2026).** Both Forex hub preview cards now offer a downloadable PDF of the lesson notes. On `pages/forex.html`, each card's CTA was wrapped in a `.lesson-cta-row` (flex, space-between) with the existing `.cta-inline` on the left and a new `.download-pdf-btn` (solid-blue button + download icon, `download` attribute) on the right: `#basics` -> `../downloads/forex-basics-notes.pdf`, `#majors` -> `../downloads/forex-major-pairs-notes.pdf`. CSS for `.lesson-cta-row` and `.download-pdf-btn` lives in `style.css` right after `.cta-inline`. The PDFs are pre-generated (not built at request time) from the actual lesson HTML by a Python script using `reportlab` + `beautifulsoup4`, with DejaVuSans/DejaVuSansMono fonts for Unicode (arrows, ×, €). The generator parses each lesson's `<article>` and renders tldr / h2 / h3 / p / formula (dark code box) / callout / example / ul / ol / hr / recap-table into a branded layout (navy cover, "what's inside" contents, per-lesson header); it skips the Own Notes block and the next-lesson CTA. Lesson titles are pulled with `re.sub(r'\s+',' ', el.get_text())` so "EUR/USD" doesn't become "EUR /USD". To regenerate after editing lessons, re-run the script against the lesson files and copy the output into `frontend/public/downloads/`.
 
 ---
 
