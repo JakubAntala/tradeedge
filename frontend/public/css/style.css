@@ -1624,6 +1624,10 @@ body[class*="asset-"] .trade-chip.session{
 }
 .download-pdf-btn:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(14,165,233,.45)}
 .download-pdf-btn svg{width:16px;height:16px;flex-shrink:0}
+.lesson-figure{margin:1.8rem 0;display:block}
+.lesson-figure img{display:block;width:100%;height:auto;border-radius:var(--radius);border:1px solid var(--border-2);box-shadow:var(--shadow-lg);background:#0f1a2b}
+.lesson-figure figcaption{margin-top:.7rem;font-size:13px;color:var(--muted);line-height:1.6;border-left:2px solid var(--page-a,var(--blue-l));padding-left:.85rem}
+.lesson-figure figcaption strong{color:var(--ink-2)}
 
 /* killzones */
 .killzone-grid{
