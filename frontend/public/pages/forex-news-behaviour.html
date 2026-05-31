@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>News trading: how price behaves - Forex · B.E.T.Trade</title>
+<meta name="description" content="How price actually behaves around high-impact news - the pre-news Judas, the stop-run whipsaw, blown-out spreads, displacement, and why speaker events chop.">
+<meta name="theme-color" content="#0EA5E9">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,800;0,900;1,700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body class="asset-forex">
+
+<div class="bg-gradient"></div>
+<canvas id="bg-canvas"></canvas>
+
+<div id="sidebar-mount"></div>
+
+<nav id="nav">
+  <div class="nav-left">
+    <button class="nav-toggle" id="sb-toggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <a class="logo" href="../index.html" style="text-decoration:none">
+      <span class="logo-dot"></span>
+      B.E.T.<span>Trade</span>
+    </a>
+  </div>
+  <div class="nav-right">
+    <a class="nav-btn" href="../index.html#cta-email" style="text-decoration:none">Join</a>
+  </div>
+</nav>
+
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <a href="forex.html" class="breadcrumb">← Back to Forex</a>
+    <span class="s-tag">News Trading · Lesson 05.2</span>
+    <h1 class="page-title">How price <em>behaves</em></h1>
+    <p class="page-sub">A release looks random. It is not - it is a liquidity event. Price runs the stops first, whipsaws, and only then commits. Learn the pattern and the spike stops fooling you.</p>
+    <div class="page-meta">
+      <span class="trade-chip session">~6 min read</span>
+      <span class="trade-chip">News Trading</span>
+      <span class="trade-chip">From my journal</span>
+    </div>
+  </div>
+</section>
+
+<div class="section">
+  <article class="article">
+
+    <div class="tldr">
+      <span class="tldr-label">TL;DR - if you're in a hurry</span>
+      <p>News is a <strong>liquidity event</strong>, not a coin flip. Price usually runs the stops first (a fake move / Judas), whipsaws both ways, and only <em>then</em> delivers the real move. The spike is the trap, not the signal.</p>
+    </div>
+
+    <h2>News is a <em>liquidity event</em>, not a coin flip</h2>
+    <p>It looks random. It is not. A release is a giant magnet for stops - everyone's protective orders sit in the same obvious places, and the volatility is perfect cover to take them. Price typically runs one side, or both, whipsaws, and only then commits to a direction.</p>
+
+    <h2>The pre-news <em>Judas</em></h2>
+    <p>Often the move starts <strong>before</strong> the number even prints. In my notes I will see price get pushed into the liquidity just before the release - a Judas to set the trap - then the news drops and the real delivery goes the other way. If you got long into "obvious" highs right before CPI, you were the liquidity.</p>
+
+    <div class="example">
+      <span class="example-label">From the journal - reading the setup before PMI</span>
+      <p>Relative equal lows and unfilled FVGs were stacking up under price, so the read was that the dollar print would come in strong and EUR would fall. Just before the news, price pushed up and took the buyers' stops at the recent equal lows - then it delivered down. The point: you anticipate which side is primed, you do not pre-position into the print.</p>
+    </div>
+
+    <h2>The spike, the whipsaw, the <em>spread</em></h2>
+    <p>At the release you get a violent candle, often a stop-run in <strong>both</strong> directions, and spreads and slippage blow out - your broker widens, and your stop can fill far past where you placed it. This is exactly why the moment of the print is the most dangerous time to have an order working.</p>
+
+    <div class="callout">The first candle after the news is a trap dressed as a signal. The clean move usually comes after the whipsaw, not during it.</div>
+
+    <h2>Powell-speak and <em>"high resistance"</em></h2>
+    <p>A scheduled number is one shove and done. Live commentary - the FOMC presser, Powell speaking - is different: it is a stream of headlines, so price chops in what my notes call <strong>high-resistance</strong> price action, full of fakeouts with no clean delivery. Treat speaker events as choppy until price proves otherwise.</p>
+
+    <div class="own-notes">
+      <div class="own-notes-head">
+        <h3 class="own-notes-title">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 1 1 3 3L7 19l-4 1 1-4 12.5-12.5z"/></svg>
+          Write your own notes if needed
+        </h3>
+        <div class="own-notes-meta">
+          <span class="own-notes-status" id="own-notes-status"></span>
+          <button class="own-notes-clear" id="own-notes-clear" title="Clear notes">Clear</button>
+        </div>
+      </div>
+      <textarea class="own-notes-area" id="own-notes-area" placeholder="Write down concepts, feelings, and key takeaways from this lesson..."></textarea>
+    </div>
+
+    <a class="next-lesson" href="forex-news-playbook.html">
+      <div class="next-lesson-meta">
+        <span class="next-lesson-label">Continue</span>
+        <span class="next-lesson-title">Trading the reaction - the ICT way, no gambling</span>
+      </div>
+      <span class="next-lesson-arrow">→</span>
+    </a>
+
+  </article>
+</div>
+
+<footer>© 2026 B.E.T.Trade · All rights reserved</footer>
+
+<script src="../js/sidebar.js"></script>
+<script src="../js/admin.js"></script>
+<script src="../js/main.js"></script>
+<script src="../js/notes.js"></script>
+</body>
+</html>
