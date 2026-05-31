@@ -49,9 +49,14 @@ tradeedge/
         notes.js                  (per-lesson Own Notes notepad, localStorage scoped by filename)
       data/
         trades-snapshot.json      (8 trades, English narratives, Emotions/Learn fields ABSENT)
+      assets/images/
+        silverbullet-57.png           (Silver Bullet trade screenshot, used in 04.3)
+        silverbullet-58.png
       downloads/
         forex-basics-notes.pdf        (auto-generated course notes - 4 Basics lessons, 16pp)
         forex-major-pairs-notes.pdf   (auto-generated course notes - EUR/USD, GBP/USD, USD/JPY, 23pp)
+        forex-gold-notes.pdf          (auto-generated course notes - Gold 03.1-03.4, 8pp)
+        forex-killzones-notes.pdf     (auto-generated course notes - Killzones 04.1-04.4, 9pp)
       pages/
         pricing.html              (standalone 3-plan pricing page)
         courses.html              (3 asset cards: Forex, Futures, Crypto)
@@ -60,6 +65,19 @@ tradeedge/
         forex-lot-sizing.html     (lesson 2)
         forex-leverage.html       (lesson 3)
         forex-spread.html         (lesson 4)
+        forex-eurusd.html         (Majors 02.1)
+        forex-gbpusd.html         (Majors 02.2)
+        forex-usdjpy.html         (Majors 02.3 + Correlations outro)
+        forex-gold-pips.html      (Gold 03.1 - pip/$ mechanics)
+        forex-gold-dxy.html       (Gold 03.2 - DXY + real yields)
+        forex-gold-sessions.html  (Gold 03.3 - sessions & NY open)
+        forex-gold-risk.html      (Gold 03.4 - risk & cheatsheet)
+        forex-kz-time.html        (Killzones 04.1 - time & map)
+        forex-kz-sweeps.html      (Killzones 04.2 - sweep then go)
+        forex-kz-silver-bullet.html (Killzones 04.3 - Silver Bullet & Judas; has 2 screenshots)
+        forex-kz-sessions.html    (Killzones 04.4 - sessions & discipline)
+        forex-xauusd.html         (REDIRECT stub -> forex-gold-pips.html)
+        forex-killzones.html      (REDIRECT stub -> forex-kz-time.html)
         futures.html
         crypto.html
         trading-plan.html
@@ -136,14 +154,15 @@ Site is fully English. README is English, MIT, no emojis. GitHub repo set up wit
 
 **Download PDF feature (May 2026).** Both Forex hub preview cards now offer a downloadable PDF of the lesson notes. On `pages/forex.html`, each card's CTA was wrapped in a `.lesson-cta-row` (flex, space-between) with the existing `.cta-inline` on the left and a new `.download-pdf-btn` (solid-blue button + download icon, `download` attribute) on the right: `#basics` -> `../downloads/forex-basics-notes.pdf`, `#majors` -> `../downloads/forex-major-pairs-notes.pdf`. CSS for `.lesson-cta-row` and `.download-pdf-btn` lives in `style.css` right after `.cta-inline`. The PDFs are pre-generated (not built at request time) from the actual lesson HTML by a Python script using `reportlab` + `beautifulsoup4`, with DejaVuSans/DejaVuSansMono fonts for Unicode (arrows, ×, €). The generator parses each lesson's `<article>` and renders tldr / h2 / h3 / p / formula (dark code box) / callout / example / ul / ol / hr / recap-table into a branded layout (navy cover, "what's inside" contents, per-lesson header); it skips the Own Notes block and the next-lesson CTA. Lesson titles are pulled with `re.sub(r'\s+',' ', el.get_text())` so "EUR/USD" doesn't become "EUR /USD". To regenerate after editing lessons, re-run the script against the lesson files and copy the output into `frontend/public/downloads/`.
 
+**Gold (Lesson 03) + Killzones (Lesson 04), then SPLIT 4 ways each (May 2026).** Both chapters were first written as single deep pages, then split into 4 sub-lessons to match the Basics/Majors structure. **Gold 03** (asset-forex, informal voice): `forex-gold-pips.html` (03.1 - gold is not a currency, the dollars-per-move pip math = 1 standard lot is $100 per $1 move on a 100oz contract, how gold differs from a currency pair), `forex-gold-dxy.html` (03.2 - the three drivers real yields / DXY / fear, DXY as the first filter, the decoupling trap), `forex-gold-sessions.html` (03.3 - sessions table, NY-open sweep-then-go, the two-stage risk-off trap), `forex-gold-risk.html` (03.4 - the $/move sizing math with a 0.125-lot worked example, the 7-rule playbook, a cheatsheet table). **Killzones 04** was BUILT FROM JAKUB'S NOTION (his Trading plan + ICT 2024 Mentorship Notes + Trading Journal entries + the free-form JOURNAL page): `forex-kz-time.html` (04.1 - TIME is the edge, the NY-time clock, the killzone map table, important times, the macros table), `forex-kz-sweeps.html` (04.2 - the sweep-then-go core play, pre-market/opening range 3-shots, how a pool gets primed and swept), `forex-kz-silver-bullet.html` (04.3 - the 10:00 Silver Bullet, the Judas Swing, the 9:30 1st PFVG; THIS page holds Jakub's two real Silver Bullet chart screenshots as `<figure class="lesson-figure">` pointing at `../assets/images/silverbullet-57.png` and `-58.png`), `forex-kz-sessions.html` (04.4 - London Open + NY AM killzones, NY Lunch/PM when-not-to-enter, the discipline list, a cheatsheet). Exact killzone/macro times come straight from Jakub's Trading plan (London 02:00-05:00, NY AM 08:30-11:00; macros 02:33-03:00 / 04:03-04:30 / 08:50-09:10 / 09:50-10:10 / 10:50-11:10). **PRIVACY honored: NO Emotions, 'What did you learn today?', or personal diary/mood lines appear on any page or in any PDF - only the technical Narrative was used** (verified by grep). The `#gold` and `#killzones` preview cards on `forex.html` each list their 4 sub-pages and carry ONE Download PDF button (`forex-gold-notes.pdf` 8pp, `forex-killzones-notes.pdf` 9pp, regenerated from the 4 sub-pages each; the PDF generator skips `<figure>`, so screenshots are web-only). Lesson chain is continuous: usdjpy 02.3 -> 03.1 -> 03.4 -> 04.1 -> 04.4 -> forex hub. The original single pages `forex-xauusd.html` and `forex-killzones.html` are now REDIRECT STUBS (meta-refresh + JS) to 03.1 / 04.1, because the sandbox bash cannot `rm` files on the Windows mount (delete = 'Operation not permitted'; `cp` overwrite works) - they can be `git rm`-ed from a machine with delete perms. **New CSS** in `style.css` (right after `.download-pdf-btn`): `.lesson-figure`, `.lesson-figure img`, `.lesson-figure figcaption` for in-lesson chart screenshots. **Future lessons should keep drawing from Jakub's Notion** (his explicit ask): ICT 2024 Mentorship Notes (`1073b2c9-24cb-805f-ae4a-d3c7daf94614`), JOURNAL (`f4667442-656d-4b86-91fb-d4ea4b277a6c`), Trading plan (`0bfac1c3-b55f-498e-80d9-048a4c0c76b8`), Trading Journal data source (`collection://9397fa00-854d-45ab-8088-728f7cf1535c`) - always excluding the private fields.
+
 ---
 
 ## 6. Pending work
 
 **Remaining Forex track lessons** (same pattern as Basics + Majors - sub-lessons where it makes sense, informal/playful voice, ~10+ min reads, Own Notes block, asset-forex theming, `notes.js` wired in, chained next-lesson CTAs, and a matching `#anchor` lesson-preview block added to `pages/forex.html`):
 
-- **03 XAU/USD (Gold) Playbook** - why gold behaves nothing like a currency pair, the DXY relationship, NY open behaviour, risk-off windows, $/move math reminder (1 standard lot = $100/pip)
-- **04 London + NY Killzones (Forex-specific)** - how forex pairs react in London Open (02:00-05:00 NY) and NY AM (08:30-11:00), the liquidity sweep playbook, when NOT to enter
+- (03 Gold and 04 Killzones are DONE - see section 5; each split into 4 sub-pages, both chained, with Download PDFs.)
 - **05 Forex Prop Firms - FTMO and friends** - FTMO, MyForexFunds, FundedNext, The5ers comparison of rules, max DD, daily loss, profit targets, scaling, payouts
 - **06 News Trading - NFP, CPI, ECB, BoE** - high-impact news handling, when direction holds vs reverses, why prop firms ban it
 

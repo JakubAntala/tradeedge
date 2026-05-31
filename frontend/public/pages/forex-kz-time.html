@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Killzones: time &amp; the map - Forex · B.E.T.Trade</title>
+<meta name="description" content="The Forex killzone map - the exact New York time windows where forex moves (London Open, NY AM), the important daily times, and the macro sniper slots. Built from my own trading plan.">
+<meta name="theme-color" content="#0EA5E9">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,800;0,900;1,700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body class="asset-forex">
+
+<div class="bg-gradient"></div>
+<canvas id="bg-canvas"></canvas>
+
+<div id="sidebar-mount"></div>
+
+<nav id="nav">
+  <div class="nav-left">
+    <button class="nav-toggle" id="sb-toggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <a class="logo" href="../index.html" style="text-decoration:none">
+      <span class="logo-dot"></span>
+      B.E.T.<span>Trade</span>
+    </a>
+  </div>
+  <div class="nav-right">
+    <a class="nav-btn" href="../index.html#cta-email" style="text-decoration:none">Join</a>
+  </div>
+</nav>
+
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <a href="forex.html" class="breadcrumb">← Back to Forex</a>
+    <span class="s-tag">Killzones · Lesson 04.1</span>
+    <h1 class="page-title">Time &amp; the <em>killzone map</em></h1>
+    <p class="page-sub">Most traders obsess over the perfect entry and ignore the one variable that decides whether it works: time. Start here - the exact New York windows and macro slots where forex is actually programmed to move.</p>
+    <div class="page-meta">
+      <span class="trade-chip session">~6 min read</span>
+      <span class="trade-chip">Killzones</span>
+      <span class="trade-chip">From my journal</span>
+    </div>
+  </div>
+</section>
+
+<div class="section">
+  <article class="article">
+
+    <div class="tldr">
+      <span class="tldr-label">TL;DR - if you're in a hurry</span>
+      <p><strong>The edge is TIME.</strong> Set your charts to New York time. Two windows matter for forex: <strong>London Open 02:00-05:00</strong> and <strong>New York AM 08:30-11:00</strong>. The macros are the 10-minute sniper slots inside them - right hour, right ten minutes.</p>
+    </div>
+
+    <h2>Intro - why your "perfect" setup keeps <em>failing</em></h2>
+    <p>You found a clean MSS, a beautiful FVG, the bias lined up - and it still stopped you out. Sound familiar? Nine times out of ten the setup wasn't the problem. <strong>The time of day was.</strong></p>
+    <p>This is the single biggest lesson in my notes, written in red: <strong>if it's not the right time of day, it won't work.</strong> The algorithm that delivers price runs on a schedule. The exact same MSS-plus-FVG is a coin flip at 13:00 and an actual edge at 09:50. Killzones are how you stop gambling on good-looking charts and start trading <em>when the market is actually programmed to move</em>.</p>
+    <p>Everything here comes from how I personally trade and journal it - the times, the macros, the sweep play, and the Silver Bullet. Learn the clock and your win rate fixes itself.</p>
+
+    <h2>The only clock that matters - <em>New York time</em></h2>
+    <p>Every single time in this lesson is <strong>New York local time (EST/EDT)</strong>. Not your broker's time, not your local time - New York. The first thing you do is set your chart timezone to New York and never touch it again. Half of trader confusion about "when is London open" disappears the moment your candles line up with the windows below.</p>
+
+    <div class="callout">Set your chart to New York time first. Every killzone and macro below is NY local time. Get this wrong and every window in your plan is off by hours.</div>
+
+    <h2>The killzone map - the <em>master table</em></h2>
+    <p>This is the backbone straight out of my trading plan. Memorize it. The two you actually trade forex in are highlighted in your head: <strong>London Open</strong> and <strong>New York AM</strong>.</p>
+
+    <table class="recap-table">
+      <thead>
+        <tr>
+          <th>Killzone</th>
+          <th>Time (NY)</th>
+          <th>What it's for</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Midnight Open</td>     <td>00:00</td>         <td>Daily reference / true day open</td></tr>
+        <tr><td>London Open</td>       <td>02:00 - 05:00</td> <td>Prime - first real liquidity</td></tr>
+        <tr><td>New York AM</td>       <td>08:30 - 11:00</td> <td>Prime - the main event</td></tr>
+        <tr><td>New York Lunch</td>    <td>12:00 - 13:00</td> <td>Dead zone - avoid</td></tr>
+        <tr><td>New York PM</td>       <td>13:30 - 16:00</td> <td>Continuation / second chance</td></tr>
+        <tr><td>Power Hour</td>        <td>15:00 - 16:00</td> <td>Late-day push</td></tr>
+        <tr><td>Asia Range</td>        <td>20:00 - 00:00</td> <td>Builds the liquidity London hunts</td></tr>
+      </tbody>
+    </table>
+
+    <p>Notice the rhythm: <strong>Asia builds the range, London sweeps it, New York sweeps London.</strong> Liquidity is created in one session and harvested in the next. That single sentence is most of forex killzone trading.</p>
+
+    <h2>Important times <em>inside</em> the day</h2>
+    <p>Three clock points to keep on your radar - they inject volatility and often kick off the move inside a killzone:</p>
+    <ul>
+      <li><strong>08:30 NY - News release.</strong> High-impact data drops - in my notes these count as <strong>manual intervention</strong>: FOMC, PPI, CPI, NFP. Displacement after 08:30 sets the tone for the AM session.</li>
+      <li><strong>09:30 NY - US equities open.</strong> The "Judas Swing" lives here - a fake move just before the open that traps retail before the real direction.</li>
+      <li><strong>03:00 NY - London stock market open.</strong> Adds fuel to the London killzone.</li>
+    </ul>
+
+    <h2>Macros - the <em>sniper windows</em></h2>
+    <p>Inside each killzone there are tighter slots where the algorithm actually runs price - the <strong>macros</strong>. If killzones are the right hour, macros are the right ten minutes. These are the exact windows from my plan:</p>
+
+    <table class="recap-table">
+      <thead>
+        <tr>
+          <th>Session</th>
+          <th>Macro windows (NY)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>London</td>        <td>02:33 - 03:00 · 04:03 - 04:30</td></tr>
+        <tr><td>New York AM</td>   <td>08:50 - 09:10 · 09:50 - 10:10 · 10:50 - 11:10</td></tr>
+        <tr><td>NY Lunch + PM</td> <td>11:50 - 12:10 · 13:10 - 13:40 · 15:15 - 15:45</td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout">Taking setups inside killzones AND macro slots stacks probability - as long as your draw on liquidity and your stop placement are right. Right time plus right liquidity is the whole game.</div>
+
+    <div class="own-notes">
+      <div class="own-notes-head">
+        <h3 class="own-notes-title">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 1 1 3 3L7 19l-4 1 1-4 12.5-12.5z"/></svg>
+          Write your own notes if needed
+        </h3>
+        <div class="own-notes-meta">
+          <span class="own-notes-status" id="own-notes-status"></span>
+          <button class="own-notes-clear" id="own-notes-clear" title="Clear notes">Clear</button>
+        </div>
+      </div>
+      <textarea class="own-notes-area" id="own-notes-area" placeholder="Write down concepts, feelings, and key takeaways from this lesson..."></textarea>
+    </div>
+
+    <a class="next-lesson" href="forex-kz-sweeps.html">
+      <div class="next-lesson-meta">
+        <span class="next-lesson-label">Continue</span>
+        <span class="next-lesson-title">Sweep, then go - the core killzone play</span>
+      </div>
+      <span class="next-lesson-arrow">→</span>
+    </a>
+
+  </article>
+</div>
+
+<footer>© 2026 B.E.T.Trade · All rights reserved</footer>
+
+<script src="../js/sidebar.js"></script>
+<script src="../js/admin.js"></script>
+<script src="../js/main.js"></script>
+<script src="../js/notes.js"></script>
+</body>
+</html>

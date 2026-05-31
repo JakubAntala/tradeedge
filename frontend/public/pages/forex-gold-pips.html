@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gold mechanics - Forex · B.E.T.Trade</title>
+<meta name="description" content="Gold (XAU/USD) from the ground up - why it is not a currency, the dollars-per-move math (1 standard lot = $100 per $1 move), and how it differs from a normal currency pair.">
+<meta name="theme-color" content="#0EA5E9">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,800;0,900;1,700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body class="asset-forex">
+
+<div class="bg-gradient"></div>
+<canvas id="bg-canvas"></canvas>
+
+<div id="sidebar-mount"></div>
+
+<nav id="nav">
+  <div class="nav-left">
+    <button class="nav-toggle" id="sb-toggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <a class="logo" href="../index.html" style="text-decoration:none">
+      <span class="logo-dot"></span>
+      B.E.T.<span>Trade</span>
+    </a>
+  </div>
+  <div class="nav-right">
+    <a class="nav-btn" href="../index.html#cta-email" style="text-decoration:none">Join</a>
+  </div>
+</nav>
+
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <a href="forex.html" class="breadcrumb">← Back to Forex</a>
+    <span class="s-tag">Gold Playbook · Lesson 03.1</span>
+    <h1 class="page-title">Pip &amp; <em>dollar</em> mechanics</h1>
+    <p class="page-sub">Gold is the asset everyone trades and almost nobody sizes correctly. Before anything else you need the one number that runs the whole game - what a move is actually worth - and why gold behaves nothing like a currency pair.</p>
+    <div class="page-meta">
+      <span class="trade-chip session">~6 min read</span>
+      <span class="trade-chip">Gold Playbook</span>
+      <span class="trade-chip">Foundational</span>
+    </div>
+  </div>
+</section>
+
+<div class="section">
+  <article class="article">
+
+    <div class="tldr">
+      <span class="tldr-label">TL;DR - if you're in a hurry</span>
+      <p><strong>Gold is not a currency</strong> - it is dollars per ounce. The one number that matters: <strong>1 standard lot = $100 per $1 move</strong> ($1 per "pip" on a micro lot). Think in dollars of movement, never in pips.</p>
+    </div>
+
+    <h2>Intro - the <em>weird kid</em> of your watchlist</h2>
+    <p>Every new trader puts gold on their chart because it moves a lot and looks exciting. Then it nukes their account in a week and they blame "manipulation". The truth is simpler: <strong>gold does not play by currency rules</strong>, and they sized it like it does.</p>
+    <p>XAU/USD is the price of one <strong>troy ounce of gold quoted in US dollars</strong>. "XAU" is the ISO code for an ounce of gold, "USD" is the dollar - so the chart is literally "dollars per ounce". There is no central bank setting a gold interest rate, no GDP print for "Goldland", no rate differential in the classic sense. It is a <strong>commodity wearing a forex costume</strong>, and that one fact explains everything weird about it.</p>
+    <p>Get this lesson right and gold becomes one of the cleanest trending instruments you can trade. Get it wrong and it is the fastest way to blow a funded account on record.</p>
+
+    <h2>What "a pip" even <em>means</em> on gold</h2>
+    <p>First, kill the confusion. Gold quotes to <strong>2 decimal places</strong>: 2350.00 to 2350.01. Brokers and traders argue endlessly about what counts as a "pip" on gold, so do yourself a favour and <strong>stop thinking in pips entirely</strong>. Think in <strong>dollars of movement</strong>.</p>
+    <p>The contract size for a standard lot of gold is <strong>100 troy ounces</strong>. So a $1 move in price, times 100 ounces, equals $100. Everything scales from there:</p>
+
+    <div class="formula">XAU/USD: 2350.00 → 2351.00  =  a $1 move
+
+1 standard lot (1.00) = 100 oz = <strong>$100</strong>  per $1 move
+1 mini lot     (0.10) =  10 oz = <strong>$10</strong>   per $1 move
+1 micro lot    (0.01) =   1 oz = <strong>$1</strong>    per $1 move</div>
+
+    <p>So if someone says "gold moved 30 dollars today", on a single standard lot that is <strong>$3,000</strong> swinging through your account. On EUR/USD a 30 pip move on a standard lot is $300. Same lot label, ten times the damage. That is the whole reason people get hurt.</p>
+
+    <div class="callout">On gold you think in dollars per move, not pips. Burn in one number: 1.00 lot = $100 per $1. Everything else is risk management built on top of it.</div>
+
+    <h2>How gold <em>differs</em> from a currency pair</h2>
+    <p>Put it all together. Here is gold versus a normal major, side by side in your head:</p>
+    <ul>
+      <li><strong>No interest-rate carry.</strong> A currency pays you (or charges you) overnight swap from the rate differential. Gold has no yield - it has a small storage/funding cost, so longs usually pay a little to hold.</li>
+      <li><strong>Bigger, faster range.</strong> Daily ATR in dollars dwarfs a major's pip range once you convert to account impact.</li>
+      <li><strong>Weekend gaps.</strong> Gold can gap on Sunday open over geopolitical news - a naked position can jump your stop.</li>
+      <li><strong>Driven by yields and fear,</strong> not by one country's economic calendar.</li>
+      <li><strong>Thin Asian liquidity</strong> and brutal slippage on US data releases.</li>
+    </ul>
+
+    <div class="own-notes">
+      <div class="own-notes-head">
+        <h3 class="own-notes-title">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 1 1 3 3L7 19l-4 1 1-4 12.5-12.5z"/></svg>
+          Write your own notes if needed
+        </h3>
+        <div class="own-notes-meta">
+          <span class="own-notes-status" id="own-notes-status"></span>
+          <button class="own-notes-clear" id="own-notes-clear" title="Clear notes">Clear</button>
+        </div>
+      </div>
+      <textarea class="own-notes-area" id="own-notes-area" placeholder="Write down concepts, feelings, and key takeaways from this lesson..."></textarea>
+    </div>
+
+    <a class="next-lesson" href="forex-gold-dxy.html">
+      <div class="next-lesson-meta">
+        <span class="next-lesson-label">Continue</span>
+        <span class="next-lesson-title">DXY &amp; real yields - the two engines under the gold price</span>
+      </div>
+      <span class="next-lesson-arrow">→</span>
+    </a>
+
+  </article>
+</div>
+
+<footer>© 2026 B.E.T.Trade · All rights reserved</footer>
+
+<script src="../js/sidebar.js"></script>
+<script src="../js/admin.js"></script>
+<script src="../js/main.js"></script>
+<script src="../js/notes.js"></script>
+</body>
+</html>
